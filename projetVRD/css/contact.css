@@ -1,0 +1,16 @@
+.contact-part{
+	width:500px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.contact-part section{
+	margin-bottom: 30px;
+}
+
+.contact-coord{
+	display: inline-block;
+	line-height: 30px;
+	vertical-align: top;
+	margin-left: 100px;
+}
