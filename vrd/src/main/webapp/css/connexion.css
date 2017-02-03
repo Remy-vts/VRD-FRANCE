@@ -1,0 +1,31 @@
+#form-connexion div{
+	margin-bottom: 10px;
+}
+
+#form-connexion label{
+	width: 140px;
+	display: block;
+	float: left;
+	text-align: left;
+	font-size: 14px;
+}
+
+#form-connexion input{
+	width: 200px;
+	border-radius: 5px 5px 5px 5px;
+	text-align: center;
+	border: 1px solid #383838;
+	line-height: 25px;
+}
+
+#btn-connexion{
+	background-color: #383838;
+	color: white;
+	text-transform: uppercase;
+	margin-left: 140px;
+	cursor: pointer;
+}
+
+h4{
+	font-size: 13px;
+}

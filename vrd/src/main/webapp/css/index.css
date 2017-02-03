@@ -1,0 +1,111 @@
+#chiffres-cles{
+	background-color: #7D7D7D;
+	margin-bottom: 0;
+	color:white;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#chiffres-cles h2{
+	margin-top: 40px;
+}
+
+.titre-chiffres{
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+#chiffres-cles div{
+	display: inline-block;
+	width: 400px;
+	margin-bottom: 20px;
+}
+
+#chiffres-cles p{
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.chiffres-weight{
+	font-size: 70px;
+}
+
+.titre{
+	color:white;
+}
+
+#dernieres-realisations{
+	margin-top: 20px;
+	margin-bottom:10px;
+}
+
+#dernieres-realisations div{
+	width:350px;
+	display: inline-block;
+	overflow: hidden;
+	margin-right: 12px;
+}
+
+#dernieres-realisations img:hover{
+	-moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);  
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  cursor:pointer;
+}
+
+#dernieres-realisations p{
+	background-color: #383838;
+	color: white;
+	line-height: 40px;
+	margin-top: 0;
+	margin-left: 0;
+	width:100%;
+}
+
+.helmet{
+	width:20px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#dernieres-realisations div .photo-chantier{
+	width:350px;
+}
+
+.div-msg{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.div-msg1, .div-msg1 img{
+	width:720px;
+	height:300px;
+}
+
+.div-msg2 h2{
+	margin-left: 105px;
+	padding-top: 20px;
+}
+
+.div-msg2, .div-msg2 p{
+	width: 290px;
+	text-align: center;
+}
+
+.div-msg2 p{
+	font-style: italic;
+}
+
+.div-msg2 ul{
+	margin-left: 50px;
+}
+
+.helmet{
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+}

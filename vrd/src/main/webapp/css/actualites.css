@@ -1,0 +1,28 @@
+section.article{
+	width:800px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #383838;
+	margin-bottom: 15px;
+	border-radius: 0 0 50px 0;
+}
+
+div.align-article{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0;
+}
+
+.article h1{
+	background-color: #383838;
+	color: white;
+	margin-top: 0;
+	font-size: 14px;
+	line-height: 35px;
+	padding-left: 20px;
+	margin-bottom: 0;
+}
+
+.article img{
+	width:400px;
+}

@@ -1,0 +1,81 @@
+.grp-part{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.grp-part1, .photo-president{
+	width: 250px;
+}
+
+#mot-president{
+	width: 740px;
+	margin-left: 0px;
+	margin-right: 80px;
+}
+
+.section-qsn{
+	width:800px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size:13px;
+}
+
+.back-presentation{
+	background-color: #989898;
+	border-radius: 0 300px 0 0;
+	color:white;
+	margin-bottom: 10px;
+}
+
+.grp-align, .align-metiers{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.grp-align img{
+	margin-top: 20px;
+	width: 170px;
+	border-radius: 100px;
+	border: double white 10px;
+}
+
+.grp-align h4{
+	margin-bottom: 0;
+}
+
+.grp-align h5{
+	margin-top: 0;
+}
+
+.grp-align p, .align-metiers p{
+	margin-left: 0;
+}
+
+.align-metiers1{
+	width: 700px;
+}
+
+.align-metiers p{
+	width: 690px;
+}
+
+.align-metiers img{
+	height: 500px;
+	margin-left: 40px;
+}
+
+.align-metiers h3{
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #383838;
+	color: white;
+	line-height: 50px;
+	margin-top: 0;
+	font-size: 14px;
+	margin-bottom: 40px;
+}
+
+.presentation-metier{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}

@@ -1,0 +1,59 @@
+.offre-emploi{
+	width:1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border: 2px solid #383838;
+	border-radius: 20px 20px 20px 20px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.offre-emploi h3{
+	margin-bottom: 0;
+}
+
+.offre-emploi h4{
+	margin-top: 0;
+	font-size: 12px;
+}
+
+.offre-emploi .text-offre{
+	width: 600px;
+	margin-left: 0;
+}
+
+.align-offre{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 20px;
+}
+
+.div-offre1{
+	width: 650px;
+}
+
+.btn-consulter{
+	padding:20px;
+	color: white;
+	background-color: #383838;
+	width: 150px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 90px;
+	font-size: 15px;
+	border-radius: 10px;
+}
+
+.btn-consulter a{
+	text-decoration: none;
+	color: white;
+}
+
+.btn-consulter:hover{
+	cursor: pointer;
+}
+
+.sous-partie li{
+	width:160px;
+}

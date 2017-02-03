@@ -1,0 +1,49 @@
+.contact-part{
+	width:480px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-left: 50px;
+}
+
+.contact-part section{
+	margin-bottom: 30px;
+}
+
+.contact-coord{
+	display: inline-block;
+	line-height: 30px;
+	vertical-align: top;
+	margin-left: 100px;
+}
+
+.contact-part div{
+	margin-bottom: 10px;
+}
+
+.contact-part label{
+	width: 140px;
+	display: block;
+	float: left;
+	text-align: left;
+	font-size: 14px;
+}
+
+.contact-part input{
+	width: 200px;
+	border-radius: 5px 5px 5px 5px;
+	text-align: center;
+	border: 1px solid #383838;
+	line-height: 25px;
+}
+
+#btn-msg{
+	background-color: #383838;
+	color: white;
+	cursor: pointer;
+	line-height: 30px;
+	text-transform: uppercase;
+	margin-left: 80px;
+	width: 200px;
+}

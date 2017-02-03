@@ -1,0 +1,99 @@
+tr td{
+	width: 400px;
+	text-align: center;
+	line-height: 40px;
+}
+
+table, td{
+	border: 1px solid #383838;
+}
+
+.ligne1{
+	background-color: #383838;
+	color: white;
+}
+
+.back-btn{
+	background-color: #383838;
+	color: white;
+	text-transform: none;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	padding-left: 60px;
+	padding-right: 60px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-left: 405px;
+	text-decoration: none;
+}
+
+.ligne-guide{
+	width: 100%;
+	background-color: #383838;
+	color: white;
+	line-height: 50px;
+	text-align: center;
+}
+
+.metier-modif{
+	background-color: #787878;
+	width: 450px;
+	display: inline-block;
+	color: white;
+	height: 90px;
+	margin: 20px;
+	text-align: center;
+	padding-top: 50px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.metier-modif:hover{
+	background-color: green; 
+}
+
+.list-edit{
+	width:1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 40px;
+}
+
+.candid-li{
+	width: 200px;
+}
+
+form{
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label{
+	width: 160px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+input{
+	width: 500px;
+	display: inline-block;
+}
+
+input.submit{
+	background-color: #383838;
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	border: none;
+	margin-top: 20px;
+	margin-left: 255px;
+	width: 170px;
+	vertical-align: top;
+}
+
+input.pst{
+	height: 150px;
+}
