@@ -1,0 +1,41 @@
+#list img{
+	width:100px;
+}
+
+#list .icon_list{
+	width:40px;
+}
+
+#list{
+	text-transform:lowercase;
+}
+
+#first-ligne{
+	border-bottom: 3px solid black;
+	text-transform:capitalize;
+}
+
+.entete{
+	font-weight:bold;
+	padding-bottom:3px;
+}
+
+.colonne{
+	width: 100px;	
+	font-size:20px;
+	display:inline-block;
+	text-align:center;
+	padding-bottom:20px;
+}
+
+.autreLigne{
+	border-bottom:1px solid black;
+	text-transform:capitalize;
+	max-height: 90px;
+	overflow:hidden;
+}
+
+.text-colonne{
+	vertical-align:top;
+	padding-top:30px;
+}

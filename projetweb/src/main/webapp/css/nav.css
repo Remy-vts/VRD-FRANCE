@@ -1,0 +1,54 @@
+nav{
+	width:350px;
+	border: 5px dashed #383838;
+	border-radius: 20px;
+	padding-bottom:10px;
+	position: absolute;
+}
+
+#tableau_nav span{
+	display:inline-block;
+}
+
+#network{
+	text-align:center;
+}
+
+#network img{
+	width:50px;
+}
+
+.plus-moins{
+	height:20px;
+}
+
+#tableau_nav{
+	width: 300px;
+	margin-left: 60px;
+	list-style:none;
+}
+
+#tableau_nav .col1{
+	width: 80px;
+}
+
+.img_nav{
+	height: 68px;
+}
+
+#tableau_nav a{
+	color:#383838;
+	text-transform: uppercase;
+	font-family: Trebuchet MS;
+	font-weight: bold;
+}
+
+#tableau_nav li{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#tableau_nav .col2_nav{
+	vertical-align: top;
+	padding-top: 25px;
+}

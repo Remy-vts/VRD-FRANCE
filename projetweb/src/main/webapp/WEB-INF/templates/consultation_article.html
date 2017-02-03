@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	  <title>Bien dans ses baskets</title>
+	  <meta charset="utf-8"/>
+	  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/nav.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/article.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/commentaire.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/screen-less800.css"/>
+	  <script type="text/javascript" src="js/javascript.js"> </script>
+	  <script src='js/jquery-1.8.3.min.js'></script>
+	<script src='js/jquery.elevatezoom.js'></script>
+	</head>
+	 
+	<body>
+		<header th:replace="~{fragments :: header}"></header>
+		
+		<nav th:replace="~{fragments :: nav}"></nav>	
+	
+	<section id="conteneur-article">
+		
+		<section class="article_presentation">
+			<h1 th:text="${articles.categorie.nomCategorie}"></h1>
+			
+			<p id="presentation_photo">
+				<img id="zoom_01" class="img-consult" th:src="'photoarticle?id='+${articles.idArticle}"  th:data-zoom-image="'photoarticle?id='+${articles.idArticle}" alt="article"/>
+			</p>
+			
+			<script>
+				$('#zoom_01').elevateZoom({
+				zoomType: "inner",
+				cursor: "crosshair",
+				zoomWindowFadeIn: 500,
+				zoomWindowFadeOut: 750
+				   }); 
+			</script>
+			
+			<p id="presentation_marque" th:text="${articles.marque}"></p>
+			<p id="presentation_prix" th:text="${#numbers.formatDecimal(articles.prix,0,2)}+' &#128;'"></p>
+			<p id="presentation_lien">A retrouver chez : <a th:href="${articles.lien}" target="blank" th:text="${articles.site}"></a></p>
+		</section>
+
+		<div id="conteneur_modif_supp">
+			<div class="btn_comm">
+				<a id="btn_modif" class="submit" th:href="'modification?art='+${articles.idArticle}">Modifier</a>
+			</div>
+
+			<div class="btn_comm">
+				<a id="btn_modif" class="submit" th:onClick="'ConfirmMessage('+${articles.idArticle}+')'">Supprimer</a>
+			</div>
+		</div>
+		
+		<h1>Avis des visiteurs</h1>
+		
+		<div class="comm" th:each="commentaire : ${commentaires}">
+			<h4 class="nom_co" th:text="${commentaire.nomCommentaire}"></h4>
+			<p class="date_co" th:text="${commentaire.dateCommentaire}"></p>
+			<p class="comm_co" th:text="${commentaire.commentaire}"></p>
+		</div>
+
+		<h1>Confiez-nous votre avis</h1>
+		<form id="add_commentaire" method="GET" action="addCommentaire">
+			<input type="hidden" name="id" th:value="${articles.idArticle}"/>
+			<p><input class="add_comm" type="text" name="nom" placeholder="Nom, prenom ou pseudo" required maxlength="10"/></p>
+			<p><input class="add_comm" type="text" name="commentaire" placeholder="Entrez votre commentaire (255 caracteres maximum)" required maxlength="255"/></p>
+			<p><input type="submit" class="submit" value="Commenter"/>
+		</form>
+		
+	</section>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+	
+</body>
+ 
+</html>

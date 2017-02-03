@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	  <title>Bien dans ses baskets</title>
+	  <meta charset="utf-8"/>
+	  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/header.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/nav.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/article.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/commentaire.css"/>
+	  <link rel="stylesheet" type="text/css" href="css/screen-less800.css"/>
+	  <script type="text/javascript" src="js/javascript.js"> </script>
+	</head>
+	 
+	<body>
+		<header th:replace="~{fragments :: header}"></header>
+		
+		<nav th:replace="~{fragments :: nav}"></nav>	
+	
+	<section id="conteneur-article">
+		<h1>Coups de coeur</h1>
+		<p>Notre &#233;quipe a pris le soin de vous denicher les chaussures les plus tendances du moment, laissez-vous s&#233;duire...</p>
+		<p>Quelque soit la mati&#232;re, la couleur, la forme,... l'une d'entre elle est faite pour vous !</p>
+		<p>D&#233;couvrez les sans tarder !</p>
+		<hr/>
+		
+		
+		<div class="article" th:each="article : ${articles}">
+			<a th:href="'consultation?article='+${article.idArticle}">
+				<div class="conteneur-img">
+					<img th:src="'photoarticle?id='+${article.idArticle}" alt="Photo de l'article">
+				</div>
+				<aside class="prix" th:text="${#numbers.formatDecimal(article.prix,0,2)}+' &#128;'"></aside>
+			</a>
+			<h3 th:text="${article.marque}"></h3>
+			<p th:text="${article.categorie.nomCategorie}"></p>
+		</div>
+
+		<div class="article article_hautpage">
+			<a href="#logo" class="haut_page">Haut de page</a>
+		</div>
+
+	</section>
+
+	<footer th:replace="~{fragments :: footer}"></footer>
+	
+</body>
+ 
+</html>
