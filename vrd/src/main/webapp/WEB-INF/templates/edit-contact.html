@@ -11,19 +11,7 @@
 
 	<body>
 
-		<header>
-			<ul>
-				<li><a href="groupe.html">Groupe</a></li>
-				<li><a href="metiers.html">Métiers</a></li>
-				<li><a href="engagements.html">Engagements</a></li>
-				<li><a href="index.html"><img src="img/logo.png" alt="Logo VRD France"/></a></li>
-				<li><a href="actualites.html">Actualités</a></li>
-				<li><a href="carrieres.html">Carrières</a></li>
-				<li><a href="contact.html">Contactez-nous</a></li>
-			</ul>
-
-			
-		</header>
+		<header th:replace="~{fragments :: header}"></header>
 
 		<section class="sous-partie">
 			<ul class="list-sous-partie">
@@ -55,41 +43,7 @@
 				<a class="back-btn" href="espace-admin.html">Retour</a>
 			</section>
 
-		<footer>
-			<section id="footer-box">
-					<div>
-						<h2 class="titre">Navigation</h2>
-						<hr/>
-						<ul>
-							<li><a href="index">Accueil</a></li>
-							<li><a href="activites">Nos métiers</a></li>
-							<li><a href="materiels">Matériels et équipements</a></li>
-							<li><a href="actualites">Actualités</a></li>
-							<li><a href="galerie">Réalisations</a></li>
-							<li><a href="">Mentions légales</a></li>
-							<li><a href="">Plan du site</a></li>
-							<li><a href="contact">Contactez-nous</a></li>
-						</ul>
-					</div>
-					<div>
-						<h2 class="titre">Coordonnées</h2>
-						<hr/>
-						<ul>
-							<li>VRD France</li>
-							<li>940 Langhemast Straete</li>
-							<li>59670 - NOORDPEENE </li>
-							<br/>
-							<li>Tél : 06.03.62.73.06 </li>
-							<li>contact@vrd-france.fr </li>
-						</ul>
-					</div>
-					<div>
-						<h2 class="titre">Heures d'ouverture</h2>
-						<hr/>
-						<p>Nous sommes à votre disposition du Lundi au Vendredi de 7H00 à 18H00. N'hésitez pas à nous contacter pour tout rendez-vous ou demande de renseignements supplémentaires.</p>
-					</div>
-				</section>
-		</footer>
+		<footer th:replace="~{fragments :: footer}"></footer>
 		
 		<p id="ligne-footer">© 2017 - VRDFRANCE.COM</p>
 	
