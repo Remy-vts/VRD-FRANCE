@@ -2,18 +2,20 @@ package hei.projet.vrd.dao;
 
 import java.util.List;
 
-import hei.projet.vrd.entities.Element;
+import hei.projet.vrd.entities.Chantier;
 
 
-public interface ElementDao {
+public interface ChantierDao {
 
-	public List<Element>  listElement();
+	public List<Chantier>  listChantier();
 
-	public Element getElement(Integer id);
+	public Chantier getChantier(Integer id);
 	
-	public void updateElement(Integer id, String url, String titre, String description);
+	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage, String client, String titre, String description, String url_photo);
 	
-	public Element addElement(Element element, String photoPath);
+	public Chantier addChantier(Chantier chantier, String photoPath);
+	
+	public String getPhotoPath(Integer id);
 
 	public void deleteElement(Integer id);
 	

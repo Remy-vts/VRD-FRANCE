@@ -1,24 +1,28 @@
 package hei.projet.vrd.entities;
 
-public class Element {
+public class Chantier {
 	private Integer id;
-	private String url;
+	private String ville;
+	private int code_postal;
+	private String date;
+	private String maitre_ouvrage;
+	private String client;
 	private String titre;
-	private String description;	
-	private Integer id_offre;
-	private Integer id_chantier;
-	private Integer id_presse;
+	private String description;
+	private String url_photo;
 	
-	public Element(Integer id, String url, String titre, String description, Integer id_offre, Integer id_chantier,
-			Integer id_presse) {
+	public Chantier(Integer id, String ville, int code_postal, String date, String maitre_ouvrage, String client,
+			String titre, String description, String url_photo) {
 		super();
 		this.id = id;
-		this.url = url;
+		this.ville = ville;
+		this.code_postal = code_postal;
+		this.date = date;
+		this.maitre_ouvrage = maitre_ouvrage;
+		this.client = client;
 		this.titre = titre;
 		this.description = description;
-		this.id_offre = id_offre;
-		this.id_chantier = id_chantier;
-		this.id_presse = id_presse;
+		this.url_photo = url_photo;
 	}
 
 	public Integer getId() {
@@ -29,12 +33,44 @@ public class Element {
 		this.id = id;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getVille() {
+		return ville;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
+	public int getCode_postal() {
+		return code_postal;
+	}
+
+	public void setCode_postal(int code_postal) {
+		this.code_postal = code_postal;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getMaitre_ouvrage() {
+		return maitre_ouvrage;
+	}
+
+	public void setMaitre_ouvrage(String maitre_ouvrage) {
+		this.maitre_ouvrage = maitre_ouvrage;
+	}
+
+	public String getClient() {
+		return client;
+	}
+
+	public void setClient(String client) {
+		this.client = client;
 	}
 
 	public String getTitre() {
@@ -53,30 +89,17 @@ public class Element {
 		this.description = description;
 	}
 
-	public Integer getId_offre() {
-		return id_offre;
+	public String getUrl_photo() {
+		return url_photo;
 	}
 
-	public void setId_offre(Integer id_offre) {
-		this.id_offre = id_offre;
-	}
-
-	public Integer getId_chantier() {
-		return id_chantier;
-	}
-
-	public void setId_chantier(Integer id_chantier) {
-		this.id_chantier = id_chantier;
-	}
-
-	public Integer getId_presse() {
-		return id_presse;
-	}
-
-	public void setId_presse(Integer id_presse) {
-		this.id_presse = id_presse;
+	public void setUrl_photo(String url_photo) {
+		this.url_photo = url_photo;
 	}
 	
 	
 	
 }
+	
+	
+	
