@@ -1,0 +1,128 @@
+@media screen and (max-width: 1227px)
+{
+	header ul li{
+		width:100px;
+		font-size: 12px;
+	}
+
+	header ul li a img{
+		width: 100px;
+		height: 58px;
+	}
+
+	#body-page{
+		width:820px;
+	}
+
+	#activites-content{
+		margin-left: 10px;
+	}
+
+	.activites-entreprise, .activites-entreprise img{
+		width: 130px;
+	}
+
+	.activites-entreprise a{
+		font-size: 10px;
+		margin-left: -20px;
+	}
+
+	.vrd-text{
+		margin-left: 24px;
+	}
+
+	#msg-president .div-msg1, #msg-president .div-msg1 img{
+		width:460px;
+	}
+
+	#dernieres-realisations div, #dernieres-realisations div img{
+		width: 250px;
+		margin-right: 16px;
+	}
+
+	#dernieres-realisations div .helmet{
+		width: 20px;
+	}
+
+	#dernieres-realisations p{
+		font-size: 9px;
+	}
+
+	#chiffres-cles div{
+		width: 150px;
+		margin-left: -80px;
+		margin-right: 170px;
+	}
+
+	#footer-box div{
+		width:250px;
+	}
+
+	#footer-box hr{
+		width: 200px;
+	}
+
+	#footer-box li{
+		margin-left: 20px;
+	}
+
+	#footer-box p{
+		width: 150px;
+	}
+
+	.list-sous-partie{
+		width: 830px;
+		font-size: 11px;
+	}
+
+	.list-sous-partie li{
+		width: 100px;
+		font-size: 10px;
+	}
+
+	#mot-president{
+		width:480px;
+	}
+
+	.section-qsn{
+		width: 700px;
+	}
+
+	.align-metiers1, .align-metiers1 p{
+		width: 500px;
+	}
+
+	.align-metiers img{
+		height: 430px;
+	}
+
+	section.article{
+		width:760px;
+	}
+
+	.descriptif-article{
+		width: 260px;
+	}
+
+	.list-sous-partie .candid-li{
+		width: 150px;
+	}
+
+	.offre-emploi{
+		width: 760px;
+	}
+
+	.div-offre1, .div-offre1 p.text-offre{
+		width: 450px;
+	}
+
+	.contact-part{
+		width: 380px;
+		padding-left: 0;
+	}
+
+	.contact-coord{
+		margin-left: 20px;
+	}
+
+}
