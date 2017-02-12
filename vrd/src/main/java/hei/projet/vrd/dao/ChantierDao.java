@@ -17,6 +17,6 @@ public interface ChantierDao {
 	
 	public String getPhotoPath(Integer id);
 
-	public void deleteElement(Integer id);
+	public void deleteChantier(Integer id);
 	
 }

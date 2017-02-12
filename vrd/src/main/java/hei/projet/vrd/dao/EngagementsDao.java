@@ -10,6 +10,6 @@ public interface EngagementsDao {
 	
 	public Engagements getEngagements(Integer id);
 	
-	public void updateEngagements(Integer id, String titre, String descriptif);
+	public void updateEngagements(Integer idengagements, String description);
 
 }
