@@ -13,7 +13,7 @@ import hei.projet.vrd.entities.Metier;
 public class MetierDaoImpl {
 	
 	public List<Metier> listMetier() {
-		String query = "SELECT * FROM metier";
+		String query = "SELECT * FROM metiers";
 		List<Metier> metiers = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
@@ -39,7 +39,7 @@ public class MetierDaoImpl {
 
 	public Metier getMetier(Integer id) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
-			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM metier WHERE idmetiers= ?", Statement.RETURN_GENERATED_KEYS)){
+			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM metiers WHERE idmetiers= ?", Statement.RETURN_GENERATED_KEYS)){
 				statement.setInt(1,id);
 				try(ResultSet resultSet = statement.executeQuery()){
 					if(resultSet.next()){				
@@ -62,7 +62,7 @@ public class MetierDaoImpl {
 	
 	public void updateMetier(Integer idmetiers, String titre, String photo, String descriptif) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE metier SET titre='"+titre+"',photo='"+photo+"',descriptif='"+descriptif+"' WHERE idmetiers="+idmetiers)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET titre='"+titre+"',photo='"+photo+"',descriptif='"+descriptif+"' WHERE idmetiers="+idmetiers)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class MetierDaoImpl {
 	public String getPhotoPath(Integer id){
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT photo FROM metier"
+			PreparedStatement stmt = connection.prepareStatement("SELECT photo FROM metiers"
 					+ "WHERE idmetiers=?");
 			stmt.setInt(1, id);
 			ResultSet resultSet = stmt.executeQuery();
