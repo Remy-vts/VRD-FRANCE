@@ -15,6 +15,7 @@
 
 		<header th:replace="~{fragments :: header}"></header>
 		
+				
 		<section class="sous-partie">
 			<ul class="list-sous-partie">
 				<li><a href="actualites">Nos réalisations</a></li>
@@ -27,34 +28,18 @@
 		<section id="body-page">
 			<h2>Actualités >> Nos réalisations</h2>
 
-			<section class="article">
-				<h1>Reconstruction d'un bâtiment R+3</h1>
+			<section class="article" th:each= "chantier : ${actualites}">
+				<h1 th:text="${chantier.titre}"></h1>
 				<div class="align-article">
 					<img src="img/photo1.png" alt="article"/>
 				</div>
 				<div class="align-article presentation-article">
-					<p>
-					LILLE (59000)<br/>
-					20/08/2016<br/>
-					Maitre d'ouvrage : Métropole Européenne de Lille</br>
-					Client : Groupe Sylvagreg<br/></p>
-					<p class="descriptif-article">" Nous avons été engagés sur ce chantier afin de réaliser la démolition de l'ancien bâtiment existant.Nous avons été engagés sur ce chantier afin de réaliser la démolition de l'ancien bâtiment existant.Nous avons été engagés sur ce chantier afin de réaliser la démolition de l'ancien bâtiment existant.Nous avons été engagés sur ce chantier afin de réaliser la démolition de l'ancien bâtiment existant.<br/>
+					<p th:text="${chantier.ville} +' ('+ ${chantier.code_postal} +') ' + ${chantier.date} +' '+ ${chantier.maitre_ouvrage} +' '+ ${chantier.client}"><br/></p>
+					<p class="descriptif-article" th:text="${chantier.description}"><br/>
 				</div>
 			</section>
-			<section class="article">
-				<h1>Réalisation d'un talus anti-bruit</h1>
-				<div class="align-article">
-					<img src="img/photo2.png" alt="article"/>
-				</div>
-				<div class="align-article presentation-article">
-					<p>
-					SAINT-OMER (62400)<br/>
-					23/06/2016<br/>
-					Maitre d'ouvrage : Métropole Européenne de Lille</br>
-					Client : SNCF<br/></p>
-					<p class="descriptif-article">" La mission que nous nous sommes vus confier a été de réaliser un talus de 5 m de haut et de 230 m de long. L'objectif de ces travaux sont de réduire significativement les bruits occassionés par le passage des trains pour le confort des riverains. Ce talus sera par la suite végétalisé.<br/>
-				</div>
-			</section>
+			
+			
 
 		</section>
 

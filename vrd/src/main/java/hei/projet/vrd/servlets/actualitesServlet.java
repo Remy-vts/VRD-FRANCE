@@ -25,13 +25,12 @@ public class actualitesServlet extends AbstractGenericServlet {
 		// TODO Auto-generated method stub
 		
 		resp.setCharacterEncoding("UTF-8");
-		
-		Integer id = Integer.parseInt(req.getParameter("eng"));
-		
+				
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		context.setVariable("chantier", SiteService.getInstance().getChantier(id));
+		
+		context.setVariable("actualites", SiteService.getInstance().listChantier());
 			
 		templateEngine.process("actualites", context, resp.getWriter());
 	}
