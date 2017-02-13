@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 
 
 @WebServlet("/actualites")
@@ -27,6 +29,7 @@ public class actualitesServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("chantier", SiteService.getInstance().getChantier(id));
 			
 		templateEngine.process("actualites", context, resp.getWriter());
 	}
