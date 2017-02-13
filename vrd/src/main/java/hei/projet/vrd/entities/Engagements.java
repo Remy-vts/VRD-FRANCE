@@ -4,13 +4,13 @@ public class Engagements {
 	
 	private Integer idEngagements;
 	private String titreEngagements;
-	private String descriptifEngagements;
+	private String descriptionEngagements;
 	
-	public Engagements(Integer idEngagements, String titreEngagements, String descriptifEngagements) {
+	public Engagements(Integer idEngagements, String titreEngagements, String descriptionEngagements) {
 		super();
 		this.setIdEngagements(idEngagements);
 		this.setTitreEngagements(titreEngagements);
-		this.setDescriptifEngagements(descriptifEngagements);
+		this.setDescriptionEngagements(descriptionEngagements);
 	}
 
 	public Integer getIdEngagements() {
@@ -29,12 +29,12 @@ public class Engagements {
 		this.titreEngagements = titreEngagements;
 	}
 
-	public String getDescriptifEngagements() {
-		return descriptifEngagements;
+	public String getDescriptionEngagements() {
+		return descriptionEngagements;
 	}
 
-	public void setDescriptifEngagements(String descriptifEngagements) {
-		this.descriptifEngagements = descriptifEngagements;
+	public void setDescriptionEngagements(String descriptionEngagements) {
+		this.descriptionEngagements = descriptionEngagements;
 	}
 
 }

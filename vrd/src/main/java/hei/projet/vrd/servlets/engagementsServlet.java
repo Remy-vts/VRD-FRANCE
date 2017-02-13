@@ -26,7 +26,7 @@ public class engagementsServlet extends AbstractGenericServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setCharacterEncoding("UTF8");
-		Integer id = Integer.parseInt(req.getParameter("engagements"));
+		Integer id = Integer.parseInt(req.getParameter("eng"));
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, getServletContext());
@@ -34,6 +34,5 @@ public class engagementsServlet extends AbstractGenericServlet {
 		
 		templateEngine.process("actualites", context, resp.getWriter());
 	}
-
 
 }
