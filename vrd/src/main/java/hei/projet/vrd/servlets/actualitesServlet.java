@@ -26,6 +26,8 @@ public class actualitesServlet extends AbstractGenericServlet {
 		
 		resp.setCharacterEncoding("UTF-8");
 		
+		Integer id = Integer.parseInt(req.getParameter("eng"));
+		
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());

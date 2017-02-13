@@ -26,13 +26,16 @@ public class engagementsServlet extends AbstractGenericServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setCharacterEncoding("UTF8");
+		
 		Integer id = Integer.parseInt(req.getParameter("eng"));
+		
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, getServletContext());
+		
 		context.setVariable("engagements", SiteService.getInstance().getEngagements(id));
 		
-		templateEngine.process("actualites", context, resp.getWriter());
+		templateEngine.process("engagements", context, resp.getWriter());
 	}
 
 }

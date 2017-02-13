@@ -18,7 +18,7 @@ public class ChantierDaoImpl implements ChantierDao {
 	public List<Chantier> listChantier() {
 		String query = "SELECT * FROM chantier";
 		List<Chantier> chantiers = new ArrayList<>();
-		try (Connection connection = DataSourceProvider.getDataSource().getConnection()){
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
 				try(ResultSet resultSet = statement.executeQuery(query)){
 					while(resultSet.next()){
@@ -47,7 +47,7 @@ public class ChantierDaoImpl implements ChantierDao {
 
 	@Override
 	public Chantier getChantier(Integer id) {
-		try (Connection connection = DataSourceProvider.getDataSource().getConnection()){
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM chantier WHERE ID_chantier= ?", Statement.RETURN_GENERATED_KEYS)){
 				statement.setInt(1,id);
 				try(ResultSet resultSet = statement.executeQuery()){
@@ -77,7 +77,7 @@ public class ChantierDaoImpl implements ChantierDao {
 	@Override
 	public Chantier addChantier(Chantier chantier, String photoPath) {
 		try {
-			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `chantier`(`ville`,`code_postal`,`date_chantier`,`maitre_ouvrage`,`client`,`titre`,`description`,`url_photo`)VALUES(?,?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, chantier.getVille());
 			stmt.setInt(2, chantier.getCode_postal());
@@ -103,7 +103,7 @@ public class ChantierDaoImpl implements ChantierDao {
 	}
 	
 	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage, String client, String titre, String description, String url_photo) {
-		try(Connection connection = DataSourceProvider.getDataSource().getConnection();
+		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  ville='"+ville+"',code_postal='"+code_postal+"',date_chantier='"+date_chantier+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', desciption='"+description+"'url_photo='"+url_photo+"', WHERE ID_offre="+id)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
@@ -113,7 +113,7 @@ public class ChantierDaoImpl implements ChantierDao {
 	
 	public String getPhotoPath(Integer id){
 		try {
-			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement stmt = connection.prepareStatement("SELECT url_photo FROM chantier"
 					+ "WHERE id_chantier=? AND deleted='0'");
 			stmt.setInt(1, id);
@@ -130,13 +130,19 @@ public class ChantierDaoImpl implements ChantierDao {
 	
 
 	public void deleteElement(Integer id) {
-		try(Connection connection = DataSourceProvider.getDataSource().getConnection();
+		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET deleted=1 WHERE ID_chantier=?")){
 		statement.setInt(1,id);
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void deleteChantier(Integer id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
