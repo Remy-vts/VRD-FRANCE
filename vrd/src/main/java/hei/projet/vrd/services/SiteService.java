@@ -1,11 +1,13 @@
 package hei.projet.vrd.services;
-
+//
 import java.util.List;
 
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
+import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Engagements;
+import hei.projet.vrd.entities.Metier;
 
 public class SiteService {
 
@@ -22,6 +24,7 @@ public class SiteService {
 
 	private ChantierDaoImpl chantierDao = new ChantierDaoImpl();
 	private EngagementsDaoImpl engagementsDao = new EngagementsDaoImpl();
+	private MetierDaoImpl metierDao = new MetierDaoImpl();
 	
 	public List<Engagements> listEngagements(){
 		return engagementsDao.listEngagements();
@@ -54,4 +57,17 @@ public class SiteService {
 	public void deleteChantier(Integer id){
 		chantierDao.deleteChantier(id);
 	}
+	
+	public List<Metier>  listMetier(){
+		return metierDao.listMetier();
+	}
+
+	public Metier getMetier(Integer idMetier){
+		return metierDao.getMetier(idMetier);
+	}
+	
+	public void updateMetier(Integer idMetier, String titreMetier, String photo, String descriptif){
+		metierDao.updateMetier(idMetier, titreMetier, photo, descriptif);
+	}
+	
 }

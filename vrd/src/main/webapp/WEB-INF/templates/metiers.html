@@ -1,5 +1,4 @@
 <html>
-
 	<head>
 		<title>VRD FRANCE : Entreprise spécialisée dans la démolition, le désamiantage et le terrassement.</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -17,14 +16,14 @@
 
 		<section class="sous-partie">
 			<ul class="list-sous-partie">
-				<li><a href="">Déconstruction</a></li>
-				<li><a href="">Terrassement</a></li>
-				<li><a href="">Désamiantage</a></li>
-				<li><a href="">Sciage</a></li>
-				<li><a href="">Dépollution de sols</a></li>
-				<li><a href="">Recyclage</a></li>
-				<li><a href="">Déplombage</a></li>
-				<li><a href="">VRD</a></li>
+				<li><a href="metiers?m=1">Déconstruction</a></li>
+				<li><a href="metiers?m=2">Terrassement</a></li>
+				<li><a href="metiers?m=3">Désamiantage</a></li>
+				<li><a href="metiers?m=4">Sciage</a></li>
+				<li><a href="metiers?m=5">Dépollution de sols</a></li>
+				<li><a href="metiers?m=6">Recyclage</a></li>
+				<li><a href="metiers?m=7">Déplombage</a></li>
+				<li><a href="metiers?m=8">VRD</a></li>
 			</ul>
 		</section>
 
@@ -36,18 +35,8 @@
 
 			<div class="presentation-metier">
 				<div class="align-metiers align-metiers1">
-					<h3>Déconstruction de bâtiments et d'usines</h3>
-					<p>Ces démolitions sont effectuées à l'aide les technologies les plus récentes, notamment par l'usage d'un équipement nous permettant de travailler de manière rapide, sûre et économique, afin d'atteindre les objectifs fixés par nos clients.<br/><br/>
-
-					Nous sommes capables d'utiliser à la fois des machines de démolition lourdes et des équipements nous permettant la démolition de bâtiments en environnement urbain.<br/>
-					La démolition de bâtiments, qu’ils soient publics ou privés, tels que des commerces, des usines, des bureaux, des logements, se déroule en plusieurs étapes. Elle fait ap-pel à plusieurs corps de métiers (désamianteurs, scieurs, démolisseurs) au service du développement durable.<br/><br/>
-
-					VRD France porte une attention particulière à la protection de l'environnement avec notamment le tri des déchets par catégorie (bois, béton, plastique, acier, plâtre, verre, etc). Le recyclage est un des objectifs majeurs de notre entreprise.<br/><br/>
-
-					La déconstruction (ou démolition sélective) consiste à démonter successivement les matériaux réutilisables d’un bâtiment afin de les récupérer et de les recycler dans une nouvelle construction ou en vue d’un nouvel usage après transformation. Elle réunit différentes techniques comme le curage, la démolition manuelle et mécanique, le dé-coupage, la démolition à l’explosif, le sciage, le désamiantage... <br/><br/>
-
-					Avant la démolition d'un bâtiment, il faut procéder à son désamiantage, à son dé-plombage et à son curage.
-					</p>
+					<h3 th:text="${metiers.titreMetier}"></h3>
+					<p th:text="${metiers.descriptifMetier}"></p>
 				</div>
 				<div class="align-metiers">
 					<img src="img/demolition.png" alt="Metier"/>

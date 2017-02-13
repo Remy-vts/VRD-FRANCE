@@ -29,7 +29,7 @@
 
 		<section id="body-page">
 
-			<h2>Engagements >> Nos valeurs</h2>
+			<h2 th:text="'Engagements >> ' + ${engagements.titreEngagements}"></h2>
 			<h3 th:text="${engagements.titreEngagements}"></h3>
 			<p th:text="${engagements.descriptionEngagements}">
 			</p>

@@ -33,15 +33,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/DJay DiMa/.m2/repository/org/thymeleaf/thymeleaf/3.0.1.RELEASE/thymeleaf-3.0.1.RELEASE.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="org.eclipse.jst.component.archivename" value="thymeleaf-3.0.1.RELEASE.jar"/>
-			<attribute name="maven.groupId" value="org.thymeleaf"/>
-			<attribute name="maven.artifactId" value="thymeleaf"/>
-			<attribute name="maven.version" value="3.0.1.RELEASE"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

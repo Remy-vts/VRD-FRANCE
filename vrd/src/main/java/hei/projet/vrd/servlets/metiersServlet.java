@@ -1,5 +1,5 @@
 package hei.projet.vrd.servlets;
-
+//
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import hei.projet.vrd.services.SiteService;
 
 
 
@@ -25,10 +25,11 @@ public class metiersServlet extends AbstractGenericServlet {
 		// TODO Auto-generated method stub
 		
 		resp.setCharacterEncoding("UTF-8");
-		
+		Integer id = Integer.parseInt(req.getParameter("m"));
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("metiers", SiteService.getInstance().getMetier(id));
 			
 		templateEngine.process("metiers", context, resp.getWriter());
 	}
