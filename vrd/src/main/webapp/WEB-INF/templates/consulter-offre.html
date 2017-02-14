@@ -29,9 +29,9 @@
 		<div id="detail-offre">
 			<section id="desc-offre">
 				<p>Dans le cadre de notre développement, nous recherchons :</p>
-				<h3>Désamianteur / Désamianteuse</h3>
-				<p class="ref-offre">Réf : OE16</p>
-				<p>Description de l'offre</p>
+				<h3 th:text="${offre.titreOffre}"></h3>
+				<p class="ref-offre" th:text="'Réf : ' + ${offre.referenceOffre}"></p>
+				<p th:text="${offre.missionOffre}"></p>
 			</section>
 			<p id="titre-postuler">Postuler à cette offre</p>
 		</div>
@@ -59,7 +59,7 @@
 				<input id="btn-candidat" type="submit" value="Envoyez"/>
 			</form>
 
-		<p class="btn-consulter-offre"><a href="carrieres.html">Consulter les autres offres</a></p>
+		<p class="btn-consulter-offre"><a href="carrieres">Consulter les autres offres</a></p>
 
 		<footer th:replace="~{fragments :: footer}"></footer>
 		

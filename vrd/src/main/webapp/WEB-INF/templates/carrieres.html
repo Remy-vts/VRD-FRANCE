@@ -27,31 +27,14 @@
 		<section id="body-page">
 			<h2>Carrières >> Offres d'emplois</h2>
 
-			<div class="offre-emploi">
+			<div class="offre-emploi" th:each= "carriere : ${carrieres}">
 				<div class="align-offre div-offre1">
-					<h3>Conducteur de travaux confirmée (Réf : XXX)</h3>
-					<h4>Publié le XX/XX/XXXX</h4>
-					<p class="text-offre">En tant que conducteur de travaux, vos missions principales sont de :<br/>
-					En étroite collaboration avec le directeur de travaux, vous avez pour mission le pilotage de chantiers en tertiaire et industrie. Vous aurez à :<br/>
-					- Préparer et installer vos chantiers<br/>
-					- Superviser la gestion des moyens humains et matériels</p>
+					<h3 th:text="${carriere.titreOffre}"></h3>
+					<h4 th:text="'Publié le' + ${carriere.dateOffre}"></h4>
+					<p class="text-offre" th:text="${carriere.missionOffre}"></p>
 				</div>
 				<div class="align-offre">
-					<p class="btn-consulter"><a href="consulter-offre">Consulter</a></p>
-				</div>
-			</div>
-
-			<div class="offre-emploi">
-				<div class="align-offre div-offre1">
-					<h3>Conducteur de travaux confirmée (Réf : XXX)</h3>
-					<h4>Publié le XX/XX/XXXX</h4>
-					<p class="text-offre">En tant que conducteur de travaux, vos missions principales sont de :<br/>
-					En étroite collaboration avec le directeur de travaux, vous avez pour mission le pilotage de chantiers en tertiaire et industrie. Vous aurez à :<br/>
-					- Préparer et installer vos chantiers<br/>
-					- Superviser la gestion des moyens humains et matériels</p>
-				</div>
-				<div class="align-offre">
-					<p class="btn-consulter"><a href="consulter-offre">Consulter</a></p>
+					<p class="btn-consulter"><a th:href="'offre?o='+${carriere.idOffre}">Consulter</a></p>
 				</div>
 			</div>
 

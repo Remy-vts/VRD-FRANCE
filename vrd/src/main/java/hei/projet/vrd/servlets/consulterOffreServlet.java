@@ -12,8 +12,10 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.projet.vrd.services.SiteService;
 
-@WebServlet("/consulter-offre")
+
+@WebServlet("/offre")
 public class consulterOffreServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -24,10 +26,11 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		// TODO Auto-generated method stub
 		
 		resp.setCharacterEncoding("UTF-8");
-		
+		Integer id = Integer.parseInt(req.getParameter("o"));
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("offre", SiteService.getInstance().getOffre(id));
 			
 		templateEngine.process("consulter-offre", context, resp.getWriter());
 	}

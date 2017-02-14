@@ -126,10 +126,10 @@ public class ChantierDaoImpl implements ChantierDao {
 		}
 		return null;
 	}
-	
-	
 
-	public void deleteElement(Integer id) {
+
+	@Override
+	public void deleteChantier(Integer id) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET deleted=1 WHERE ID_chantier=?")){
 		statement.setInt(1,id);
@@ -138,20 +138,6 @@ public class ChantierDaoImpl implements ChantierDao {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public void deleteChantier(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-
-
-	
-	
-	
 	
 }
 

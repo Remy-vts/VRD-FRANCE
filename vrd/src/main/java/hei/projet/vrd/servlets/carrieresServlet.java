@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import hei.projet.vrd.services.SiteService;
 
 
 
 @WebServlet("/carrieres")
-public class carrieresServlets extends AbstractGenericServlet {
+public class carrieresServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
 	/**
@@ -29,6 +29,7 @@ public class carrieresServlets extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("carrieres", SiteService.getInstance().listOffre());
 			
 		templateEngine.process("carrieres", context, resp.getWriter());
 	}

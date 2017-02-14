@@ -5,9 +5,11 @@ import java.util.List;
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
+import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Engagements;
 import hei.projet.vrd.entities.Metier;
+import hei.projet.vrd.entities.Offre;
 
 public class SiteService {
 
@@ -25,6 +27,7 @@ public class SiteService {
 	private ChantierDaoImpl chantierDao = new ChantierDaoImpl();
 	private EngagementsDaoImpl engagementsDao = new EngagementsDaoImpl();
 	private MetierDaoImpl metierDao = new MetierDaoImpl();
+	private OffreDaoImpl offreDao = new OffreDaoImpl();
 	
 	public List<Engagements> listEngagements(){
 		return engagementsDao.listEngagements();
@@ -68,6 +71,26 @@ public class SiteService {
 	
 	public void updateMetier(Integer idMetier, String titreMetier, String photo, String descriptif){
 		metierDao.updateMetier(idMetier, titreMetier, photo, descriptif);
+	}
+	
+	public List<Offre>  listOffre(){
+		return offreDao.listOffre();
+	}
+
+	public Offre getOffre(Integer id){
+		return offreDao.getOffre(id);
+	}
+	
+	public void updateOffre(Integer idOffre, String referenceOffre, String dateOffre, String titreOffre, String missionOffre){
+		offreDao.updateOffre(idOffre, referenceOffre, dateOffre, titreOffre, missionOffre);
+	}
+	
+	public Offre addOffre(Offre offre){
+		return offreDao.addOffre(offre);
+	}
+	
+	public void deleteOffre(Integer id){
+		offreDao.deleteOffre(id);
 	}
 	
 }

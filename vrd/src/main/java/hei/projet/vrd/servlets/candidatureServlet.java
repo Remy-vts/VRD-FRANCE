@@ -16,7 +16,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
 @WebServlet("/candidature-s")
-public class candidatureSServlet extends AbstractGenericServlet {
+public class candidatureServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
 	/**
