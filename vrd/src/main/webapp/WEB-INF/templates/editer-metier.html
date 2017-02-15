@@ -19,11 +19,11 @@
 		
 		<section id="body-page">
 
-			<h2>Espace administrateur >> Editer "Métiers" >> Déconstruction</h2>
+			<h2 th:text="'Espace administrateur >> Editer un métier >> ' + ${metier.titreMetier}"></h2>
 			
 		</section>
 
-		<p class="ligne-guide">Déconstruction</p>
+		<p class="ligne-guide" th:text="${metier.titreMetier}"></p>
 
 			<section class="list-edit">
 				<form action="" method="POST" class="form-editer">
@@ -38,7 +38,7 @@
 					<input class="submit" type="submit" value="Modifier"/>
 				</form>
 
-				<a class="back-btn" href="edit-metiers">Retour</a>
+				<a class="back-btn" href="../admin/metiers">Retour</a>
 			</section>
 
 		<footer th:replace="~{fragments :: footer}"></footer>

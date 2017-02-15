@@ -26,8 +26,9 @@
 		<p class="ligne-guide">Choisir une activité à modifier</p>
 
 			<section class="list-edit">
-				<a href="editer-metier"><div class="metier-modif">Déconstruction</div></a>
-				<a href="editer-metier"><div class="metier-modif">Désamiantage</div></a>
+				<a th:each="editmetier : ${editmetiers}" th:href="'metier?m='+${editmetier.idMetier}">
+					<div th:text="${editmetier.titreMetier}" class="metier-modif"></div>
+				</a>
 				<a class="back-btn" href="espace-admin">Retour</a>
 			</section>
 

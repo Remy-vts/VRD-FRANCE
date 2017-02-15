@@ -12,6 +12,8 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.projet.vrd.services.SiteService;
+
 
 @WebServlet("/admin/engagements")
 public class editEngagementsServlet extends AbstractGenericServlet {
@@ -28,6 +30,7 @@ public class editEngagementsServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("editengagements", SiteService.getInstance().listEngagements());
 			
 		templateEngine.process("edit-engagements", context, resp.getWriter());
 	}

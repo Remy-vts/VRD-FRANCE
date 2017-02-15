@@ -19,16 +19,17 @@
 
 		<section id="body-page">
 
-			<h2>Espace administrateur >> Editer "Métiers"</h2>
+			<h2>Espace administrateur >> Editer un engagement</h2>
 			
 		</section>
 
-		<p class="ligne-guide">Choisir un engagements à modifier</p>
+		<p class="ligne-guide">Choisir un engagement à modifier</p>
 
 			<section class="list-edit">
-				<a href="editer-metier"><div class="metier-modif">Valeurs</div></a>
-				<a href="editer-metier"><div class="metier-modif">Sécurité</div></a>
-				<a class="back-btn" href="espace-admin">Retour</a>
+				<a th:each="editer : ${editengagements}" th:href="'engagement?e=' + ${editer.idEngagements}">
+					<div class="metier-modif" th:text="${editer.titreEngagements}"></div>
+				</a>
+				<a class="back-btn" href="admin/engagements">Retour</a>
 			</section>
 
 		<footer th:replace="~{fragments :: footer}"></footer>

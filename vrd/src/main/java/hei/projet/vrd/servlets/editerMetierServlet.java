@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/admin/metier")
 public class editerMetierServlet extends AbstractGenericServlet {
@@ -24,11 +23,10 @@ public class editerMetierServlet extends AbstractGenericServlet {
 		// TODO Auto-generated method stub
 		
 		resp.setCharacterEncoding("UTF-8");
-		
+		Integer id = Integer.parseInt(req.getParameter("m"));
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
-		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-			
+		context.setVariable("metier", SiteService.getInstance().getMetier(id));
 		templateEngine.process("editer-metier", context, resp.getWriter());
 	}
 
