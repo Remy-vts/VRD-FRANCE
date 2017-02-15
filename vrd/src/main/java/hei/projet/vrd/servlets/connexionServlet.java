@@ -35,6 +35,6 @@ public class connexionServlet extends AbstractGenericServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		req.getSession().setAttribute("utilisateurConnecte, req.getParameter("identifiant"));
+		req.getSession().setAttribute("utilisateurConnecte", req.getParameter("identifiant"));
 	}
 }
