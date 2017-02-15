@@ -64,6 +64,26 @@ public class SiteService {
 		chantierDao.deleteChantier(id);
 	}
 	
+	public List<Presse>  listPresse(){
+		return presseDao.listPresse();
+	}
+
+	public Presse getPresse(Integer id){
+		return presseDao.getPresse(id);
+	}
+	
+	public void updatePresse(Integer ID_presse, String nom_media, String date_publication, String lien, String titre, String description){
+		presseDao.updatePresse(ID_presse, nom_media, date_publication, lien, titre, description);
+	}
+	
+	public Presse addPresse(Presse presse, String photoPath){
+		return presseDao.addPresse(presse, photoPath);
+	}
+
+	public void deletePresse(Integer id){
+		presseDao.deletePresse(id);
+	}
+	
 	public List<Metier>  listMetier(){
 		return metierDao.listMetier();
 	}
