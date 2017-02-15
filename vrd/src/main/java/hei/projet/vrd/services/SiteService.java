@@ -7,11 +7,14 @@ import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
+import hei.projet.vrd.dao.impl.PresseDaoImpl;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Coordonnees;
 import hei.projet.vrd.entities.Engagements;
 import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.entities.Offre;
+import hei.projet.vrd.entities.Presse;
+
 
 public class SiteService {
 
@@ -27,6 +30,7 @@ public class SiteService {
 	}
 
 	private ChantierDaoImpl chantierDao = new ChantierDaoImpl();
+	private PresseDaoImpl presseDao = new PresseDaoImpl();
 	private EngagementsDaoImpl engagementsDao = new EngagementsDaoImpl();
 	private MetierDaoImpl metierDao = new MetierDaoImpl();
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
