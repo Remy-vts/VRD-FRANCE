@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+		<title>VRD FRANCE : Entreprise spécialisée dans la démolition, le désamiantage et le terrassement.</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/actualites.css"/>
+		<link rel="stylesheet" type="text/css" href="css/screen-less800.css"/>
+		<link rel="stylesheet" type="text/css" href="css/screen-less1150.css"/>
+		<meta charset="utf-8"/>
+	</head>
+
+	<body>
+
+		<header th:replace="~{fragments :: header}"></header>
+		
+				
+		<section class="sous-partie">
+			<ul class="list-sous-partie">
+				<li><a href="actualites">Nos réalisations</a></li>
+				<li><a href="espace-presse">Espace presse</a></li>
+			</ul>
+		</section>
+
+		<img class="photo-bandeau" src="img/test.png" alt="Photo VRD France"/>
+
+		<section id="body-page">
+			<h2>Actualités >> Espace presse</h2>
+
+			<section class="article" th:each= "presse : ${presses}">
+				<h1 th:text="${presse.titre}"></h1>
+				<div class="align-article">
+					<img src="img/photo1.png" alt="article"/>
+				</div>
+				<div class="align-article presentation-article">
+					<p th:text="${presse.nom_media} +' ('+ ${presse.date_publication} +')' "><br/></p>
+					<p class="descriptif-article" th:text="${presse.description}"><br/>
+					<p class="descriptif-article" th:text="${presse.lien}"><br/>
+					
+				</div>
+			</section>
+			
+			
+
+		</section>
+
+		
+		<footer th:replace="~{fragments :: footer}"></footer>
+		
+		
+		<p id="ligne-footer">© 2017 - VRDFRANCE.COM</p>
+	
+	</body>
+</html>
