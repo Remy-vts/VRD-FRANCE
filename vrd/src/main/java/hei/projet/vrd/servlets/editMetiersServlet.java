@@ -29,7 +29,7 @@ public class editMetiersServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 			
-		templateEngine.process("editer-metiers", context, resp.getWriter());
+		templateEngine.process("edit-metiers", context, resp.getWriter());
 	}
 
 }
