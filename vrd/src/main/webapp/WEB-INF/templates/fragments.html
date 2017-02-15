@@ -12,15 +12,22 @@
   
   	<header th:fragment="header">
         <ul>
-				<li><a href="groupe">Groupe</a></li>
-				<li><a href="metiers?m=1">Métiers</a></li>
-				<li><a href="engagements?eng=1">Engagements</a></li>
-				<li><a href="home"><img src="img/logo.png" alt="Logo VRD France"/></a></li>
-				<li><a href="actualites">Actualités</a></li>
-				<li><a href="carrieres">Carrières</a></li>
-				<li><a href="contact">Contactez-nous</a></li>
+				<li><a href="../vrd/groupe">Groupe</a></li>
+				<li><a href="../vrd/metiers?m=1">Métiers</a></li>
+				<li><a href="../vrd/engagements?eng=1">Engagements</a></li>
+				<li><a href="../vrd/home"><img src="img/logo.png" alt="Logo VRD France"/></a></li>
+				<li><a href="../vrd/actualites">Actualités</a></li>
+				<li><a href="../vrd/carrieres">Carrières</a></li>
+				<li><a href="../vrd/contact">Contactez-nous</a></li>
 			</ul>
     </header>
+    
+    <section th:fragment="sous-header" class="sous-partie">
+			<ul class="list-sous-partie">
+				<li><a href="admin">Administration</a></li>
+				<li><a href="deconnexion">Me déconnecter</a></li>
+			</ul>
+	</section>
     
     <footer th:fragment="footer">
 			<section id="footer-box">
@@ -28,13 +35,13 @@
 						<h2 class="titre">Navigation</h2>
 						<hr/>
 						<ul>
-							<li><a href="home">Accueil</a></li>
-							<li><a href="groupe">Le groupe</a></li>
-							<li><a href="metiers">Nos métiers</a></li>
-							<li><a href="engagements?e=1">Nos engagements</a></li>
-							<li><a href="actualites">Actualités</a></li>
-							<li><a href="carriere">Carrières</a></li>
-							<li><a href="contact">Contactez-nous</a></li>
+							<li><a href="../vrd/home">Accueil</a></li>
+							<li><a href="../vrd/groupe">Le groupe</a></li>
+							<li><a href="../vrd/metiers">Nos métiers</a></li>
+							<li><a href="../vrd/engagements?e=1">Nos engagements</a></li>
+							<li><a href="../vrd/actualites">Actualités</a></li>
+							<li><a href="../vrd/carriere">Carrières</a></li>
+							<li><a href="../vrd/contact">Contactez-nous</a></li>
 						</ul>
 					</div>
 					<div>

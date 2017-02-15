@@ -2,10 +2,10 @@
 
 	<head>
 		<title>VRD FRANCE : Entreprise spécialisée dans la démolition, le désamiantage et le terrassement.</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css"/>
-		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
-		<link rel="stylesheet" type="text/css" href="css/header.css"/>
-		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/espace-admin.css"/>
 		<meta charset="utf-8"/>
 	</head>
 
@@ -13,13 +13,8 @@
 
 		<header th:replace="~{fragments :: header}"></header>
 
-		<section class="sous-partie">
-			<ul class="list-sous-partie">
-				<li><a href="espace-admin">Administration</a></li>
-				<li><a href="">Me déconnecter</a></li>
-			</ul>
-		</section>
-
+		<section th:replace="~{fragments :: sous-header}"></section>
+		
 		<img class="photo-bandeau" src="img/test.png" alt="Photo VRD France"/>
 
 		<section id="body-page">

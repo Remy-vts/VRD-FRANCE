@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-
 
 @WebServlet("/home")
 public class indexServlet extends AbstractGenericServlet {
@@ -29,8 +26,6 @@ public class indexServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		
-		
 		
 		templateEngine.process("index", context, resp.getWriter());
 	}
