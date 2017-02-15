@@ -13,7 +13,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
-@WebServlet("/espace-admin")
+@WebServlet("/admin")
 public class espaceAdminServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

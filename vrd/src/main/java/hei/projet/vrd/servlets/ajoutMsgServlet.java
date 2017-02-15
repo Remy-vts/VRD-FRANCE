@@ -9,13 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-
-
-
-@WebServlet("/ajout-msg")
+@WebServlet("/admin/ajout-msg")
 public class ajoutMsgServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

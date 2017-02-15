@@ -14,7 +14,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
 
-@WebServlet("/editer-presse")
+@WebServlet("/admin/presse")
 public class editerPresseServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

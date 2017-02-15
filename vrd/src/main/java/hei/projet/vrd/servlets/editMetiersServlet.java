@@ -13,7 +13,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
-@WebServlet("/editer-metiers")
+@WebServlet("/admin/metiers")
 public class editMetiersServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

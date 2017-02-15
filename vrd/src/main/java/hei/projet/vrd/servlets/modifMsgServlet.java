@@ -13,7 +13,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
-@WebServlet("/modif-msg")
+@WebServlet("/admin/modif-msg")
 public class modifMsgServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
