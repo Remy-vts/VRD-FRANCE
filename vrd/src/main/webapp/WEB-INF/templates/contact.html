@@ -1,5 +1,5 @@
 <html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>VRD FRANCE : Entreprise spécialisée dans la démolition, le désamiantage et le terrassement.</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -55,15 +55,15 @@
 			<div class="contact-part">
 				<section>
 					<div class="contact-coord"><img class="img-contact" src="img/lettre.png" alt="adresse"/></div>
-					<div class="contact-coord">VRD France</br> 940 Langhemaest Straete</br> 59670 - Noordpeene</div>
+					<div class="contact-coord" th:text="${contact.adresse}"></div>
 				</section>
 				<section>
 					<div class="contact-coord"><img class="img-contact" src="img/telephone.png" alt="telephone"/></div>
-					<div class="contact-coord">09 88 66 38 27</div>
+					<div class="contact-coord" th:text="${contact.telephone}"></div>
 				</section>
 				<section>
 					<div class="contact-coord"><img class="img-contact" src="img/mail.png" alt="mail"/></div>
-					<div class="contact-coord">contact@vrd-france.fr</div>
+					<div class="contact-coord" th:text="${contact.mail}"></div>
 				</section>
 			</div>
 			

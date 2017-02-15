@@ -3,10 +3,12 @@ package hei.projet.vrd.services;
 import java.util.List;
 
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
+import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.entities.Chantier;
+import hei.projet.vrd.entities.Coordonnees;
 import hei.projet.vrd.entities.Engagements;
 import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.entities.Offre;
@@ -28,6 +30,7 @@ public class SiteService {
 	private EngagementsDaoImpl engagementsDao = new EngagementsDaoImpl();
 	private MetierDaoImpl metierDao = new MetierDaoImpl();
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
+	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
 	
 	public List<Engagements> listEngagements(){
 		return engagementsDao.listEngagements();
@@ -91,6 +94,14 @@ public class SiteService {
 	
 	public void deleteOffre(Integer id){
 		offreDao.deleteOffre(id);
+	}
+	
+	public Coordonnees getCoordonnees(Integer id){
+		return coordonneesDao.getCoordonnees(id);
+	}
+	
+	public void updateCoordonnees(Integer id, String mail, String telephone, String adresse, String ville, String codepostal){
+		coordonneesDao.updateCoordonnees(id, mail, telephone, adresse, ville, codepostal);
 	}
 	
 }
