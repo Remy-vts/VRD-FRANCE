@@ -12,6 +12,8 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.projet.vrd.services.SiteService;
+
 
 
 
@@ -30,6 +32,10 @@ public class quiSommesNousServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		
+		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
+		
+		context.setVariable("actualites", SiteService.getInstance().listGroupe());
 			
 		templateEngine.process("qui-sommes-nous", context, resp.getWriter());
 	}

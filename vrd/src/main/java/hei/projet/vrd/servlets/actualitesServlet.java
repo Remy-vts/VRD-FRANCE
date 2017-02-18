@@ -31,6 +31,8 @@ public class actualitesServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		
 		context.setVariable("actualites", SiteService.getInstance().listChantier());
+		
+		
 			
 		templateEngine.process("actualites", context, resp.getWriter());
 	}

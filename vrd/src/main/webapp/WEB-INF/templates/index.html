@@ -54,38 +54,22 @@
 				<div class="div-msg div-msg2">
 					<h2>Message des dirigeants</h2>
 					<p class="guillemet-msg">"</p>
-					<p>" La passion du client et le respect des hommes sont les deux priorités pour assurer la pérennité de l'entreprise. "</p>
-					<ul>
-						<li>DE RIVOYRE Gabriel</li>
-						<li>DEHEELE Pierre-Henri</li>
-						<li>VITSE François</li>
+					<p th:text="${elements.description}"></p>
+					<ul th:each= "dirigeant : ${dirigeants}">
+						<li th:text="${dirigeant.nom}"></li>
 					</ul>
 				</div>
 			</section>
 
-			<section id="dernieres-realisations">
+			<section id="dernieres-realisations" >
 				<h2>Nos dernières réalisations</h2>
-					<div>
+					<div th:each= "chantier : ${chantiers}">
 						<img class="photo-chantier" src="img/photo1.png" alt="Photo chantier"/>
 						<p>
-							<img class="helmet" src="img/helmet.png" alt="Casque de chantier"/>
-							[LILLE] Recyclage de terre végétale in-situ
+							<img class="helmet" src="img/helmet.png" alt="Casque de chantier" th:text="'['+${chantier.ville}+'] '+${chantier.titre}"/>	
 						</p>
 					</div>
-					<div>
-						<img class="photo-chantier" src="img/photo2.png" alt="Photo chantier"/>
-						<p>
-							<img class="helmet" src="img/helmet.png" alt="Casque de chantier"/>
-							[SAINT-OMER] Réglage d'une couche de forme
-						</p>
-					</div>
-					<div>
-						<img class="photo-chantier" src="img/photo3.png" alt="Photo chantier"/>
-						<p>
-							<img class="helmet" src="img/helmet.png" alt="Casque de chantier"/>
-							[BAILLEUL] Réalisation d'une plateforme
-						</p>
-					</div>
+					
 			</section>
 
 		</section>

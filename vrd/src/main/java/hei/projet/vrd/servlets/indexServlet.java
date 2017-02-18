@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 @WebServlet("/home")
 public class indexServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,12 @@ public class indexServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		
+		context.setVariable("elements", SiteService.getInstance().getGroupe(4));
+		
+		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
+		
+		context.setVariable("chantiers", SiteService.getInstance().listChantier());
 		
 		templateEngine.process("index", context, resp.getWriter());
 	}

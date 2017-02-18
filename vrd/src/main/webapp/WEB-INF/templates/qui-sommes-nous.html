@@ -29,14 +29,10 @@
 			<h2>Groupe >> Qui sommes-nous ?</h2>
 
 			<section class="section-qsn">
-			<p class="paragraphe_presentation">La société VRD France a érigé son siège social à Saint Omer, ville de l'Audomarois. Son établissement principal se situe à Noordpeene, au coeur des Flandres.
-					<br/>
-					Sa spécialité ? Les travaux de démolition, de sciage, de désamiantage, de dépollution de sol, de terrassement et de V.R.D.
-					<br/><br/>
-					 Cette entreprise a été crée par 3 associés d'expérience : 
+			<p class="paragraphe_presentation" th:text="${actualites[1].description}"></p>	
 					<br/><br/>
 
-					<div class="back-presentation">
+					<div class="back-presentation" th:each= "dirigeant : ${dirigeants}">
 						<section class="grp-align">
 							<figure>
 								<img src="img/vitse.png" alt="vitse"/>
@@ -44,48 +40,17 @@
 						</section>
 						<section class="grp-align">
 							<br/>
-							<h4>DE RIVOYRE Gabriel</h4>
-							<h5>Directeur d'exploitation</h5>
+							<h4 th:text="${dirigeant.nom}"></h4>
+							<h5 th:text="${dirigeant.fonction}"></h5>
 			
-							<p>"25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution"</p>
+							<p th:text="${dirigeant.description}"></p>
 						</section>
 					</div>
 
-					<div class="back-presentation">
-						<section class="grp-align">
-							<figure>
-								<img src="img/vitse.png" alt="vitse"/>
-							</figure>
-						</section>
-						<section class="grp-align">
-							<br/>
-							<h4>DEHEELE Pierre-Henri</h4>
-							<h5>Directeur d'exploitation</h5>
-							
-							<p>"25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution"</p>
-						</section>
-					</div>
-
-					<div class="back-presentation">
-						<section class="grp-align">
-							<figure>
-								<img src="img/vitse.png" alt="vitse"/>
-							</figure>
-						</section>
-						<section class="grp-align">
-							<br/>
-							<h4>VITSE François</h4>
-							<h5>Directeur d'exploitation</h5>
-							
-							<p>"25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution 25 ans d'expérience dans la démolition, la dépollution"</p>
-						</section>
-					</div>
+					
 					
 					<br/><br/>
-					La société vous propose ses services en matière de démolition urbaine ou de démolition industrielle, de désamiantage, de dépollution de sol, de terrassement et de V.R.D.
-					<br/>
-					 L'entreprise dispose d'une grande expérience dans ces domaines d'activités. Faites confiance à des professionnels !<br/>
-					 VRD France se tient à votre disposition pour un devis ou des renseignements supplémentaires.</p>
+					<p class="paragraphe_presentation" th:text="${actualites[2].description}"></p>	
 					<br/>
 		</section>
 
