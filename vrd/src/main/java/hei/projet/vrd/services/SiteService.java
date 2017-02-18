@@ -4,13 +4,17 @@ import java.util.List;
 
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
 import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
+import hei.projet.vrd.dao.impl.DirigeantDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
+import hei.projet.vrd.dao.impl.GroupeDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.dao.impl.PresseDaoImpl;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Coordonnees;
+import hei.projet.vrd.entities.Dirigeant;
 import hei.projet.vrd.entities.Engagements;
+import hei.projet.vrd.entities.Groupe;
 import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.entities.Offre;
 import hei.projet.vrd.entities.Presse;
@@ -31,10 +35,24 @@ public class SiteService {
 
 	private ChantierDaoImpl chantierDao = new ChantierDaoImpl();
 	private PresseDaoImpl presseDao = new PresseDaoImpl();
+	private DirigeantDaoImpl dirigeantDao = new DirigeantDaoImpl();
 	private EngagementsDaoImpl engagementsDao = new EngagementsDaoImpl();
+	private GroupeDaoImpl groupeDao = new GroupeDaoImpl();
 	private MetierDaoImpl metierDao = new MetierDaoImpl();
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
 	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
+	
+	public List<Dirigeant> listDirigeant(){
+		return dirigeantDao.listDirigeant();
+	}
+	
+	public Dirigeant getDirigeant(Integer id){
+		return dirigeantDao.getDirigeant(id);
+	}
+	
+	public void updateDirigeant(Integer idindividu, String nom, String fonction, String presentation, String photo){
+		dirigeantDao.updateDirigeant(idindividu, nom, fonction, presentation, photo);
+	}
 	
 	public List<Engagements> listEngagements(){
 		return engagementsDao.listEngagements();
@@ -46,6 +64,18 @@ public class SiteService {
 	
 	public void updateEngagements(Integer idengagements, String description){
 		engagementsDao.updateEngagements(idengagements, description);
+	}
+	
+	public List<Groupe> listGroupe(){
+		return groupeDao.listGroupe();
+	}
+	
+	public Groupe getGroupe(Integer id){
+		return groupeDao.getGroupe(id);
+	}
+	
+	public void updateGroupe(Integer id, String description){
+		groupeDao.updateGroupe(id, description);
 	}
 	
 	public List<Chantier>  listChantier(){

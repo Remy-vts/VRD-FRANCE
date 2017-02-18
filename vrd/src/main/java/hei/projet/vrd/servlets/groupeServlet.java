@@ -12,6 +12,8 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import hei.projet.vrd.services.SiteService;
+
 
 @WebServlet("/groupe")
 public class groupeServlet extends AbstractGenericServlet {
@@ -28,6 +30,10 @@ public class groupeServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		
+		context.setVariable("elements", SiteService.getInstance().getGroupe(1));
+		
+		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
 			
 		templateEngine.process("groupe", context, resp.getWriter());
 	}

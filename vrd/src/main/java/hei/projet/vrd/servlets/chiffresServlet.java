@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 
 
 @WebServlet("/chiffres")
@@ -27,6 +29,8 @@ public class chiffresServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		
+		context.setVariable("elements", SiteService.getInstance().getGroupe(5));
 			
 		templateEngine.process("chiffres", context, resp.getWriter());
 	}

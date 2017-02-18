@@ -30,18 +30,11 @@
 			<h2>Groupe >> Mot du président</h2>
 
 			<div class="grp-part grp-part2">
-				<p id="mot-president">Exigence du travail bien fait, réactivité, technicité, respect des hommes et des engagements pris, voilà autant de valeurs qui accompagnent la société VRD France.</br></br>
-
-					De la forge de nos grands-pères aux outils modernes de production d'aujourd'hui, nous n'oublions ces valeurs simples qui accompagnent les développements de notre entreprise d'aujourd'hui et de demain.<br/></br>
-	 
-					Nous sommes persuadés que les succès d'hier ne présument pas des réussites futures. Dans un environnement en constante évolution, il faut savoir se remettre en question pour continuer à progresser et être à l'écoute des hommes et des femmes de l'entreprise pour adapter nos savoir-faire.</br>
-					La croissance de la société, faite de lourds investissements, de réjouissances et de réussites, nous permet de disposer de moyens humains, matériels et logistiques pour garantir la pleine satisfaction de nos clients dans leurs moindres demandes, ceci tant sur les marchés publics que privés.</br>
-					Aujourd’hui, nous nous efforçons de nous adapter aux évolutions de la profession, en exacer-bant notre implication dans le développement durable.
-
-					</br></br>
-					DE RIVOYRE Gabriel</br>
-					Président Directeur Général
-				</p>
+				<p id="mot-president" th:text="${elements.description}" ></p>
+					</br>
+					<p id="mot-president" th:text="${dirigeants[0].nom}" ></p>
+					<p id="mot-president" th:text="${dirigeants[1].nom}" ></p>
+				
 			</div>
 			<div class="grp-part grp-part1">
 				<img class="photo-president" src="img/presi.jpeg" alt="Photo du président VRD France"/>
