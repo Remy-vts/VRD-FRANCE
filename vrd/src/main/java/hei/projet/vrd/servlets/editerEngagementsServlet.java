@@ -12,7 +12,7 @@ import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.services.SiteService;
 
-@WebServlet("/admin/engagement")
+@WebServlet("/adm-engagement")
 public class editerEngagementsServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

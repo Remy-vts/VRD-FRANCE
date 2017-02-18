@@ -10,7 +10,54 @@
   </filter>
   <filter-mapping>
   	<filter-name>authentificationFilter</filter-name>
-  	<url-pattern></url-pattern>
+  	<url-pattern>/admin</url-pattern>
   </filter-mapping>
-  
+  <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-contact</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-carrieres</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-actualites</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-accueil</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-addmsg</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-engagements</url-pattern>
+  </filter-mapping>
+      <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-engagement</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-metier</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-presse</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-metiers</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-offre</url-pattern>
+  </filter-mapping>
+    <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-modifmsg</url-pattern>
+  </filter-mapping>
 </web-app>

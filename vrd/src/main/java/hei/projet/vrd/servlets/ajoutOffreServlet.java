@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-@WebServlet("/admin/offre")
+@WebServlet("/adm-offre")
 public class ajoutOffreServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

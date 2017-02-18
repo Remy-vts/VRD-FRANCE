@@ -12,7 +12,7 @@ import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.services.SiteService;
 
-@WebServlet("/admin/metier")
+@WebServlet("/adm-metier")
 public class editerMetierServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -28,6 +28,16 @@ public class editerMetierServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("metier", SiteService.getInstance().getMetier(id));
 		templateEngine.process("editer-metier", context, resp.getWriter());
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer idMetier = Integer.parseInt(req.getParameter("m"));
+		String description = req.getParameter("description");
+		
+		SiteService.getInstance().updateMetier(idMetier, description);
+		resp.setCharacterEncoding("UTF8");
+		resp.sendRedirect("admin/modif-msg");
 	}
 
 }

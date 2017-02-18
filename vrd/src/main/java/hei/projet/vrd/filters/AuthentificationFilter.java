@@ -22,12 +22,10 @@ public class AuthentificationFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		String identifiant = (String)                       
-				httpRequest.getSession().getAttribute("utilisateurConnecte");   
-		if(identifiant == null || "".equals(identifiant)) {       
-			System.out.println("Il faut être connecté pour accéder à cette page !");  
+		String identifiant = (String) httpRequest.getSession().getAttribute("utilisateurConnecte");   
+		if(identifiant == null || "".equals(identifiant)) {        
 			HttpServletResponse httpResponse = (HttpServletResponse) response;     
-			httpResponse.sendRedirect("../connexion");
+			httpResponse.sendRedirect("../vrd/connexion");
 			return;   
 			}     
 		chain.doFilter(request, response); 

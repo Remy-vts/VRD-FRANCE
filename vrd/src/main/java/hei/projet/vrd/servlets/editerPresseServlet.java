@@ -9,12 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-
-
-@WebServlet("/admin/presse")
+@WebServlet("/adm-presse")
 public class editerPresseServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       

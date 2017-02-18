@@ -9,11 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-
-@WebServlet("/admin/modif-msg")
+@WebServlet("/adm-modifmsg")
 public class modifMsgServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -22,13 +19,9 @@ public class modifMsgServlet extends AbstractGenericServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		resp.setCharacterEncoding("UTF-8");
-		
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
-		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-			
 		templateEngine.process("modif-msg", context, resp.getWriter());
 	}
 

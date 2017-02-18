@@ -9,11 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-
-@WebServlet("/admin/contact")
+@WebServlet("/adm-contact")
 public class editContactServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
