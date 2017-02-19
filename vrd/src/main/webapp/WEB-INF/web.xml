@@ -52,6 +52,10 @@
   	<filter-name>authentificationFilter</filter-name>
   	<url-pattern>/adm-metiers</url-pattern>
   </filter-mapping>
+      <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-realisations</url-pattern>
+  </filter-mapping>
     <filter-mapping>
   	<filter-name>authentificationFilter</filter-name>
   	<url-pattern>/adm-offre</url-pattern>

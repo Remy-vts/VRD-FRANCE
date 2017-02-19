@@ -13,8 +13,8 @@ import hei.projet.vrd.services.SiteService;
 /**
  * Servlet implementation class AjoutServlet
  */
-@WebServlet("/deletePresse")
-public class deletePresse extends AbstractGenericServlet {
+@WebServlet("/deleteOffre")
+public class deleteOffre extends AbstractGenericServlet {
 
 	private static final long serialVersionUID = 1L;
     
@@ -22,10 +22,9 @@ public class deletePresse extends AbstractGenericServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("p"));
-		SiteService.getInstance().deletePresse(id);
-		resp.sendRedirect("adm-presse");
-		
+		Integer id = Integer.parseInt(req.getParameter("o"));
+		SiteService.getInstance().deleteOffre(id);
+		resp.sendRedirect("adm-carrieres");
 	}
 
 }

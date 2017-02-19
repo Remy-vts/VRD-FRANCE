@@ -43,6 +43,22 @@
 			</section>
 
 		<p class="ligne-guide">Liste des offres d'emploi</p>
+		
+		<table class="table-admin">
+			<tr class=ligne1>
+				<td>Titre</td>
+				<td>Date</td>
+				<td>Modifier / Supprimer</td>
+			</tr>
+			<tr th:each="carriere : ${carrieres}">
+				<td th:text="${carriere.titreOffre}"></td>
+				<td th:text="${carriere.dateOffre}">></td>
+				<td>
+					<a href=""><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
+					<a th:href="'javascript:ConfirmOffre('+${carriere.idOffre}+')'"><img class="icon_list" src="img/delete.png" alt="Supprimer"/></a>
+				</td>
+			</tr>
+		</table>
 
 			<section class="list-edit">
 				<a class="back-btn" href="admin">Retour</a>

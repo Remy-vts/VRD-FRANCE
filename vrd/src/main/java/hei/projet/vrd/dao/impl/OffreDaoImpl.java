@@ -13,7 +13,7 @@ import hei.projet.vrd.entities.Offre;
 public class OffreDaoImpl {
 
 	public List<Offre>  listOffre(){
-		String query = "SELECT * FROM offre";
+		String query = "SELECT * FROM offre WHERE deleted='0'";
 		List<Offre> offres = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){

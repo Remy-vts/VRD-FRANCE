@@ -28,6 +28,7 @@ public class editCarrieresServlet extends AbstractGenericServlet {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("carrieres", SiteService.getInstance().listOffre());
 		templateEngine.process("edit-carrieres", context, resp.getWriter());
 	}
 	

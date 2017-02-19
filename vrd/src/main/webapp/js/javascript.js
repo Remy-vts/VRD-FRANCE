@@ -9,3 +9,9 @@ function ConfirmPresse(idPresse) {
         window.location("deletePresse?p="+idPresse);
     }
 }
+
+function ConfirmOffre(idOffre) {
+    if (confirm("Etes-vous sûr de vouloir supprimer définitivement cette offre ?")) {
+        window.location("deleteOffre?o="+idOffre);
+    }
+}
