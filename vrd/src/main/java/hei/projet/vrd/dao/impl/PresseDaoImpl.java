@@ -15,7 +15,7 @@ public class PresseDaoImpl implements PresseDao {
 
 	@Override
 	public List<Presse> listPresse() {
-		String query = "SELECT * FROM presse";
+		String query = "SELECT * FROM presse WHERE deleted='0'";
 		List<Presse> presses = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
@@ -102,7 +102,13 @@ public class PresseDaoImpl implements PresseDao {
 
 	@Override
 	public void deletePresse(Integer id) {
-		// TODO Auto-generated method stub
+		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+		PreparedStatement statement = connection.prepareStatement("UPDATE presse SET deleted=1 WHERE ID_presse=?")){
+		statement.setInt(1,id);
+		statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 

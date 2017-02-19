@@ -16,7 +16,7 @@ public class ChantierDaoImpl implements ChantierDao {
 
 	@Override
 	public List<Chantier> listChantier() {
-		String query = "SELECT * FROM chantier";
+		String query = "SELECT * FROM chantier WHERE deleted='0'";
 		List<Chantier> chantiers = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){

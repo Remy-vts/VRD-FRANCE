@@ -31,7 +31,7 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-			
+		context.setVariable("references", SiteService.getInstance().listChantier());
 		templateEngine.process("editer-reference", context, resp.getWriter());
 	}
 	

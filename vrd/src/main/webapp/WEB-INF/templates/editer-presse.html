@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<script type="text/javascript" src="js/javascript.js"> </script>
 		<meta charset="utf-8"/>
 	</head>
 
@@ -52,6 +53,22 @@
 			</section>
 
 		<p class="ligne-guide">Liste des articles de presse</p>
+		
+		<table class="table-admin">
+			<tr class=ligne1>
+				<td>Titre</td>
+				<td>Ville</td>
+				<td></td>
+			</tr>
+			<tr th:each="presse : ${presses}">
+				<td th:text="${presse.titre}"></td>
+				<td th:text="${presse.description}">></td>
+				<td>
+					<a href=""><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
+					<a th:href="'javascript:ConfirmPresse('+${presse.ID_presse}+')'"><img class="icon_list" src="img/delete.png" alt="Supprimer"/></a>
+				</td>
+			</tr>
+		</table>
 
 		<section class="list-edit">
 			<a href="admin" class="back-btn">Retour</a>
