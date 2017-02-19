@@ -25,12 +25,12 @@
 		<img class="photo-bandeau" src="img/test.png" alt="Photo VRD France"/>
 
 		<section id="body-page">
-			<h2>Carri 	&egrave;res >> Offres d'emplois</h2>
+			<h2>Carri&egrave;res >> Offres d'emplois</h2>
 
 			<div class="offre-emploi" th:each= "carriere : ${carrieres}">
 				<div class="align-offre div-offre1">
 					<h3 th:text="${carriere.titreOffre}"></h3>
-					<h4 th:text="'Publié le' + ${carriere.dateOffre}"></h4>
+					<h4 th:text="'Publi&eacute; le ' + ${carriere.dateOffre}"></h4>
 					<p class="text-offre" th:text="${carriere.missionOffre}"></p>
 				</div>
 				<div class="align-offre">

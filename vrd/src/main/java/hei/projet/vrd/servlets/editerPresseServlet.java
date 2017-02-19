@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Presse;
 import hei.projet.vrd.services.SiteService;
 
