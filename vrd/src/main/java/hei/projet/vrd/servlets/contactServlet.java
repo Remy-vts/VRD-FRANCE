@@ -28,7 +28,8 @@ public class contactServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		context.setVariable("contact", SiteService.getInstance().getCoordonnees(id));
+		
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(id));
 			
 		templateEngine.process("contact", context, resp.getWriter());
 	}

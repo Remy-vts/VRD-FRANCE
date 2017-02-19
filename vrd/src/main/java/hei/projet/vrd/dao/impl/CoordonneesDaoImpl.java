@@ -13,7 +13,7 @@ public class CoordonneesDaoImpl implements CoordonneesDao{
 	
 	public Coordonnees getCoordonnees(Integer id){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
-			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM coordonnees WHERE ID_coordonnees='"+id, Statement.RETURN_GENERATED_KEYS)){
+			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM coordonnees WHERE ID_coordonnees= ?", Statement.RETURN_GENERATED_KEYS)){
 				statement.setInt(1,id);
 				try(ResultSet resultSet = statement.executeQuery()){
 					if(resultSet.next()){				
