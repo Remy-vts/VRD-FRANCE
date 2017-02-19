@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import hei.projet.vrd.dao.CoordonneesDao;
 import hei.projet.vrd.entities.Coordonnees;
 
-public class CoordonneesDaoImpl {
+public class CoordonneesDaoImpl implements CoordonneesDao{
 	
 	public Coordonnees getCoordonnees(Integer id){
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){

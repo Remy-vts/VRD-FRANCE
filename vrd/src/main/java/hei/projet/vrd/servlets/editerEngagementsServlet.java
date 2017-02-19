@@ -29,5 +29,15 @@ public class editerEngagementsServlet extends AbstractGenericServlet {
 		context.setVariable("editerEngagement", SiteService.getInstance().getEngagements(id));
 		templateEngine.process("editer-engagement", context, resp.getWriter());
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer idEngagement = Integer.parseInt(req.getParameter("id"));
+		String description = req.getParameter("presentation");
+		
+		SiteService.getInstance().updateEngagements(idEngagement, description);
+		resp.setCharacterEncoding("UTF8");
+		resp.sendRedirect("adm-modifmsg");
+	}
 
 }

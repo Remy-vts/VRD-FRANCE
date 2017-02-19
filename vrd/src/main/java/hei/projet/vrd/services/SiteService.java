@@ -90,8 +90,8 @@ public class SiteService {
 		chantierDao.updateChantier(id, ville, code_postal, date_chantier, maitre_ouvrage, client, titre, description, url_photo);
 	}
 	
-	public Chantier addChantier(Chantier chantier, String photoPath){
-		return chantierDao.addChantier(chantier, photoPath);
+	public Chantier addChantier(Chantier chantier){
+		return chantierDao.addChantier(chantier);
 	}
 
 	public void deleteChantier(Integer id){
@@ -110,8 +110,8 @@ public class SiteService {
 		presseDao.updatePresse(ID_presse, nom_media, date_publication, lien, titre, description);
 	}
 	
-	public Presse addPresse(Presse presse, String photoPath){
-		return presseDao.addPresse(presse, photoPath);
+	public Presse addPresse(Presse presse){
+		return presseDao.addPresse(presse);
 	}
 
 	public void deletePresse(Integer id){
@@ -126,8 +126,8 @@ public class SiteService {
 		return metierDao.getMetier(idMetier);
 	}
 	
-	public void updateMetier(Integer idMetier, String titreMetier, String photo, String descriptif){
-		metierDao.updateMetier(idMetier, titreMetier, photo, descriptif);
+	public void updateMetier(Integer idMetier, String descriptif){
+		metierDao.updateMetier(idMetier, descriptif);
 	}
 	
 	public List<Offre>  listOffre(){

@@ -13,7 +13,7 @@ public interface PresseDao {
 	
 	public void updatePresse(Integer ID_presse, String nom_media, String date_publication, String lien, String titre, String description);
 	
-	public Presse addPresse(Presse presse, String photoPath);
+	public Presse addPresse(Presse presse);
 	
 	public String getPhotoPath(Integer id);
 

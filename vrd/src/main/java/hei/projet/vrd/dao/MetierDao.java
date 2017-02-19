@@ -10,7 +10,7 @@ public interface MetierDao {
 
 	public Metier getMetier(Integer idMetier);
 	
-	public void updateMetier(Integer idMetier, String titreMetier, String photo, String Descriptif);
+	public void updateMetier(Integer idMetier, String Descriptif);
 	
 	public String getPhotoPath(Integer idMetier);
 	

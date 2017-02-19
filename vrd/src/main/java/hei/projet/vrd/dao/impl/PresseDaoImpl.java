@@ -11,9 +11,6 @@ import java.util.List;
 import hei.projet.vrd.dao.PresseDao;
 import hei.projet.vrd.entities.Presse;
 
-
-
-
 public class PresseDaoImpl implements PresseDao {
 
 	@Override
@@ -71,7 +68,7 @@ public class PresseDaoImpl implements PresseDao {
 	}
 
 	@Override
-	public Presse addPresse(Presse presse, String photoPath) {
+	public Presse addPresse(Presse presse) {
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `presse`(`nom_media`,`date_publication`,`lien`,`titre`,`description`)VALUES(?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);

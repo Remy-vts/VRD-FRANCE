@@ -13,14 +13,9 @@
 
 		<header th:replace="~{fragments :: header}"></header>
 
-		<section class="sous-partie">
-			<ul class="list-sous-partie">
-				<li><a href="espace-admin">Administration</a></li>
-				<li><a href="">Me déconnecter</a></li>
-			</ul>
-		</section>
+		<section th:replace="~{fragments :: sous-header}"></section>
 
-		<img class="photo-bandeau" src="img/test.png" alt="Photo VRD France"/>
+		<img th:replace="~{fragments :: img-bandeau}"/>
 
 		<section id="body-page">
 

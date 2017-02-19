@@ -9,10 +9,9 @@ public class Chantier {
 	private String client;
 	private String titre;
 	private String description;
-	private String url_photo;
 	
 	public Chantier(Integer id, String ville, int code_postal, String date, String maitre_ouvrage, String client,
-			String titre, String description, String url_photo) {
+			String titre, String description) {
 		super();
 		this.id = id;
 		this.ville = ville;
@@ -22,7 +21,6 @@ public class Chantier {
 		this.client = client;
 		this.titre = titre;
 		this.description = description;
-		this.url_photo = url_photo;
 	}
 
 	public Integer getId() {
@@ -88,16 +86,6 @@ public class Chantier {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public String getUrl_photo() {
-		return url_photo;
-	}
-
-	public void setUrl_photo(String url_photo) {
-		this.url_photo = url_photo;
-	}
-	
-	
 	
 }
 	

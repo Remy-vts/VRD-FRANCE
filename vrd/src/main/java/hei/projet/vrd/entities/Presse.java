@@ -11,7 +11,7 @@ public class Presse {
 	public Presse(Integer iD_presse, String nom_media, String date_publication, String lien, String titre,
 			String description) {
 		super();
-		ID_presse = iD_presse;
+		this.ID_presse = iD_presse;
 		this.nom_media = nom_media;
 		this.date_publication = date_publication;
 		this.lien = lien;

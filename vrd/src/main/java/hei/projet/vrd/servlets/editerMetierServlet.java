@@ -32,12 +32,12 @@ public class editerMetierServlet extends AbstractGenericServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer idMetier = Integer.parseInt(req.getParameter("m"));
+		Integer idMetier = Integer.parseInt(req.getParameter("idMetier"));
 		String description = req.getParameter("description");
 		
 		SiteService.getInstance().updateMetier(idMetier, description);
 		resp.setCharacterEncoding("UTF8");
-		resp.sendRedirect("admin/modif-msg");
+		resp.sendRedirect("adm-modifmsg");
 	}
 
 }
