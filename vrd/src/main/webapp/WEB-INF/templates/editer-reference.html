@@ -72,7 +72,7 @@
 				<td th:text="${reference.ville}"></td>
 				<td th:text="${reference.titre}">></td>
 				<td>
-					<a href=""><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
+					<a th:href="'adm-mrealisations?c='+${reference.id}"><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
 					<a th:href="'javascript:ConfirmMessage('+${reference.id}+')'"><img class="icon_list" src="img/delete.png" alt="Supprimer"/></a>
 				</td>
 			</tr>

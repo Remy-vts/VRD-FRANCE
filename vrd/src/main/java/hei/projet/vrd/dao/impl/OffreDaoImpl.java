@@ -55,16 +55,15 @@ public class OffreDaoImpl {
 				}
 			}
 			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public void updateOffre(Integer idOffre, String referenceOffre, String dateOffre, String titreOffre, String missionOffre){
+	public void updateOffre(Integer idOffre, String referenceOffre, String titreOffre, String missionOffre){
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE offre SET  reference='"+referenceOffre+"',date_offre='"+dateOffre+"',titre='"+titreOffre+"',mission='"+missionOffre+"' WHERE ID_offre="+idOffre)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE offre SET  reference='"+referenceOffre+"', titre='"+titreOffre+"',mission='"+missionOffre+"' WHERE ID_offre="+idOffre)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

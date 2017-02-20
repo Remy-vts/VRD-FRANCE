@@ -11,7 +11,7 @@ public interface ChantierDao {
 
 	public Chantier getChantier(Integer id);
 	
-	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage, String client, String titre, String description);
+	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description);
 	
 	public Chantier addChantier(Chantier chantier);
 	

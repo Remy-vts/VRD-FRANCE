@@ -64,4 +64,12 @@
   	<filter-name>authentificationFilter</filter-name>
   	<url-pattern>/adm-modifmsg</url-pattern>
   </filter-mapping>
+      <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-mcarrieres</url-pattern>
+  </filter-mapping>
+        <filter-mapping>
+  	<filter-name>authentificationFilter</filter-name>
+  	<url-pattern>/adm-mrealisations</url-pattern>
+  </filter-mapping>
 </web-app>

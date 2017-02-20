@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+		<title>VRD FRANCE : Entreprise sp&eacute;cialis&eacute;e dans la d&eacute;molition, le d&eacute;samiantage et le terrassement.</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<meta charset="utf-8"/>
+	</head>
+
+	<body>
+
+		<header th:replace="~{fragments :: header}"></header>
+
+		<section th:replace="~{fragments :: sous-header}"></section>
+
+		<img th:replace="~{fragments :: img-bandeau}"/>
+
+		<section id="body-page">
+
+			<h2>Espace administrateur >> Editer "Carri&egrave;res"</h2>
+			
+		</section>
+
+		<p class="ligne-guide">Modifier une offre d'emploi</p>
+			<section class="list-edit">
+				<form action="adm-mcarrieres" method="POST">
+					<input type="hidden" th:value="${offre.idOffre}" name="id"/>
+					<div>
+						<label for="ref">R&eacute;f&eacute;rence</label>
+						<input th:placeholder="${offre.referenceOffre}" type="text" name="ref"/>
+					</div>
+					<div>
+						<label for="poste">Poste</label>
+						<input th:placeholder="${offre.titreOffre}" type="text" name="poste"/>
+					</div>
+					<div>
+						<label for="desc-poste">Description</label>
+						<input th:placeholder="${offre.missionOffre}" class="pst" type="textarea" name="desc-poste"/>
+					</div>
+					<input type="submit" class="submit" value="Modifier"/>
+				</form>
+			</section>
+			
+			<section class="list-edit">
+				<a class="back-btn" href="adm-carrieres">Retour</a>
+			</section>
+
+		<footer th:replace="~{fragments :: footer}"></footer>
+		
+		<p id="ligne-footer">© 2017 - VRDFRANCE.COM</p>
+	
+	</body>
+</html>

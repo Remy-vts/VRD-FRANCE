@@ -11,7 +11,7 @@ public interface OffreDao {
 
 	public Offre getOffre(Integer id);
 	
-	public void updateOffre(Integer idOffre, String referenceOffre, String dateOffre, String titreOffre, String missionOffre);
+	public void updateOffre(Integer idOffre, String referenceOffre, String titreOffre, String missionOffre);
 	
 	public Offre addOffre(Offre offre);
 	

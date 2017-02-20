@@ -86,8 +86,8 @@ public class SiteService {
 		return chantierDao.getChantier(id);
 	}
 	
-	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage, String client, String titre, String description, String url_photo){
-		chantierDao.updateChantier(id, ville, code_postal, date_chantier, maitre_ouvrage, client, titre, description, url_photo);
+	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description){
+		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description);
 	}
 	
 	public Chantier addChantier(Chantier chantier){
@@ -138,8 +138,8 @@ public class SiteService {
 		return offreDao.getOffre(id);
 	}
 	
-	public void updateOffre(Integer idOffre, String referenceOffre, String dateOffre, String titreOffre, String missionOffre){
-		offreDao.updateOffre(idOffre, referenceOffre, dateOffre, titreOffre, missionOffre);
+	public void updateOffre(Integer idOffre, String referenceOffre, String titreOffre, String missionOffre){
+		offreDao.updateOffre(idOffre, referenceOffre, titreOffre, missionOffre);
 	}
 	
 	public Offre addOffre(Offre offre){

@@ -99,9 +99,9 @@ public class ChantierDaoImpl implements ChantierDao {
 		return chantier;
 	}
 	
-	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage, String client, String titre, String description, String url_photo) {
+	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  ville='"+ville+"',code_postal='"+code_postal+"',date_chantier='"+date_chantier+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', desciption='"+description+"'url_photo='"+url_photo+"', WHERE ID_offre="+id)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  titre='"+titre+"',ville='"+ville+"',code_postal='"+code_postal+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', description='"+description+"' WHERE ID_offre="+id)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -135,13 +135,5 @@ public class ChantierDaoImpl implements ChantierDao {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public void updateChantier(Integer id, String ville, int code_postal, String date_chantier, String maitre_ouvrage,
-			String client, String titre, String description) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }
 
