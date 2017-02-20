@@ -64,7 +64,7 @@
 				<td th:text="${presse.titre}"></td>
 				<td th:text="${presse.description}">></td>
 				<td>
-					<a href=""><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
+					<a th:href="'adm-mpresse?p='+${presse.ID_presse}"><img class="icon_list" src="img/file.png" alt="Modifier"/></a>
 					<a th:href="'javascript:ConfirmPresse('+${presse.ID_presse}+')'"><img class="icon_list" src="img/delete.png" alt="Supprimer"/></a>
 				</td>
 			</tr>

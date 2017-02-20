@@ -113,10 +113,13 @@ public class PresseDaoImpl implements PresseDao {
 	}
 
 	@Override
-	public void updatePresse(Integer ID_presse, String nom_media, String date_publication, String lien, String titre,
-			String description) {
-		// TODO Auto-generated method stub
-		
+	public void updatePresse(Integer id, String nom_media, String lien, String titre, String description) {
+		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement statement = connection.prepareStatement("UPDATE presse SET  nom_media='"+nom_media+"',lien='"+lien+"',titre='"+titre+"',description='"+description+"' WHERE ID_presse="+id)){
+				statement.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 	}
 	
 

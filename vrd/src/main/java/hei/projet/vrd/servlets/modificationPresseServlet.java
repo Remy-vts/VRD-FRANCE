@@ -13,8 +13,8 @@ import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.services.SiteService;
 
-@WebServlet("/adm-mrealisations")
-public class modificationChantierServlet extends AbstractGenericServlet {
+@WebServlet("/adm-mpresse")
+public class modificationPresseServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
 	/**
@@ -22,25 +22,23 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Integer id = Integer.parseInt(req.getParameter("c"));
+		Integer id = Integer.parseInt(req.getParameter("p"));
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		context.setVariable("chantier", SiteService.getInstance().getChantier(id));
-		templateEngine.process("modification-chantier", context, resp.getWriter());
+		context.setVariable("presse", SiteService.getInstance().getPresse(id));
+		templateEngine.process("modification-presse", context, resp.getWriter());
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt(req.getParameter("id"));
+		Integer idPresse = Integer.parseInt(req.getParameter("id"));
+		String media = req.getParameter("media");
+		String lien = req.getParameter("lien");
 		String titre = req.getParameter("titre");
-		String ville = req.getParameter("ville");
-		Integer cp = Integer.parseInt(req.getParameter("cp"));
-		String mo = req.getParameter("mo");
-		String client = req.getParameter("client");
-		String mission = req.getParameter("mission");
+		String description = req.getParameter("content");
 		
-		SiteService.getInstance().updateChantier(id, titre, ville, cp, mo, client, mission);
+		SiteService.getInstance().updatePresse(idPresse, media,lien, titre, description);
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

@@ -106,8 +106,8 @@ public class SiteService {
 		return presseDao.getPresse(id);
 	}
 	
-	public void updatePresse(Integer ID_presse, String nom_media, String date_publication, String lien, String titre, String description){
-		presseDao.updatePresse(ID_presse, nom_media, date_publication, lien, titre, description);
+	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description){
+		presseDao.updatePresse(ID_presse, nom_media, lien, titre, description);
 	}
 	
 	public Presse addPresse(Presse presse){

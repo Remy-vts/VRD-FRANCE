@@ -1,0 +1,64 @@
+<html>
+
+	<head>
+		<title>VRD FRANCE : Entreprise sp&eacute;cialis&eacute;e dans la d&eacute;molition, le d&eacute;samiantage et le terrassement.</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<script type="text/javascript" src="js/javascript.js"> </script>
+		<meta charset="utf-8"/>
+	</head>
+
+	<body>
+
+		<header th:replace="~{fragments :: header}"></header>
+
+		<section th:replace="~{fragments :: sous-header}"></section>
+
+		<img th:replace="~{fragments :: img-bandeau}"/>
+
+		<section id="body-page">
+
+			<h2>Espace administrateur >> Editer "Actualit&eacute;s"</h2>
+			
+		</section>
+
+		<p class="ligne-guide">Modifier un article de presse</p>
+
+			<section class="list-edit">
+				<form action="adm-mpresse" method="POST">
+					<input type="hidden" name="id" th:value="${presse.ID_presse}"/>
+					<div>
+						<label for="titre">Titre</label>
+						<input th:placeholder="${presse.titre}" type="text" name="titre"/>
+					</div>
+					<div>
+						<label for="media">Media</label>
+						<input th:placeholder="${presse.nom_media}" type="text" name="media"/>
+					</div>
+					<div>
+						<label for="lien">Lien de l'article</label>
+						<input th:placeholder="${presse.lien}" type="text" name="lien"/>
+					</div>
+					<div>
+						<label for="photo">Photo</label>
+						<input type="file" name="photo"/>
+					</div>
+					<div>
+						<label for="content">Contenu de l'article</label>
+						<input th:placeholder="${presse.description}" type="textarea" name="content"/>
+					</div>
+					<input type="submit" class="submit" value="Modifier"/>
+				</form>
+			</section>
+
+		<section class="list-edit">
+			<a href="admin" class="back-btn">Retour</a>
+		</section>
+
+		<footer th:replace="~{fragments :: footer}"></footer>
+	
+	</body>
+	
+</html>
