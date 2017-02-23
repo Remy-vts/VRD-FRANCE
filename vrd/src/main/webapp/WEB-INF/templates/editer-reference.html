@@ -27,11 +27,16 @@
 		<p class="ligne-guide">Ajouter une r&eacute;f&eacute;rence de chantier</p>
 
 			<section class="list-edit">
-				<form action="" method="POST">
+				<form action="adm-realisations" method="POST">
 					<div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" required maxlength="50"/>
+						<input type="text" name="titre" id="ajout_titre" required maxlength="50" onFocus="inf_titre1()" onBlur="inf_titre2()"/>
+						<div class="form-display">
+					      	<div id="check_titre" class="check1">&#10004;</div>
+					      	<div id="check_titre2" class="check2">X</div>
+					      </div>
 					</div>
+					<p id="info_titre" class="indication">Le titre doit comporter entre 5 et 50 caracteres</p>
 					<div>
 						<label for="ville">Ville</label>
 						<input type="text" name="ville" required maxlength="50"/>

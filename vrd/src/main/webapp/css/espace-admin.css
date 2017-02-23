@@ -111,3 +111,42 @@ input.pst{
 .icon-list{
 	width:15px;
 }
+
+.check1{
+	color:white;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Trebuchet MS;
+	background-color: green;
+	border-radius:30px;
+	padding:5px;
+	width:40px;
+	margin-left:20px;
+	text-align:center;
+}
+
+.check2{
+	color:white;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Trebuchet MS;
+	background-color: red;
+	border-radius:30px;
+	padding:5px;
+	width:40px;
+	margin-left:20px;
+	text-align:center;
+}
+
+.indication, .check1, .check2{
+	display:none;
+}
+
+.indication{
+	margin-left:130px;
+	font-style:italic;
+}
+
+.form-display{
+	display:inline-block;
+}
