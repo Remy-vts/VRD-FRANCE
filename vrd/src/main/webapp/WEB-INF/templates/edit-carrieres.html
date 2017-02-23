@@ -28,15 +28,15 @@
 				<form action="adm-carrieres" method="POST">
 					<div>
 						<label for="ref">R&eacute;f&eacute;rence</label>
-						<input type="text" name="ref"/>
+						<input maxlength="12" type="text" name="ref" required/>
 					</div>
 					<div>
 						<label for="poste">Poste</label>
-						<input type="text" name="poste"/>
+						<input maxlength="50" type="text" name="poste" required/>
 					</div>
 					<div>
 						<label for="desc-poste">Description</label>
-						<input class="pst" type="textarea" name="desc-poste"/>
+						<input maxlength="1000" class="pst" type="textarea" name="desc-poste" required/>
 					</div>
 					<input type="submit" class="submit" value="Ajouter"/>
 				</form>

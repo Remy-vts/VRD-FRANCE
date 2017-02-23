@@ -29,15 +29,15 @@
 					<input type="hidden" th:value="${offre.idOffre}" name="id"/>
 					<div>
 						<label for="ref">R&eacute;f&eacute;rence</label>
-						<input th:placeholder="${offre.referenceOffre}" type="text" name="ref"/>
+						<input th:value="${offre.referenceOffre}" type="text" name="ref" required maxlength="12"/>
 					</div>
 					<div>
 						<label for="poste">Poste</label>
-						<input th:placeholder="${offre.titreOffre}" type="text" name="poste"/>
+						<input th:value="${offre.titreOffre}" type="text" name="poste" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="desc-poste">Description</label>
-						<input th:placeholder="${offre.missionOffre}" class="pst" type="textarea" name="desc-poste"/>
+						<input th:value="${offre.missionOffre}" class="pst" type="textarea" name="desc-poste" required maxlength="1000"/>
 					</div>
 					<input type="submit" class="submit" value="Modifier"/>
 				</form>

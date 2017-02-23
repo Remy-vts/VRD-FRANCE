@@ -24,14 +24,14 @@
 		</section>
 
 			<section class="list-edit">
-				<form action="" method="GET">
+				<form action="adm-contact" method="POST">
 					<div>
 						<label for="telephone">T&eacute;l&eacute;phone</label>
-						<input type="telephone" name="telephone"/>
+						<input th:value="${contact.telephone}" type="telephone" name="telephone" required maxlength="12"/>
 					</div>
 					<div>
 						<label for="mail">Mail</label>
-						<input type="mail" name="mail"/>
+						<input th:value="${contact.mail}" type="mail" name="mail" required maxlength="50"/>
 					</div>
 					<input class="submit" type="submit" value="Modifier"/>
 				</form>

@@ -33,16 +33,16 @@
 
 		<form id="send-candidature" method="GET" action="">
 			<div>
-				<label for="nom">Nom</label><input required type="text" name="nom"/>
+				<label for="nom">Nom</label><input maxlengt="30" required type="text" name="nom"/>
 			</div>
 			<div>
-				<label for="prenom">Pr&eacute;nom</label><input required type="text" name="prenom"/>
+				<label for="prenom">Pr&eacute;nom</label><input maxlength="40" required type="text" name="prenom"/>
 			</div>
 			<div>
-				<label for="mail">Mail</label><input required type="mail" name="mail"/>
+				<label for="mail">Mail</label><input maxlength="70" required type="mail" name="mail"/>
 			</div>
 			<div>
-				<label for="telephone">T&eacute;l&eacute;phone</label><input required type="telephone" name="telephone"/>
+				<label for="telephone">T&eacute;l&eacute;phone</label><input maxlength="12" required type="telephone" name="telephone"/>
 			</div>
 			<div>
 				<label>CV (PDF)</label><input class="load-file" required type="file" name="cv"/>

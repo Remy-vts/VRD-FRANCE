@@ -30,23 +30,23 @@
 				<form action="" method="POST">
 					<div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre"/>
+						<input type="text" name="titre" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="ville">Ville</label>
-						<input type="text" name="ville"/>
+						<input type="text" name="ville" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="cp">Code postal</label>
-						<input type="text" name="cp"/>
+						<input type="text" name="cp" required maxlength="5"/>
 					</div>
 					<div>
 						<label for="mo">Maitre d'ouvrage</label>
-						<input type="text" name="mo"/>
+						<input type="text" name="mo" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="client">Client</label>
-						<input type="text" name="client"/>
+						<input type="text" name="client" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="photo">Photo</label>
@@ -54,7 +54,7 @@
 					</div>
 					<div>
 						<label for="mission">Missions</label>
-						<input type="textarea" name="mission"/>
+						<input type="textarea" name="mission" required maxlength="1000"/>
 					</div>
 					<input type="submit" class="submit" value="Ajouter"/>
 				</form>

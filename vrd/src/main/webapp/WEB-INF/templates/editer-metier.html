@@ -34,7 +34,7 @@
 					</div>
 					<div>
 						<label for="presentation">Pr&eacute;sentation</label>
-						<input class="pst" type="textarea" th:placeholder="${metier.descriptifMetier}" name="description"/>
+						<input class="pst" type="textarea" th:value="${metier.descriptifMetier}" name="description" required maxlength="1000"/>
 					</div>
 					<input class="submit" type="submit" value="Modifier"/>
 				</form>

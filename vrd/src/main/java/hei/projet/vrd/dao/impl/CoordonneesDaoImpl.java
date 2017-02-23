@@ -36,9 +36,9 @@ public class CoordonneesDaoImpl implements CoordonneesDao{
 		return null;
 	}
 	
-	public void updateCoordonnees(Integer id, String mail, String telephone, String adresse, String ville, String codepostal){
+	public void updateCoordonnees(String mail, String telephone){
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("UPDATE coordonnees SET  mail='"+mail+"',telephone='"+telephone+"',adresse='"+adresse+"',ville='"+ville+"', code_postal='"+codepostal+"' WHERE ID_coordonnees="+id)){
+				PreparedStatement statement = connection.prepareStatement("UPDATE coordonnees SET  mail='"+mail+"',telephone='"+telephone+"' WHERE ID_coordonnees='1'")){
 				statement.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();

@@ -30,7 +30,7 @@
 					<input type="hidden" th:value="${editerEngagement.idEngagements}" name="id"/>
 					<div>
 						<label for="presentation">Pr&eacute;sentation</label>
-						<input class="pst" type="textarea" th:placeholder="${editerEngagement.descriptionEngagements}" name="presentation"/>
+						<input class="pst" type="textarea" th:value="${editerEngagement.descriptionEngagements}" name="presentation" required maxlength="1000"/>
 					</div>
 					<input class="submit" type="submit" value="Modifier"/>
 				</form>

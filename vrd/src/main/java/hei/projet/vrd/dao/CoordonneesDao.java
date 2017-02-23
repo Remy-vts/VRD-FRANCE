@@ -6,6 +6,6 @@ public interface CoordonneesDao {
 
 	public Coordonnees getCoordonnees(Integer id);
 	
-	public void updateCoordonnees(Integer id, String mail, String telephone, String adresse, String ville, String codepostal);
+	public void updateCoordonnees(String mail, String telephone);
 
 }

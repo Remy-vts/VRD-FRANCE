@@ -31,23 +31,23 @@
 					<input type="hidden" th:value="${chantier.id}" name="id"/>
 					<div>
 						<label for="titre">Titre</label>
-						<input th:placeholder="${chantier.titre}" type="text" name="titre"/>
+						<input th:value="${chantier.titre}" type="text" name="titre" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="ville">Ville</label>
-						<input th:placeholder="${chantier.ville}" type="text" name="ville"/>
+						<input th:value="${chantier.ville}" type="text" name="ville" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="cp">Code postal</label>
-						<input th:placeholder="${chantier.code_postal}" type="text" name="cp"/>
+						<input th:value="${chantier.code_postal}" type="text" name="cp" required maxlength="5"/>
 					</div>
 					<div>
 						<label for="mo">Maitre d'ouvrage</label>
-						<input th:placeholder="${chantier.maitre_ouvrage}" type="text" name="mo"/>
+						<input th:value="${chantier.maitre_ouvrage}" type="text" name="mo" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="client">Client</label>
-						<input th:placeholder="${chantier.client}" type="text" name="client"/>
+						<input th:value="${chantier.client}" type="text" name="client" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="photo">Photo</label>
@@ -55,7 +55,7 @@
 					</div>
 					<div>
 						<label for="mission">Missions</label>
-						<input th:placeholder="${chantier.description}" type="textarea" name="mission"/>
+						<input th:value="${chantier.description}" type="textarea" name="mission" required maxlength="1000"/>
 					</div>
 					<input type="submit" class="submit" value="Modifier"/>
 				</form>

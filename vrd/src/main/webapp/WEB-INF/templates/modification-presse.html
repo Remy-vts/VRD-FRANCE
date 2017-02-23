@@ -24,22 +24,22 @@
 			
 		</section>
 
-		<p class="ligne-guide">Modifier un article de presse</p>
+		<p class="ligne-guide">Modifier un article de presse</p> 
 
 			<section class="list-edit">
 				<form action="adm-mpresse" method="POST">
 					<input type="hidden" name="id" th:value="${presse.ID_presse}"/>
 					<div>
 						<label for="titre">Titre</label>
-						<input th:placeholder="${presse.titre}" type="text" name="titre"/>
+						<input th:value="${presse.titre}" type="text" name="titre"/>
 					</div>
 					<div>
 						<label for="media">Media</label>
-						<input th:placeholder="${presse.nom_media}" type="text" name="media"/>
+						<input th:value="${presse.nom_media}" type="text" name="media"/>
 					</div>
 					<div>
 						<label for="lien">Lien de l'article</label>
-						<input th:placeholder="${presse.lien}" type="text" name="lien"/>
+						<input th:value="${presse.lien}" type="text" name="lien"/>
 					</div>
 					<div>
 						<label for="photo">Photo</label>
@@ -47,7 +47,7 @@
 					</div>
 					<div>
 						<label for="content">Contenu de l'article</label>
-						<input th:placeholder="${presse.description}" type="textarea" name="content"/>
+						<input th:value="${presse.description}" type="textarea" name="content"/>
 					</div>
 					<input type="submit" class="submit" value="Modifier"/>
 				</form>

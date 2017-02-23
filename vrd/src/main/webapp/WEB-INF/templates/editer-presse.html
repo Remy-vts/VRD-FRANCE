@@ -30,15 +30,15 @@
 				<form action="adm-presse" method="POST">
 					<div>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre"/>
+						<input type="text" name="titre" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="media">Media</label>
-						<input type="text" name="media"/>
+						<input type="text" name="media" required maxlength="50"/>
 					</div>
 					<div>
 						<label for="lien">Lien de l'article</label>
-						<input type="text" name="lien"/>
+						<input type="text" name="lien" required maxlength="100"/>
 					</div>
 					<div>
 						<label for="photo">Photo</label>
@@ -46,7 +46,7 @@
 					</div>
 					<div>
 						<label for="content">Contenu de l'article</label>
-						<input type="textarea" name="content"/>
+						<input type="textarea" name="content" required maxlength="1000"/>
 					</div>
 					<input type="submit" class="submit" value="Ajouter"/>
 				</form>

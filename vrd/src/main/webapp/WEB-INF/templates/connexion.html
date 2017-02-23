@@ -29,11 +29,11 @@
 			<form id="form-connexion" action="" method="POST">
 				<div>
 					<label for="mail">Identifiant</label>
-					<input type="mail" name="identifiant"/>
+					<input required maxlength="20" type="mail" name="identifiant"/>
 				</div>
 				<div>
 					<label for="mdp">Mot de passe</label>
-					<input type="password" name="mdp"/>
+					<input type="password" maxlength="30" name="mdp"/>
 				</div>
 					<input id="btn-connexion" type="submit" value="Me connecter"/>
 			</form>

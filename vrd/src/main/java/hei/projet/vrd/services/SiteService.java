@@ -154,8 +154,8 @@ public class SiteService {
 		return coordonneesDao.getCoordonnees(id);
 	}
 	
-	public void updateCoordonnees(Integer id, String mail, String telephone, String adresse, String ville, String codepostal){
-		coordonneesDao.updateCoordonnees(id, mail, telephone, adresse, ville, codepostal);
+	public void updateCoordonnees(String mail, String telephone){
+		coordonneesDao.updateCoordonnees(mail, telephone);
 	}
 	
 }
