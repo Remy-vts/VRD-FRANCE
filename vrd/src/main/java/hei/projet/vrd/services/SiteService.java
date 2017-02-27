@@ -42,6 +42,8 @@ public class SiteService {
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
 	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
 	
+	
+	
 	public List<Dirigeant> listDirigeant(){
 		return dirigeantDao.listDirigeant();
 	}

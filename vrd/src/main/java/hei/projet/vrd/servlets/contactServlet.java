@@ -6,16 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-
 import hei.projet.vrd.services.SiteService;
+import hei.projet.vrd.entities.envoiMessage;
+
+
+import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.*;
+
+
 
 @WebServlet("/contact")
 public class contactServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
-      
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
 	 */
@@ -30,8 +36,27 @@ public class contactServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(id));
-			
+					
 		templateEngine.process("contact", context, resp.getWriter());
 	}
+	
+	    protected void doPost(HttpServletRequest request,
+	            HttpServletResponse response) throws ServletException, IOException {
+	        // reads form fields
+	        String email = request.getParameter("mail");
+	        String message = request.getParameter("msg");
+	        String prenom = request.getParameter("prenom");
+	        String nom = request.getParameter("nom");
+	        String telephone = request.getParameter("telephone");
+	        
+	        envoiMessage.main(message);
+	        
+	        response.sendRedirect("admin");
+	        
+	    }
+	      
+    
+	
+	
 
 }
