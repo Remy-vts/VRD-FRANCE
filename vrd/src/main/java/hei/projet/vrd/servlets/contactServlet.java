@@ -54,9 +54,5 @@ public class contactServlet extends AbstractGenericServlet {
 	        response.sendRedirect("admin");
 	        
 	    }
-	      
-    
-	
-	
 
 }
