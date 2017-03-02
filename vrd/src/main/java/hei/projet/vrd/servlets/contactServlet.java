@@ -49,9 +49,9 @@ public class contactServlet extends AbstractGenericServlet {
 	        String nom = request.getParameter("nom");
 	        String telephone = request.getParameter("telephone");
 	        
-	        envoiMessage.main(message);
+	        envoiMessage.main(email, message, prenom, nom, telephone);
 	        
-	        response.sendRedirect("admin");
+	        response.sendRedirect("contact");
 	        
 	    }
 	      
