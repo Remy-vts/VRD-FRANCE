@@ -4,15 +4,14 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-import hei.projet.vrd.servlets.contactServlet;
+
 
 public class envoiMessage{
 	
-	public static void main(String message){
+	public static void main(String mail, String message, String prenom, String nom, String telephone){
 		
 		String to = "dimitri59290@hotmail.fr";
-	    String from =  "vrdfrance@gmail.com";
-
+	    String from =  mail;
 	     Properties props = new Properties();
 	     props.setProperty("mail.transport.protocol", "smtp");
 	     props.setProperty("mail.host", "smtp.gmail.com");
@@ -33,7 +32,7 @@ public class envoiMessage{
 
 	         mess.setSubject("Message de contact du site");
 
-	         mess.setText(message);
+	         mess.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         Transport trans = session.getTransport("smtp");
 	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRDFrance59");

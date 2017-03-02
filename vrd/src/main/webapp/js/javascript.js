@@ -97,12 +97,12 @@ function inf_cp2()
 
 //AJOUT MO
 
-function inf_ville1() 
+function inf_mo1() 
 {
 	document.getElementById("info_mo").style.display = "inline";
 }
 
-function inf_ville2() 
+function inf_mo2() 
 {
 	document.getElementById("info_mo").style.display = "none";
 	var value = document.getElementById("add_mo").value.length;
