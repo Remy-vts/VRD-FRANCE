@@ -33,7 +33,7 @@ public class indexServlet extends AbstractGenericServlet {
 		
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
 		
-		context.setVariable("chantiers", SiteService.getInstance().listChantier());
+		context.setVariable("chantiers", SiteService.getInstance().listChantierAccueil());
 		
 		templateEngine.process("index", context, resp.getWriter());
 	}
