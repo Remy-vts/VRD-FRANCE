@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<script src="js/ckeditor/ckeditor.js"></script>
 		<meta charset="utf-8"/>
 	</head>
 
@@ -29,9 +30,15 @@
 				<form action="adm-engagement" method="POST" class="form-editer">
 					<input type="hidden" th:value="${editerEngagement.idEngagements}" name="id"/>
 					<div>
-						<label for="presentation">Pr&eacute;sentation</label>
-						<input class="pst" type="textarea" th:value="${editerEngagement.descriptionEngagements}" name="presentation" required maxlength="1000"/>
-					</div>
+						<textarea name="presentation" id="editor1" rows="10" cols="80" th:text="${editerEngagement.descriptionEngagements}" required maxlength="1000">
+			            </textarea>
+			            <script>
+			                // Replace the <textarea id="editor1"> with a CKEditor
+			                // instance, using default configuration.
+			                CKEDITOR.replace( 'editor1');
+			            </script>					
+			            <input class="submit" type="submit" value="Modifier"/>
+			         </div>
 					<input class="submit" type="submit" value="Modifier"/>
 				</form>
 

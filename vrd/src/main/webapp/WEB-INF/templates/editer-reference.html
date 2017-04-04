@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
 		<script type="text/javascript" src="js/javascript.js"> </script>
+		<script src="js/ckeditor/ckeditor.js"></script>
 		<meta charset="utf-8"/>
 	</head>
 
@@ -86,7 +87,17 @@
 					
 					<p class="ligne-tableau">
 						<label for="mission">Missions</label>
-						<span class="form-display"><input class="add_form" type="textarea" name="mission" id="add_mission" required maxlength="1000" onFocus="inf_mission1()" onBlur="inf_mission2()"/></span>
+						
+					<div>
+						<textarea name="mission" id="editor1" rows="10" cols="80" required maxlength="1000" onFocus="inf_mission1()" onBlur="inf_mission2()">
+			            </textarea>
+			            <script>
+			                // Replace the <textarea id="editor1"> with a CKEditor
+			                // instance, using default configuration.
+			                CKEDITOR.replace( 'editor1');
+			            </script>					
+			            <input class="submit" type="submit" value="Modifier"/>
+			         </div>
 						<div class="form-display">
 					      	<div id="check_mission1" class="check1">&#10004;</div>
 					      	<div id="check_mission2" class="check2">X</div>
