@@ -83,6 +83,10 @@ public class SiteService {
 	public List<Chantier>  listChantier(){
 		return chantierDao.listChantier();
 	}
+	
+	public List<Chantier>  listChantierAccueil(){
+		return chantierDao.listChantierAccueil();
+	}
 
 	public Chantier getChantier(Integer id){
 		return chantierDao.getChantier(id);

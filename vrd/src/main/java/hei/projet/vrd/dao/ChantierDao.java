@@ -8,6 +8,8 @@ import hei.projet.vrd.entities.Chantier;
 public interface ChantierDao {
 
 	public List<Chantier>  listChantier();
+	
+	public List<Chantier>  listChantierAccueil();
 
 	public Chantier getChantier(Integer id);
 	

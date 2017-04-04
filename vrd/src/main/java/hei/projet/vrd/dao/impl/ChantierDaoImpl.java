@@ -43,6 +43,36 @@ public class ChantierDaoImpl implements ChantierDao {
 		}
 		return chantiers;
 	}
+	
+	@Override
+	public List<Chantier> listChantierAccueil() {
+		String query = "SELECT * FROM chantier WHERE deleted='0' LIMIT 3";
+		List<Chantier> chantiers = new ArrayList<>();
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
+			try(Statement statement = connection.createStatement()){
+				try(ResultSet resultSet = statement.executeQuery(query)){
+					while(resultSet.next()){
+						
+						Chantier chantier = new Chantier(
+								resultSet.getInt("ID_chantier"), 
+								resultSet.getString("ville"),
+								resultSet.getInt("code_postal"), 
+								resultSet.getString("date_chantier"), 
+								resultSet.getString("maitre_ouvrage"), 
+								resultSet.getString("client"),
+								resultSet.getString("titre"), 
+								resultSet.getString("description")
+								);
+								
+								chantiers.add(chantier);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return chantiers;
+	}
 
 	@Override
 	public Chantier getChantier(Integer id) {
