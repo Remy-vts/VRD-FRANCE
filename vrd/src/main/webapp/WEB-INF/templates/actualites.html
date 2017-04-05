@@ -35,7 +35,7 @@
 				</div>
 				<div class="align-article presentation-article">
 					<p th:text="${chantier.ville} +' ('+ ${chantier.code_postal} +') ' + ${chantier.date} +' '+ ${chantier.maitre_ouvrage} +' '+ ${chantier.client}"><br/></p>
-					<p class="descriptif-article" th:text="${chantier.description}"><br/>
+					<p class="descriptif-article" th:utext="${chantier.description}"><br/>
 				</div>
 			</section>
 			

@@ -31,7 +31,7 @@
 				<div class="align-offre div-offre1">
 					<h3 th:text="${carriere.titreOffre}"></h3>
 					<h4 th:text="'Publi&eacute; le ' + ${carriere.dateOffre}"></h4>
-					<p class="text-offre" th:text="${carriere.missionOffre}"></p>
+					<p class="text-offre" th:utext="${carriere.missionOffre}"></p>
 				</div>
 				<div class="align-offre">
 					<p class="btn-consulter"><a th:href="'offre?o='+${carriere.idOffre}">Consulter</a></p>

@@ -35,7 +35,7 @@
 				</div>
 				<div class="align-article presentation-article">
 					<p th:text="${presse.nom_media} +' ('+ ${presse.date_publication} +')' "><br/></p>
-					<p class="descriptif-article" th:text="${presse.description}"><br/>
+					<p class="descriptif-article" th:utext="${presse.description}"><br/>
 					<p class="descriptif-article" th:text="${presse.lien}"><br/>
 					
 				</div>
