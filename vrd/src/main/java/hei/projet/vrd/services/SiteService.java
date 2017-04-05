@@ -132,6 +132,10 @@ public class SiteService {
 		return metierDao.getMetier(idMetier);
 	}
 	
+	public Metier addMetier(Metier metier){
+		return metierDao.addMetier(metier);
+	}
+	
 	public void updateMetier(Integer idMetier, String descriptif){
 		metierDao.updateMetier(idMetier, descriptif);
 	}

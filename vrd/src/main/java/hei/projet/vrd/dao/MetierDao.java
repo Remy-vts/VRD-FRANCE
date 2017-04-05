@@ -14,4 +14,6 @@ public interface MetierDao {
 	
 	public String getPhotoPath(Integer idMetier);
 	
+	public Metier addMetier(Metier metier);
+	
 }

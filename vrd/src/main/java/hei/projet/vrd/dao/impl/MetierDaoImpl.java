@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Metier;
 
 public class MetierDaoImpl {
@@ -67,6 +68,26 @@ public class MetierDaoImpl {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Metier addMetier(Metier metier) {
+		try {
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `metiers`(`titre`)VALUES(?);", Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, metier.getTitreMetier());
+			
+			stmt.executeUpdate();
+			
+			ResultSet ids = stmt.getGeneratedKeys();
+			if(ids.next()) {
+				metier.setIdMetier(ids.getInt(1));
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return metier;
 	}
 	
 	public String getPhotoPath(Integer id){

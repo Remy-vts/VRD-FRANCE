@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-metiers")
@@ -30,6 +31,22 @@ public class editMetiersServlet extends AbstractGenericServlet {
 		context.setVariable("editmetiers", SiteService.getInstance().listMetier());
 		
 		templateEngine.process("edit-metiers", context, resp.getWriter());
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String titre = req.getParameter("metier");
+		
+		Metier newMetier = new Metier(
+				null,
+				titre,
+				null,
+				null
+				);
+		
+		SiteService.getInstance().addMetier(newMetier);
+		resp.setCharacterEncoding("UTF8");
+		resp.sendRedirect("adm-addmsg");
 	}
 
 }
