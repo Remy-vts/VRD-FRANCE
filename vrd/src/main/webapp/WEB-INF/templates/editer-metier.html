@@ -43,11 +43,12 @@
 			                // Replace the <textarea id="editor1"> with a CKEditor
 			                // instance, using default configuration.
 			                CKEDITOR.replace( 'editor1');
-			            </script>					
+			            </script>
 			         </div>
 			        <input class="submit" type="submit" value="Modifier"/>
 				</form>
-
+				<a th:href="'javascript:ConfirmMetier('+${metiers.idmetiers}+')'"><img class="icon_list" src="img/delete.png" alt="Supprimer"/></a>
+				 <br/><br/>
 				<a class="back-btn" href="adm-metiers">Retour</a>
 			</section>
 

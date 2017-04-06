@@ -90,6 +90,8 @@ public class MetierDaoImpl {
 		return metier;
 	}
 	
+	
+	
 	public String getPhotoPath(Integer id){
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -104,6 +106,17 @@ public class MetierDaoImpl {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+
+	public void deleteMetier(Integer id) {
+		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET deleted=1 WHERE idmetiers=?")){
+		statement.setInt(1,id);
+		statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

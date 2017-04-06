@@ -16,4 +16,6 @@ public interface MetierDao {
 	
 	public Metier addMetier(Metier metier);
 	
+	public void deleteMetier(Integer id);
+	
 }

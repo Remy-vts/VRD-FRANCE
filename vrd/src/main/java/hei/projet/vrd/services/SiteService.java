@@ -168,6 +168,10 @@ public class SiteService {
 		metierDao.updateMetier(idMetier, descriptif);
 	}
 	
+	public void deleteMetier(Integer id){
+		metierDao.deleteMetier(id);
+	}
+	
 	public List<Offre>  listOffre(){
 		return offreDao.listOffre();
 	}
