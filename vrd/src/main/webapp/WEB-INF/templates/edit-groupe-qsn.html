@@ -1,0 +1,47 @@
+<html>
+
+	<head>
+		<title>VRD FRANCE : Entreprise sp&eacute;cialis&eacute;e dans la d&eacute;molition, le d&eacute;samiantage et le terrassement.</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<meta charset="utf-8"/>
+		<script src="js/ckeditor/ckeditor.js"></script>
+	</head>
+
+	<body>
+
+		<header th:replace="~{fragments :: header}"></header>
+
+		<section th:replace="~{fragments :: sous-header}"></section>
+
+		<img th:replace="~{fragments :: img-bandeau}"/>
+
+		<section id="body-page">
+			<h2>Espace administrateur >> Editer "Groupe"</h2>
+		</section>
+
+		<p class="ligne-guide">Modifier "Qui sommes-nous ?"</p>
+		
+		<form action="" method="POST" class="form-editer">
+					<div>
+						<textarea name="description" id="editor1" rows="10" cols="80" required maxlength="1000">
+			            </textarea>
+			            <script>
+			                // Replace the <textarea id="editor1"> with a CKEditor
+			                // instance, using default configuration.
+			                CKEDITOR.replace( 'editor1');
+			            </script>
+			         </div>
+			        <input class="submit" type="submit" value="Modifier"/>
+		</form>
+
+		<section class="list-edit">
+			<a class="back-btn" href="admin">Retour</a>
+		</section>
+
+		<footer th:replace="~{fragments :: footer}"></footer>
+	
+	</body>
+</html>

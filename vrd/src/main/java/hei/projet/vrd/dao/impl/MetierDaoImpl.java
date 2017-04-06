@@ -14,7 +14,7 @@ import hei.projet.vrd.entities.Metier;
 public class MetierDaoImpl {
 	
 	public List<Metier> listMetier() {
-		String query = "SELECT * FROM metiers";
+		String query = "SELECT * FROM metiers WHERE deleted=0";
 		List<Metier> metiers = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
