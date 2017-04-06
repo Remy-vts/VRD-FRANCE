@@ -58,7 +58,7 @@ public class GroupeDaoImpl {
 	
 	public void updateGroupe(Integer ID_element, String description) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE element SET description='"+description+"'' WHERE ID_element="+ID_element)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE element SET description='"+description+"' WHERE ID_element="+ID_element)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
