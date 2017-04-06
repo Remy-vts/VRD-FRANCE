@@ -1,6 +1,14 @@
 package hei.projet.vrd.services;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 //
 import java.util.List;
+
+import javax.servlet.http.Part;
+
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
 import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
@@ -96,9 +104,29 @@ public class SiteService {
 		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description);
 	}
 	
-	public Chantier addChantier(Chantier chantier){
-		return chantierDao.addChantier(chantier);
+	private static final String PICTURE_MAIN_DIRECTORY = "C:/Users/DJay DiMa/workspace/vrd/src/main/webapp/img";
+	
+	Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+			  "cloud_name", "hmx9ewx7x",
+			  "api_key", "824237185367422",
+			  "api_secret", "3GlEAEHv-BPAzMifVPbWUF6qUQk"));
+	
+	//private static final String CLOUDINARY_URL=cloudinary;
+	
+	
+	
+	public Chantier addChantier(Chantier chantier, Part picture){
+				
+		Path picturePath = Paths.get(PICTURE_MAIN_DIRECTORY,picture.getSubmittedFileName());
+		
+		//Path picturePath = Paths.get(cloudinary.toString(),picture.getSubmittedFileName());
+		
+		
+		
+		return chantierDao.addChantier(chantier, picturePath.toString());
 	}
+	
+	
 
 	public void deleteChantier(Integer id){
 		chantierDao.deleteChantier(id);

@@ -23,6 +23,36 @@
 	</build>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-core</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http42</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http43</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-taglib</artifactId>
+			<version>1.9.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.mail</groupId>

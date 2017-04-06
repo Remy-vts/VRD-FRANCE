@@ -103,10 +103,10 @@ public class ChantierDaoImpl implements ChantierDao {
 	}
 
 	@Override
-	public Chantier addChantier(Chantier chantier) {
+	public Chantier addChantier(Chantier chantier, String picture) {
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `chantier`(`ville`,`code_postal`,`date_chantier`,`maitre_ouvrage`,`client`,`titre`,`description`)VALUES(?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `chantier`(`ville`,`code_postal`,`date_chantier`,`maitre_ouvrage`,`client`,`titre`,`description`,`url_photo`)VALUES(?,?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, chantier.getVille());
 			stmt.setInt(2, chantier.getCode_postal());
 			stmt.setString(3, chantier.getDate());
@@ -114,6 +114,7 @@ public class ChantierDaoImpl implements ChantierDao {
 			stmt.setString(5, chantier.getClient());
 			stmt.setString(6, chantier.getTitre());
 			stmt.setString(7, chantier.getDescription());
+			stmt.setString(8, picture);
 			
 			stmt.executeUpdate();
 			
@@ -128,6 +129,8 @@ public class ChantierDaoImpl implements ChantierDao {
 		}
 		return chantier;
 	}
+	
+
 	
 	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
