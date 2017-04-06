@@ -10,8 +10,8 @@ function ConfirmPresse(idPresse) {
     }
 }
 
-function ConfirmPresse(idMetier) {
-    if (confirm("Etes-vous sûr de vouloir supprimer définitivement cet article ?")) {
+function ConfirmMetier(idMetier) {
+    if (confirm("Etes-vous sûr de vouloir supprimer définitivement ce metier ?")) {
         window.location("deleteMetier?m="+idMetier);
     }
 }
