@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 @WebServlet("/adm-chiffres")
 public class editGroupeChiffresServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +25,19 @@ public class editGroupeChiffresServlet extends AbstractGenericServlet {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("groupe", SiteService.getInstance().getGroupe(5));
 		templateEngine.process("edit-groupe-chiffres", context, resp.getWriter());
 	}
 
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("idGroupe"));
+		String description = req.getParameter("description");
+		
+		SiteService.getInstance().updateGroupe(id, description);
+		resp.setCharacterEncoding("UTF8");
+		resp.sendRedirect("adm-modifmsg");
+	}
+	
 }

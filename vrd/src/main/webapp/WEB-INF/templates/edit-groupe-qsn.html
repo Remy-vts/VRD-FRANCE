@@ -24,9 +24,10 @@
 
 		<p class="ligne-guide">Modifier "Qui sommes-nous ?"</p>
 		
-		<form action="" method="POST" class="form-editer">
+		<form action="adm-qsn" method="POST" class="form-editer">
+		<input type="hidden" th:value="${groupe.ID_element}" name="idGroupe"/>
 					<div>
-						<textarea name="description" id="editor1" rows="10" cols="80" required maxlength="1000">
+						<textarea name="description" id="editor1" th:text="${groupe.description}" rows="10" cols="80" required maxlength="1000">
 			            </textarea>
 			            <script>
 			                // Replace the <textarea id="editor1"> with a CKEditor
