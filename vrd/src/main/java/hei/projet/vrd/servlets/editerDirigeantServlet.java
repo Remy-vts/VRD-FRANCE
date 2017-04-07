@@ -11,11 +11,10 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.entities.Dirigeant;
-import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.services.SiteService;
 
-@WebServlet("/adm-dir")
-public class editDirigeantServlet extends AbstractGenericServlet {
+@WebServlet("/adm-mdir")
+public class editerDirigeantServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
 	/**
@@ -24,27 +23,20 @@ public class editDirigeantServlet extends AbstractGenericServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setCharacterEncoding("UTF-8");
+		Integer id = Integer.parseInt(req.getParameter("dir"));
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
-		templateEngine.process("adm-dirigeant", context, resp.getWriter());
+		context.setVariable("dirigeant", SiteService.getInstance().getDirigeant(id));
+		templateEngine.process("adm-mdirigeant", context, resp.getWriter());
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nom = req.getParameter("dirigeantnom");
+		Integer id = Integer.parseInt(req.getParameter("iddir"));
 		String fonction = req.getParameter("dirigeantfonction");
 		String presentation = req.getParameter("dirigeantpresentation");
 		
-		Dirigeant newDirigeant = new Dirigeant(
-				null,
-				nom,
-				fonction,
-				presentation,
-				null
-				);
-		
-		SiteService.getInstance().addDirigeant(newDirigeant);
+		SiteService.getInstance().updateDirigeant(id, fonction, presentation, null);;
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-addmsg");
 	}

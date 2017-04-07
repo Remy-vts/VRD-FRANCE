@@ -61,8 +61,16 @@ public class SiteService {
 		return dirigeantDao.getDirigeant(id);
 	}
 	
-	public void updateDirigeant(Integer idindividu, String nom, String fonction, String presentation, String photo){
-		dirigeantDao.updateDirigeant(idindividu, nom, fonction, presentation, photo);
+	public void updateDirigeant(Integer idindividu,  String fonction, String presentation, String photo){
+		dirigeantDao.updateDirigeant(idindividu, fonction, presentation, photo);
+	}
+	
+	public Dirigeant addDirigeant(Dirigeant dirigeant){
+		return dirigeantDao.addDirigeant(dirigeant);
+	}
+
+	public void deleteDirigeant(Integer id){
+		dirigeantDao.deleteDirigeant(id);
 	}
 	
 	public List<Engagements> listEngagements(){

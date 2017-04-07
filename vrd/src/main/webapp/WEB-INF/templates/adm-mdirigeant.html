@@ -1,0 +1,50 @@
+<html>
+
+	<head>
+		<title>VRD FRANCE : Entreprise sp&eacute;cialis&eacute;e dans la d&eacute;molition, le d&eacute;samiantage et le terrassement.</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
+		<script src="js/javascript.js"></script>
+		<meta charset="utf-8"/>
+	</head>
+
+	<body>
+
+		<header th:replace="~{fragments :: header}"></header>
+
+		<section th:replace="~{fragments :: sous-header}"></section>
+
+		<img th:replace="~{fragments :: img-bandeau}"/>
+
+		<section id="body-page">
+
+			<h2>Espace administrateur >> Editer "Dirigeants"</h2>
+			
+		</section>
+		
+		<p class="ligne-guide" th:text="'Modifier '+${dirigeant.nom}"></p>
+
+			<section class="list-edit">
+				<form action="adm-mdir" method="POST">
+					<span class="form-display"><input class="add_form" type="hidden" name="iddir" required maxlength="2"/></span>
+					<p class="ligne-tableau">
+						<label for="dirigeantfonction">Fonction</label>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.fonction}" name="dirigeantfonction" required maxlength="50"/></span>
+					</p>
+					<p class="ligne-tableau">
+						<label for="dirigeantpresentation">Presentation</label>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.description}" name="dirigeantpresentation" required maxlength="400"/></span>
+					</p>
+					<input type="submit" class="submit" value="Modifier"/>
+				</form>
+		
+			<a class="back-btn" href="admin">Retour</a>
+			</section>
+			
+			
+		<footer th:replace="~{fragments :: footer}"></footer>
+	
+	</body>
+</html>

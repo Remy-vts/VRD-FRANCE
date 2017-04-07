@@ -16,6 +16,12 @@ function ConfirmOffre(idOffre) {
     }
 }
 
+function ConfirmDirigeant(idDirigeant) {
+    if (confirm("Etes-vous sûr de vouloir supprimer définitivement ce dirigeant ?")) {
+        window.location("deleteDirigeant?d="+idDirigeant);
+    }
+}
+
 
 //AJOUT TITRE
 

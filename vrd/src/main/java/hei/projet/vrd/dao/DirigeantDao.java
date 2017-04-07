@@ -12,8 +12,12 @@ public interface DirigeantDao {
 
 	public Dirigeant getDirigeant(Integer ID_individu);
 	
-	public void updateDirigeant(Integer ID_individu, String nom, String fonction, String presentation, String photo);
+	public void updateDirigeant(Integer ID_individu, String fonction, String presentation, String photo);
 	
 	public String getPhotoPath(Integer ID_individu);
+	
+	public Dirigeant addDirigeant(String nomn, String fonction, String presentation);
+	
+	public void deleteDirigeant(Integer id);
 
 }
