@@ -144,6 +144,10 @@ public class SiteService {
 		return metierDao.getMetier(idMetier);
 	}
 	
+	public void deleteMetier(Integer id){
+		metierDao.deleteMetier(id);
+	}
+	
 	public Metier addMetier(Metier metier){
 		return metierDao.addMetier(metier);
 	}
