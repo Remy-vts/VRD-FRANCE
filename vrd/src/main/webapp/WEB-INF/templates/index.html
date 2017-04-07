@@ -64,7 +64,7 @@
 			<section id="dernieres-realisations" >
 				<h2>Nos derni&egrave;res r&eacute;alisations</h2>
 					<div th:each= "chantier : ${chantiers}">
-						<img class="photo-chantier" src="img/photo1.png" alt="Photo chantier"/>
+						<img class="photo-chantier" th:src="${chantier.url_photo}" alt="Photo chantier"/>
 						<p>
 							<img class="helmet" src="img/helmet.png" alt="Casque de chantier" th:text="'['+${chantier.ville}+'] '+${chantier.titre}"/>	
 						</p>

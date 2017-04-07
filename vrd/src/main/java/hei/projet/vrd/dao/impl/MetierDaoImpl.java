@@ -14,7 +14,7 @@ import hei.projet.vrd.entities.Metier;
 public class MetierDaoImpl {
 	
 	public List<Metier> listMetier() {
-		String query = "SELECT * FROM metiers WHERE deleted=0";
+		String query = "SELECT * FROM metiers";
 		List<Metier> metiers = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
@@ -90,8 +90,6 @@ public class MetierDaoImpl {
 		return metier;
 	}
 	
-	
-	
 	public String getPhotoPath(Integer id){
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -106,17 +104,6 @@ public class MetierDaoImpl {
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
-
-	public void deleteMetier(Integer id) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET deleted=1 WHERE idmetiers=?")){
-		statement.setInt(1,id);
-		statement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

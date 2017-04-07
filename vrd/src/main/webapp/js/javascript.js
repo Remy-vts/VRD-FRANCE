@@ -10,17 +10,12 @@ function ConfirmPresse(idPresse) {
     }
 }
 
-function ConfirmMetier(idMetier) {
-    if (confirm("Etes-vous sûr de vouloir supprimer définitivement ce metier ?")) {
-        window.location("deleteMetier?m="+idMetier);
-    }
-}
-
 function ConfirmOffre(idOffre) {
     if (confirm("Etes-vous sûr de vouloir supprimer définitivement cette offre ?")) {
         window.location("deleteOffre?o="+idOffre);
     }
 }
+
 
 //AJOUT TITRE
 

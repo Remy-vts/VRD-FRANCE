@@ -33,7 +33,7 @@ public class actualitesServlet extends AbstractGenericServlet {
 		context.setVariable("actualites", SiteService.getInstance().listChantier());
 		
 		
-			
+		
 		templateEngine.process("actualites", context, resp.getWriter());
 	}
 

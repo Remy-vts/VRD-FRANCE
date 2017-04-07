@@ -1,5 +1,6 @@
 package hei.projet.vrd.services;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 //
@@ -103,27 +104,10 @@ public class SiteService {
 	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description){
 		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description);
 	}
-	
-	private static final String PICTURE_MAIN_DIRECTORY = "C:/Users/DJay DiMa/workspace/vrd/src/main/webapp/img";
-	
-	Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
-			  "cloud_name", "hmx9ewx7x",
-			  "api_key", "824237185367422",
-			  "api_secret", "3GlEAEHv-BPAzMifVPbWUF6qUQk"));
-	
-	//private static final String CLOUDINARY_URL=cloudinary;
-	
-	
-	
-	public Chantier addChantier(Chantier chantier, Part picture){
-				
-		Path picturePath = Paths.get(PICTURE_MAIN_DIRECTORY,picture.getSubmittedFileName());
-		
-		//Path picturePath = Paths.get(cloudinary.toString(),picture.getSubmittedFileName());
-		
-		
-		
-		return chantierDao.addChantier(chantier, picturePath.toString());
+			
+	public Chantier addChantier(Chantier chantier, Part picture) throws IOException{
+								
+		return chantierDao.addChantier(chantier, "https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture.getSubmittedFileName());
 	}
 	
 	
@@ -168,10 +152,6 @@ public class SiteService {
 		metierDao.updateMetier(idMetier, descriptif);
 	}
 	
-	public void deleteMetier(Integer id){
-		metierDao.deleteMetier(id);
-	}
-	
 	public List<Offre>  listOffre(){
 		return offreDao.listOffre();
 	}
@@ -199,5 +179,7 @@ public class SiteService {
 	public void updateCoordonnees(String mail, String telephone){
 		coordonneesDao.updateCoordonnees(mail, telephone);
 	}
+	
+	
 	
 }

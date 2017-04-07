@@ -39,5 +39,6 @@
 	<classpathentry kind="lib" path="Library/cloudinary-http43-1.9.1.jar"/>
 	<classpathentry kind="lib" path="Library/cloudinary-http44-1.9.1.jar"/>
 	<classpathentry kind="lib" path="Library/cloudinary-taglib-1.9.1.jar"/>
+	<classpathentry kind="lib" path="Library/aws-java-sdk-s3-1.11.18.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

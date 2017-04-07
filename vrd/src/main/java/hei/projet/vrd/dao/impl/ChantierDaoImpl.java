@@ -31,7 +31,8 @@ public class ChantierDaoImpl implements ChantierDao {
 								resultSet.getString("maitre_ouvrage"), 
 								resultSet.getString("client"),
 								resultSet.getString("titre"), 
-								resultSet.getString("description")
+								resultSet.getString("description"),
+								resultSet.getString("url_photo")
 								);
 								
 								chantiers.add(chantier);
@@ -61,7 +62,8 @@ public class ChantierDaoImpl implements ChantierDao {
 								resultSet.getString("maitre_ouvrage"), 
 								resultSet.getString("client"),
 								resultSet.getString("titre"), 
-								resultSet.getString("description")
+								resultSet.getString("description"),
+								resultSet.getString("url_photo")
 								);
 								
 								chantiers.add(chantier);
@@ -89,7 +91,8 @@ public class ChantierDaoImpl implements ChantierDao {
 								resultSet.getString("maitre_ouvrage"),
 								resultSet.getString("client"),
 								resultSet.getString("titre"), 
-								resultSet.getString("description")
+								resultSet.getString("description"),
+								resultSet.getString("url_photo")															
 								);
 					}
 				}
