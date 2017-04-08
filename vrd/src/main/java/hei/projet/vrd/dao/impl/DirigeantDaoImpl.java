@@ -43,7 +43,7 @@ public class DirigeantDaoImpl {
 
 	public Dirigeant getDirigeant(Integer id) {
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
-			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM dirigeant WHERE ID_individu= ?", Statement.RETURN_GENERATED_KEYS)){
+			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM dirigeant WHERE ID_individu=?", Statement.RETURN_GENERATED_KEYS)){
 				statement.setInt(1,id);
 				try(ResultSet resultSet = statement.executeQuery()){
 					if(resultSet.next()){				
@@ -65,13 +65,13 @@ public class DirigeantDaoImpl {
 		return null;
 	}
 	
-	public void updateDirigeant(Integer ID_individu, String fonction, String presentation, String url_photo) {
+	public void updateDirigeant(Integer id, String fonction, String presentation, String photo){
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE dirigeant SET fonction='"+fonction+"',presentation='"+presentation+"',url_photo='"+url_photo+"' WHERE ID_individu="+ID_individu)){
-		statement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+				PreparedStatement statement = connection.prepareStatement("UPDATE dirigeant SET fonction='"+fonction+"',presentation='"+presentation+"', url_photo='"+photo+"' WHERE ID_individu='"+id)){
+				statement.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 	}
 	
 	

@@ -77,12 +77,21 @@
 			</form>
 
 		<p class="ligne-guide">Choisir les 3 chantiers de r&eacute;f&eacute;rence</p>
-		<form action="" method="POST">
-			<div>
-
-			</div>
-			<input class="submit" type="submit" value="Modifier"/>
-		</form>
+		
+		<table class="table-admin">
+			<tr class=ligne1>
+				<td>Titre</td>
+				<td>Ville</td>
+				<td>S&eacute;lectionn&eacute;</td>
+			</tr>
+			<tr th:each="reference : ${references}">
+				<td th:text="${reference.ville}"></td>
+				<td th:text="${reference.titre}">></td>
+				<td>
+					
+				</td>
+			</tr>
+		</table>
 
 		<section class="list-edit">
 			<a class="back-btn" href="admin">Retour</a>
