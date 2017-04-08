@@ -40,6 +40,7 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String candidature = req.getParameter("offre");
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		String mail = req.getParameter("mail");
@@ -59,4 +60,5 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		
 		resp.sendRedirect("candidature-msg");
 
+}
 }
