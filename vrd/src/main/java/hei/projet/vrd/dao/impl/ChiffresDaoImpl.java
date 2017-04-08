@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hei.projet.vrd.dao.ChiffresDao;
+import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Chiffres;
 
 
@@ -37,6 +38,29 @@ public class ChiffresDaoImpl implements ChiffresDao {
 			e.printStackTrace();
 		}
 		return chiffres;
+	}
+	
+	@Override
+	public Chiffres getChiffres(Integer id) {
+		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
+			try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM chiffres WHERE idchiffres= ?", Statement.RETURN_GENERATED_KEYS)){
+				statement.setInt(1,id);
+				try(ResultSet resultSet = statement.executeQuery()){
+					if(resultSet.next()){				
+						return new Chiffres(
+								resultSet.getInt("idchiffres"), 
+								resultSet.getString("titre"),
+								resultSet.getInt("chiffre")															
+								);
+					}
+				}
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public void updateChiffres(Integer id, String titre, Integer chiffres) {

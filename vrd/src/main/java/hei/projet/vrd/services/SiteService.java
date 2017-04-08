@@ -197,6 +197,11 @@ public class SiteService {
 	public List<Chiffres>  listChiffres(){
 		return chiffreDao.listChiffres();
 	}
+	
+	public Chiffres getChiffres(Integer id){
+		return chiffreDao.getChiffres(id);
+	}
+	
 	public void updateChiffres(Integer id, String titre, Integer chiffre){
 		chiffreDao.updateChiffres(id, titre, chiffre);
 	}

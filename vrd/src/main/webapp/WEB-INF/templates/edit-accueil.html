@@ -79,13 +79,40 @@
 		<p class="ligne-guide">Choisir les 3 chantiers de r&eacute;f&eacute;rence</p>
 		<form action="" method="POST">
 			<div>
-
+				
 			</div>
 			<input class="submit" type="submit" value="Modifier"/>
 		</form>
-
+		
+		<p class="ligne-guide">Modifier les chiffres</p>
+		<section id="form-ch">
+		<form action="" method="POST">
+			<div>
+				<input class="edit-ch" type="text" name="titre1" th:value="${chiffreun.titre}"/>
+				<input class="edit-ch" type="text" name="chiffre1" th:value="${chiffreun.chiffre}"/>
+				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
+			</div>
+		</form>
+		
+		<form action="" method="POST">
+			<div>
+				<input class="edit-ch" type="text" name="titre2" th:value="${chiffredeux.titre}"/>
+				<input class="edit-ch" type="text" name="chiffre2" th:value="${chiffredeux.chiffre}"/>
+				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
+			</div>
+		</form>
+		
+		<form action="" method="POST">
+			<div>
+				<input class="edit-ch" type="text" name="titre3" th:value="${chiffretrois.titre}"/>
+				<input class="edit-ch" type="text" name="chiffre3" th:value="${chiffretrois.chiffre}"/>
+				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
+			</div>
+		</form>
+		</section>
+		<br/>
 		<section class="list-edit">
-			<a class="back-btn" href="admin">Retour</a>
+			<a class="submit-ch back-btn" href="admin">Retour</a>
 		</section>
 
 		<footer th:replace="~{fragments :: footer}"></footer>

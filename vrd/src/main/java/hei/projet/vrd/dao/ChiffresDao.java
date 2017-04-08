@@ -9,6 +9,8 @@ public interface ChiffresDao {
 
 	public List<Chiffres>  listChiffres();
 	
+	public Chiffres getChiffres(Integer id);
+	
 	public void updateChiffres(Integer id, String titre, Integer chiffre);
 
 }
