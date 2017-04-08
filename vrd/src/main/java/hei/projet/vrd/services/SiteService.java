@@ -12,6 +12,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
+import hei.projet.vrd.dao.impl.ChiffresDaoImpl;
 import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
 import hei.projet.vrd.dao.impl.DirigeantDaoImpl;
 import hei.projet.vrd.dao.impl.EngagementsDaoImpl;
@@ -20,6 +21,7 @@ import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.dao.impl.PresseDaoImpl;
 import hei.projet.vrd.entities.Chantier;
+import hei.projet.vrd.entities.Chiffres;
 import hei.projet.vrd.entities.Coordonnees;
 import hei.projet.vrd.entities.Dirigeant;
 import hei.projet.vrd.entities.Engagements;
@@ -50,7 +52,7 @@ public class SiteService {
 	private MetierDaoImpl metierDao = new MetierDaoImpl();
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
 	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
-	
+	private ChiffresDaoImpl chiffreDao = new ChiffresDaoImpl();
 	
 	
 	public List<Dirigeant> listDirigeant(){
@@ -192,6 +194,11 @@ public class SiteService {
 		coordonneesDao.updateCoordonnees(mail, telephone);
 	}
 	
-	
+	public List<Chiffres>  listChiffres(){
+		return chiffreDao.listChiffres();
+	}
+	public void updateChiffres(Integer id, String titre, Integer chiffre){
+		chiffreDao.updateChiffres(id, titre, chiffre);
+	}
 	
 }
