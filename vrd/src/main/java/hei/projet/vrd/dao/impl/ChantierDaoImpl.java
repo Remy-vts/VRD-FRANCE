@@ -135,31 +135,15 @@ public class ChantierDaoImpl implements ChantierDao {
 	
 
 	
-	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description) {
+	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description, String photo) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  titre='"+titre+"',ville='"+ville+"',code_postal='"+code_postal+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', description='"+description+"' WHERE ID_chantier="+id)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  titre='"+titre+"',ville='"+ville+"',code_postal='"+code_postal+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', description='"+description+"', url_photo='"+photo+"' WHERE ID_chantier="+id)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public String getPhotoPath(Integer id){
-		try {
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT url_photo FROM chantier"
-					+ "WHERE id_chantier=? AND deleted='0'");
-			stmt.setInt(1, id);
-			ResultSet resultSet = stmt.executeQuery();
-			if(resultSet.next()) {
-				return resultSet.getString("url_photo");
-				}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 
 	@Override
 	public void deleteChantier(Integer id) {

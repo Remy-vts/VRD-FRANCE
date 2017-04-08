@@ -109,8 +109,8 @@ public class SiteService {
 		return chantierDao.getChantier(id);
 	}
 	
-	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description){
-		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description);
+	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description, String photo){
+		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description, photo);
 	}
 			
 	public Chantier addChantier(Chantier chantier, Part picture) throws IOException{

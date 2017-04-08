@@ -21,7 +21,7 @@ public class ImageS3Util {
     private static final String BUCKET = "vrdfrance";
     private static final String S3_CACHE = "60"; // e.g 60
     private static AmazonS3 s3;
-    public static void uploadImageToAWSS3(Part multipartFile) throws IllegalStateException,
+    public static void uploadImageToAWSS3(Part multipartFile, String id) throws IllegalStateException,
                IOException {	String fileName = null;
         try {
             AWSCredentials credentials = new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY);
@@ -29,7 +29,7 @@ public class ImageS3Util {
             s3 = new AmazonS3Client(credentials);	s3.setEndpoint(END_POINT_URL);
             InputStream stream = multipartFile.getInputStream();
             System.out.println("stream:"+stream);
-            fileName = multipartFile.getSubmittedFileName();
+            fileName = id;
             System.out.println("filename:"+fileName);
             ObjectMetadata objectMetadata = new ObjectMetadata();
             System.out.println("object:"+objectMetadata);

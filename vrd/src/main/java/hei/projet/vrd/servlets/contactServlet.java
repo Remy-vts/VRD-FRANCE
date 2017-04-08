@@ -16,8 +16,6 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-
-
 @WebServlet("/contact")
 public class contactServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;

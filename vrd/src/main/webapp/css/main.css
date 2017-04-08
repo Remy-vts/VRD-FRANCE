@@ -58,11 +58,3 @@ section.sous-partie{
 	margin-top: 0;
 	text-align: center;
 }
-
-.lien-menu{
-	position: relative;
-    top: -40px;
-    color: white;
-    font-size: 12px;
-    margin-left: 45px;
-}

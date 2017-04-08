@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.Dirigeant;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-mdir")
@@ -35,9 +36,9 @@ public class editerDirigeantServlet extends AbstractGenericServlet {
 		String fonction = req.getParameter("dirigeantfonction");
 		String presentation = req.getParameter("dirigeantpresentation");
 		
-		SiteService.getInstance().updateDirigeant(id, fonction, presentation, "test");
+		SiteService.getInstance().updateDirigeant(id, fonction, presentation, null);;
 		resp.setCharacterEncoding("UTF8");
-		resp.sendRedirect("adm-modifmsg");
+		resp.sendRedirect("adm-addmsg");
 	}
 
 }

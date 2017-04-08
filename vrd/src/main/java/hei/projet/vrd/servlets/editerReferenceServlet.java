@@ -3,6 +3,7 @@ package hei.projet.vrd.servlets;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -50,7 +51,7 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 		
 		Part photo = req.getPart("photo");
 		
-		ImageS3Util.uploadImageToAWSS3(photo);
+		
 		
 
 		Calendar cal = Calendar.getInstance();
@@ -71,6 +72,18 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 				);
 		
 		SiteService.getInstance().addChantier(newChantier, req.getPart("photo"));
+		
+		List <Chantier> listChantier = SiteService.getInstance().listChantier();
+		int taille = listChantier.size();	
+		Chantier leChantier = listChantier.get(taille-1);
+				
+		String id = leChantier.getId().toString();
+		System.out.println("id : "+id);
+		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/"+id;
+		ImageS3Util.uploadImageToAWSS3(photo, id);
+		
+		SiteService.getInstance().updateChantier(leChantier.getId(), titre, ville, cp, mo, client, mission, chemin);
+		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-addmsg");
 		
