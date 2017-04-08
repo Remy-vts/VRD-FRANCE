@@ -37,7 +37,7 @@
 		</div>
 
 		<form id="send-candidature" method="POST" action="" enctype="multipart/form-data">
-			<input type="hidden" th:value="'Candidature ' + ${offre.titreOffre} + '(Ref : ' + ${offre.referenceOffre} + ')'" name="offre"/>
+			<input type="hidden" th:value="'Candidature ' + ${offre.titreOffre} + ' (Ref : ' + ${offre.referenceOffre} + ')'" name="offre"/>
 			<div> 
 				<label for="nom">Nom</label><input required type="text" name="nom"/>
 			</div>
@@ -52,9 +52,6 @@
 			</div>
 			<div>
 				<label>CV (PDF)</label><input class="load-file" required type="file" name="cv"/>
-			</div>
-			<div>
-				<label>Lettre de motivation (PDF)</label><input class="load-file" required type="file" name="lm"/><br/>
 			</div>
 			<div>
 				<label>Message</label><input required type="text" name="message"/>

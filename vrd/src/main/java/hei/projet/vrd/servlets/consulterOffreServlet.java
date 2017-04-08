@@ -1,7 +1,10 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +22,7 @@ import hei.projet.vrd.services.SiteService;
 
 
 @WebServlet("/offre")
+@MultipartConfig
 public class consulterOffreServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -40,23 +44,30 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String candidature = req.getParameter("offre");
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		String mail = req.getParameter("mail");
 		String telephone = req.getParameter("telephone");		
 		Part cv = req.getPart("cv");
-		Part lm = req.getPart("lm");
+		String message = req.getParameter("message");
+		String referenceNom = req.getParameter("offre");
 		
-		String nomCV = "-candidature-"+nom+"-"+prenom+"-"+cv.getSubmittedFileName();
-		System.out.println(nomCV);
+		String nomFichier = cv.getSubmittedFileName();
+		String nomFishieNoWhiteSpace = nomFichier.replaceAll("\\s", "");;
+		System.out.println("nomFichier "+nomFishieNoWhiteSpace);
+		
+		String nomCV = referenceNom+"-"+nom+"-"+prenom+"-"+nomFishieNoWhiteSpace;
+		
+		System.out.println("nomCV"+nomCV);
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
 		
-		String nomLM = "-candidature-"+nom+"-"+prenom+"-"+lm.getSubmittedFileName();
-		System.out.println(nomLM);
-		ImageS3Util.uploadImageToAWSS3(lm, nomLM);
 		
-		envoiCandidature.main(nom, prenom, mail, telephone, nomCV, nomLM, reference, titreOffre);
+		try {
+			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, referenceNom, referenceNom);
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		resp.sendRedirect("candidature-msg");
 

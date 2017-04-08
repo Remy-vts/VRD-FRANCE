@@ -77,13 +77,23 @@
 
 		<section id="chiffres-cles">
 			<h2 class="titre titre-chiffres">Chiffres cl&eacute;s en 2016</h2>
-			<div th:each="chiffre : ${chiffres}">
-				<p class="chiffres-weight" th:text="${chiffre.chiffre}"></p>
-				<p class="chiffres-text" th:text="${chiffre.titre}"></p>
+			<div>
+				<p class="chiffres-weight">50</p>
+				<p class="chiffres-text">chantiers</p>
+			</div>
+			<div>
+				<p class="chiffres-weight">500</p>
+				<p class="chiffres-text">tonnes revaloris&eacute;es</p>
+			</div>
+			<div>
+				<p class="chiffres-weight">10</p>
+				<p class="chiffres-text">collaborateurs</p>
 			</div>
 		</section>
 
 		<footer th:replace="~{fragments :: footer}"></footer>
+		
+		
 	
 	</body>
 </html>

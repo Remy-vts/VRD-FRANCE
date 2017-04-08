@@ -150,24 +150,3 @@ input.pst{
 .form-display{
 	display:inline-block;
 }
-
-.edit-ch{
-	display: inline-block;
-	width:200px;
-}
-
-.submit-ch{
-	background-color: #383838;
-	padding-top:5px;
-	padding-bottom:5px;
-	color: white;
-	cursor: pointer;
-	border: none;
-	border-radius:10px;
-	width: 200px;
-	vertical-align: top;
-}
-
-.form-ch{
-	padding-left:80px;
-}

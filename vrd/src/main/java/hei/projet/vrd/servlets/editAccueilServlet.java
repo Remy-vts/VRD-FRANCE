@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-import hei.projet.vrd.services.SiteService;
-
 @WebServlet("/adm-accueil")
 public class editAccueilServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,9 +25,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		context.setVariable("chiffreun", SiteService.getInstance().getChiffres(1));
-		context.setVariable("chiffredeux", SiteService.getInstance().getChiffres(2));
-		context.setVariable("chiffretrois", SiteService.getInstance().getChiffres(3));
+			
 		templateEngine.process("edit-accueil", context, resp.getWriter());
 	}
 

@@ -1,6 +1,8 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -45,17 +47,24 @@ public class candidatureServlet extends AbstractGenericServlet {
 		String mail = req.getParameter("mail");
 		String telephone = req.getParameter("telephone");		
 		Part cv = req.getPart("cv");
-		Part lm = req.getPart("lm");
+		String message = req.getParameter("message");
 		
-		String nomCV = "-candidature-"+nom+"-"+prenom+"-"+cv.getSubmittedFileName();
-		System.out.println(nomCV);
+		String nomFichier = cv.getSubmittedFileName();
+		String nomFishieNoWhiteSpace = nomFichier.replaceAll("\\s", "");;
+		System.out.println("nomFichier "+nomFishieNoWhiteSpace);
+		
+		String nomCV = "Candidature Spontanée-"+nom+"-"+prenom+"-"+nomFishieNoWhiteSpace;
+		
+		System.out.println("nomCV"+nomCV);
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
 		
-		String nomLM = "-candidature-"+nom+"-"+prenom+"-"+lm.getSubmittedFileName();
-		System.out.println(nomLM);
-		ImageS3Util.uploadImageToAWSS3(lm, nomLM);
 		
-		envoiCandidature.main(nom, prenom, mail, telephone, nomCV, nomLM, null, null);
+		try {
+			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanée");
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		resp.sendRedirect("candidature-msg");
 		
