@@ -37,7 +37,7 @@ public class editerMetierServlet extends AbstractGenericServlet {
 		
 		SiteService.getInstance().updateMetier(idMetier, description);
 		resp.setCharacterEncoding("UTF8");
-		resp.sendRedirect("adm-ajoutmsg");
+		resp.sendRedirect("adm-modifmsg");
 	}
 
 }
