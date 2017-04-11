@@ -2,17 +2,21 @@ package hei.projet.vrd.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-metier")
+@MultipartConfig
 public class editerMetierServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -34,8 +38,12 @@ public class editerMetierServlet extends AbstractGenericServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer idMetier = Integer.parseInt(req.getParameter("idMetier"));
 		String description = req.getParameter("description");
+		Part photo = req.getPart("photo");
+				
+		ImageS3Util.uploadImageToAWSS3(photo, "metier-"+idMetier.toString());
 		
-		SiteService.getInstance().updateMetier(idMetier, description);
+		SiteService.getInstance().updateMetier(idMetier, description, "https://s3.eu-west-2.amazonaws.com/vrdfrance/metier-"+idMetier.toString());
+				
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

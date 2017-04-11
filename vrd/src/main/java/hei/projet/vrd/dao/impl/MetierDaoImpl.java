@@ -61,9 +61,9 @@ public class MetierDaoImpl {
 		return null;
 	}
 	
-	public void updateMetier(Integer idmetiers, String descriptif) {
+	public void updateMetier(Integer idmetiers, String descriptif, String photo) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET descriptif='"+descriptif+"' WHERE idmetiers="+idmetiers)){
+		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET descriptif='"+descriptif+"', photo='"+photo+"' WHERE idmetiers="+idmetiers)){
 		statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

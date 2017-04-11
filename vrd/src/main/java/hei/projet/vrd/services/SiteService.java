@@ -154,8 +154,8 @@ public class SiteService {
 		return metierDao.addMetier(metier);
 	}
 	
-	public void updateMetier(Integer idMetier, String descriptif){
-		metierDao.updateMetier(idMetier, descriptif);
+	public void updateMetier(Integer idMetier, String descriptif, String photo){
+		metierDao.updateMetier(idMetier, descriptif, photo);
 	}
 	
 	public List<Offre>  listOffre(){
