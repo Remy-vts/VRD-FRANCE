@@ -47,11 +47,8 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 		Integer cp = Integer.parseInt(req.getParameter("cp"));
 		String mo = req.getParameter("mo");
 		String client = req.getParameter("client");
-		String mission = req.getParameter("mission");
-		
+		String mission = req.getParameter("mission");		
 		Part photo = req.getPart("photo");
-		
-		
 		
 
 		Calendar cal = Calendar.getInstance();
@@ -79,8 +76,8 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 				
 		String id = leChantier.getId().toString();
 		System.out.println("id : "+id);
-		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/"+id;
-		ImageS3Util.uploadImageToAWSS3(photo, id);
+		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/chantier-"+id;
+		ImageS3Util.uploadImageToAWSS3(photo, "chantier-"+id);
 		
 		SiteService.getInstance().updateChantier(leChantier.getId(), titre, ville, cp, mo, client, mission, chemin);
 		

@@ -31,7 +31,7 @@
 			<section class="article" th:each= "presse : ${presses}">
 				<h1 th:text="${presse.titre}"></h1>
 				<div class="align-article">
-					<img src="img/photo1.png" alt="article"/>
+					<img th:src="${presse.url_photo}" alt="article"/>
 				</div>
 				<div class="align-article presentation-article">
 					<p th:text="${presse.nom_media} +' ('+ ${presse.date_publication} +')' "><br/></p>

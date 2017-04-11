@@ -1,16 +1,9 @@
 package hei.projet.vrd.services;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-//
 import java.util.List;
-
 import javax.servlet.http.Part;
-
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
-
+import hei.projet.vrd.dao.impl.AccueilDaoImpl;
 import hei.projet.vrd.dao.impl.ChantierDaoImpl;
 import hei.projet.vrd.dao.impl.ChiffresDaoImpl;
 import hei.projet.vrd.dao.impl.CoordonneesDaoImpl;
@@ -20,6 +13,7 @@ import hei.projet.vrd.dao.impl.GroupeDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.dao.impl.PresseDaoImpl;
+import hei.projet.vrd.entities.Accueil;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Chiffres;
 import hei.projet.vrd.entities.Coordonnees;
@@ -53,6 +47,7 @@ public class SiteService {
 	private OffreDaoImpl offreDao = new OffreDaoImpl();
 	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
 	private ChiffresDaoImpl chiffreDao = new ChiffresDaoImpl();
+	private AccueilDaoImpl accueilDao = new AccueilDaoImpl();
 	
 	public List<Dirigeant> listDirigeant(){
 		return dirigeantDao.listDirigeant();
@@ -131,12 +126,12 @@ public class SiteService {
 		return presseDao.getPresse(id);
 	}
 	
-	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description){
-		presseDao.updatePresse(ID_presse, nom_media, lien, titre, description);
+	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description, String chemin){
+		presseDao.updatePresse(ID_presse, nom_media, lien, titre, description, chemin);
 	}
 	
-	public Presse addPresse(Presse presse){
-		return presseDao.addPresse(presse);
+	public Presse addPresse(Presse presse, Part picture) throws IOException{
+		return presseDao.addPresse(presse, "https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture.getSubmittedFileName());
 	}
 
 	public void deletePresse(Integer id){
@@ -202,4 +197,32 @@ public class SiteService {
 	public void updateChiffres(Integer id,  String titre, Integer chiffre){
 		chiffreDao.updateChiffres(id, titre, chiffre);
 	}
+	
+	public List<Accueil>  listPhoto(){
+		return accueilDao.listPhoto();
+	}
+		
+	public Accueil getPhoto(Integer id){
+		return accueilDao.getPhoto(id);
+	}
+	
+	public void updatePhoto(Integer id, String photo1, String photo2, String photo3, String photo4, String photo5, String photo6, String photo7, String photo8){
+		accueilDao.updatePhoto(id, photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8);
+	}
+			
+	public Accueil addPhoto(Accueil accueil, Part picture1, Part picture2, Part picture3, Part picture4, Part picture5, Part picture6, Part picture7, Part picture8) throws IOException{
+								
+		return accueilDao.addPhoto(
+				accueil, 
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture1.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture2.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture3.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture4.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture5.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture6.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture7.getSubmittedFileName(),
+				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture8.getSubmittedFileName());
+	}
+
+	
 }

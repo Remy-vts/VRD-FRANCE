@@ -42,5 +42,7 @@ public class modificationPresseServlet extends AbstractGenericServlet {
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}
+	
+	
 
 }

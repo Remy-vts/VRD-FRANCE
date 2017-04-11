@@ -7,9 +7,9 @@ public class Presse {
 	private String lien;
 	private String titre;
 	private String description;
+	private String url_photo;
 	
-	public Presse(Integer iD_presse, String nom_media, String date_publication, String lien, String titre,
-			String description) {
+	public Presse(Integer iD_presse, String nom_media, String date_publication, String lien, String titre, String description, String url_photo) {
 		super();
 		this.ID_presse = iD_presse;
 		this.nom_media = nom_media;
@@ -17,7 +17,20 @@ public class Presse {
 		this.lien = lien;
 		this.titre = titre;
 		this.description = description;
+		this.url_photo = url_photo;
+		
 	}
+	
+
+	public String getUrl_photo() {
+		return url_photo;
+	}
+
+
+	public void setUrl_photo(String url_photo) {
+		this.url_photo = url_photo;
+	}
+
 
 	public Integer getID_presse() {
 		return ID_presse;
@@ -66,6 +79,7 @@ public class Presse {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	
 	
 	

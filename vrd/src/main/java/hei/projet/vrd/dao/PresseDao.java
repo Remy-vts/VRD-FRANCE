@@ -11,9 +11,9 @@ public interface PresseDao {
 
 	public Presse getPresse(Integer id);
 	
-	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description);
+	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description, String chemin);
 	
-	public Presse addPresse(Presse presse);
+	public Presse addPresse(Presse presse, String photo);
 	
 	public String getPhotoPath(Integer id);
 

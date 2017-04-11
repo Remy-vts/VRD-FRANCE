@@ -28,7 +28,8 @@ public class PresseDaoImpl implements PresseDao {
 								resultSet.getString("date_publication"), 
 								resultSet.getString("lien"),
 								resultSet.getString("titre"), 
-								resultSet.getString("description")
+								resultSet.getString("description"),
+								resultSet.getString("url_photo")
 								);
 								
 								presses.add(presse);
@@ -54,7 +55,8 @@ public class PresseDaoImpl implements PresseDao {
 								resultSet.getString("date_publication"), 
 								resultSet.getString("lien"),
 								resultSet.getString("titre"), 
-								resultSet.getString("description")
+								resultSet.getString("description"),
+								resultSet.getString("url_photo")
 								);
 					}
 				}
@@ -68,7 +70,7 @@ public class PresseDaoImpl implements PresseDao {
 	}
 
 	@Override
-	public Presse addPresse(Presse presse) {
+	public Presse addPresse(Presse presse, String picture) {
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `presse`(`nom_media`,`date_publication`,`lien`,`titre`,`description`)VALUES(?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
@@ -77,6 +79,7 @@ public class PresseDaoImpl implements PresseDao {
 			stmt.setString(3, presse.getLien());
 			stmt.setString(4, presse.getTitre());
 			stmt.setString(5, presse.getDescription());
+			stmt.setString(8, picture);
 			
 			stmt.executeUpdate();
 			
@@ -113,9 +116,9 @@ public class PresseDaoImpl implements PresseDao {
 	}
 
 	@Override
-	public void updatePresse(Integer id, String nom_media, String lien, String titre, String description) {
+	public void updatePresse(Integer id, String nom_media, String lien, String titre, String description, String chemin) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("UPDATE presse SET  nom_media='"+nom_media+"',lien='"+lien+"',titre='"+titre+"',description='"+description+"' WHERE ID_presse="+id)){
+				PreparedStatement statement = connection.prepareStatement("UPDATE presse SET  nom_media='"+nom_media+"',lien='"+lien+"',titre='"+titre+"',description='"+description+"',url_photo='"+chemin+"' WHERE ID_presse="+id)){
 				statement.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
