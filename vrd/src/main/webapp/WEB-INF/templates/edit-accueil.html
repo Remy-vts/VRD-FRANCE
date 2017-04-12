@@ -63,9 +63,9 @@
 			</form>
 
 		<p class="ligne-guide">Mot d'accueil des dirigeants</p>
-			<form action="" method="POST">
+			<form action="adm-msgdir" method="POST">
 					<div>
-						<textarea name="mot-dirigeant" id="editor1" rows="10" cols="80" required maxlength="1000">
+						<textarea name="mot-dirigeant" id="editor1" rows="10" th:text="${accueil.description}" cols="80" required maxlength="3000">
 			            </textarea>
 			            <script>
 			                // Replace the <textarea id="editor1"> with a CKEditor
@@ -78,7 +78,7 @@
 
 		<p class="ligne-guide">Modifier les chiffres</p>
 		<section id="form-ch">
-		<form action="" method="POST">
+		<form action="adm-ch1" method="POST">
 			<div>
 				<input class="edit-ch" type="text" name="titre1" th:value="${chiffreun.titre}"/>
 				<input class="edit-ch" type="text" name="chiffre1" th:value="${chiffreun.chiffre}"/>
@@ -86,7 +86,7 @@
 			</div>
 		</form>
 		
-		<form action="" method="POST">
+		<form action="adm-ch2" method="POST">
 			<div>
 				<input class="edit-ch" type="text" name="titre2" th:value="${chiffredeux.titre}"/>
 				<input class="edit-ch" type="text" name="chiffre2" th:value="${chiffredeux.chiffre}"/>
@@ -94,7 +94,7 @@
 			</div>
 		</form>
 		
-		<form action="" method="POST">
+		<form action="adm-ch3" method="POST">
 			<div>
 				<input class="edit-ch" type="text" name="titre3" th:value="${chiffretrois.titre}"/>
 				<input class="edit-ch" type="text" name="chiffre3" th:value="${chiffretrois.chiffre}"/>

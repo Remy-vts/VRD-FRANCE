@@ -3,7 +3,6 @@ package hei.projet.vrd.servlets;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -18,7 +17,6 @@ import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.entities.Accueil;
 import hei.projet.vrd.entities.ImageS3Util;
-import hei.projet.vrd.entities.Presse;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-accueil")
@@ -37,6 +35,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("accueil", SiteService.getInstance().getGroupe(4));
 		context.setVariable("chiffreun", SiteService.getInstance().getChiffres(1));
 		context.setVariable("chiffredeux", SiteService.getInstance().getChiffres(2));
 		context.setVariable("chiffretrois", SiteService.getInstance().getChiffres(3));

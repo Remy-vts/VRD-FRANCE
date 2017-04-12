@@ -89,8 +89,8 @@ public class SiteService {
 		return groupeDao.getGroupe(id);
 	}
 	
-	public void updateGroupe(Integer id, String description){
-		groupeDao.updateGroupe(id, description);
+	public void updateGroupe(Groupe groupe){
+		groupeDao.updateGroupe(groupe);
 	}
 	
 	public List<Chantier>  listChantier(){
@@ -194,8 +194,8 @@ public class SiteService {
 		return chiffreDao.getChiffres(id);
 	}
 	
-	public void updateChiffres(Integer id,  String titre, Integer chiffre){
-		chiffreDao.updateChiffres(id, titre, chiffre);
+	public void updateChiffres(Chiffres chiffre){
+		chiffreDao.updateChiffres(chiffre);
 	}
 	
 	public List<Accueil>  listPhoto(){

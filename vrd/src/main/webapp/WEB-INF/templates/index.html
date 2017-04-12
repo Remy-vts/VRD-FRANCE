@@ -53,7 +53,7 @@
 				<div class="div-msg div-msg2">
 					<h2>Message des dirigeants</h2>
 					<p class="guillemet-msg">"</p>
-					<p th:text="${elements.description}"></p>
+					<p th:utext="${elements.description}"></p>
 					<ul th:each= "dirigeant : ${dirigeants}">
 						<li th:text="${dirigeant.nom}"></li>
 					</ul>

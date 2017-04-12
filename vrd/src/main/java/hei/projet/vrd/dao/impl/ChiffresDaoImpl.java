@@ -11,6 +11,7 @@ import java.util.List;
 import hei.projet.vrd.dao.ChiffresDao;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Chiffres;
+import hei.projet.vrd.entities.Dirigeant;
 
 
 public class ChiffresDaoImpl implements ChiffresDao {
@@ -67,6 +68,21 @@ public class ChiffresDaoImpl implements ChiffresDao {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 		PreparedStatement statement = connection.prepareStatement("UPDATE chiffres SET  titre='"+titre+"',chiffre='"+chiffres+" WHERE idchiffresr="+id)){
 		statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateChiffres(Chiffres ch) {
+		try{
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+			PreparedStatement stmt = connection.prepareStatement("UPDATE chiffres SET titre=?,chiffre=? WHERE idchiffres=?");
+				stmt.setString(1, ch.getTitre());
+				stmt.setInt(2, ch.getChiffre());
+				stmt.setInt(3, ch.getIdchiffres());
+				stmt.executeUpdate();
+				connection.close();
+				return ;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

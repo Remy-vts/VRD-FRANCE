@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import hei.projet.vrd.entities.Dirigeant;
 import hei.projet.vrd.entities.Groupe;
 
 public class GroupeDaoImpl {
@@ -56,10 +57,15 @@ public class GroupeDaoImpl {
 		return null;
 	}
 	
-	public void updateGroupe(Integer ID_element, String description) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE element SET description='"+description+"'' WHERE ID_element="+ID_element)){
-		statement.executeUpdate();
+	public void updateGroupe(Groupe groupe) {
+		try{
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+			PreparedStatement stmt = connection.prepareStatement("UPDATE element SET description=? WHERE ID_element=?");
+				stmt.setString(1, groupe.getDescription());
+				stmt.setInt(2, groupe.getID_element());
+				stmt.executeUpdate();
+				connection.close();
+				return ;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
