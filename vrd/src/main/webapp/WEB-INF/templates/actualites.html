@@ -34,7 +34,10 @@
 					<img th:src="${chantier.url_photo}" alt="article"/>
 				</div>
 				<div class="align-article presentation-article">
-					<p th:text="${chantier.ville} +' ('+ ${chantier.code_postal} +') ' + ${chantier.date} +' '+ ${chantier.maitre_ouvrage} +' '+ ${chantier.client}"><br/></p>
+					<p th:text="${chantier.ville} +' ('+ ${chantier.code_postal} +') '"><br/></p>
+					<p th:text="${chantier.date}"></p>
+					<p th:text="${chantier.maitre_ouvrage}"></p>
+					<p th:text="${chantier.client}"></p>
 					<p class="descriptif-article" th:utext="${chantier.description}"><br/>
 				</div>
 			</section>
