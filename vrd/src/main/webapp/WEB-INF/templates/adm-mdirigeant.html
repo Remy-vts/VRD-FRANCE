@@ -28,14 +28,18 @@
 
 			<section class="list-edit">
 				<form action="adm-mdir" method="POST">
-					<span class="form-display"><input class="add_form" type="hidden" name="iddir" required maxlength="2"/></span>
+					<span class="form-display"><input class="add_form" type="hidden" name="iddir" th:value="${dirigeant.ID_individu}" required maxlength="2"/></span>
+					<p class="ligne-tableau">
+						<label for="dirigeantphoto">Photo</label>
+						<span class="form-display"><input class="add_form" type="file" name="photodir"/></span>
+					</p>
 					<p class="ligne-tableau">
 						<label for="dirigeantfonction">Fonction</label>
-						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.fonction}" name="dirigeantfonction" required maxlength="50"/></span>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.fonction}" name="fonctiondir" required maxlength="50"/></span>
 					</p>
 					<p class="ligne-tableau">
 						<label for="dirigeantpresentation">Presentation</label>
-						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.description}" name="dirigeantpresentation" required maxlength="400"/></span>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.description}" name="presentationdir" required maxlength="400"/></span>
 					</p>
 					<input type="submit" class="submit" value="Modifier"/>
 				</form>

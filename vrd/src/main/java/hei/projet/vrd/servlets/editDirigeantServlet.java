@@ -35,13 +35,14 @@ public class editDirigeantServlet extends AbstractGenericServlet {
 		String nom = req.getParameter("dirigeantnom");
 		String fonction = req.getParameter("dirigeantfonction");
 		String presentation = req.getParameter("dirigeantpresentation");
+		String photo = req.getParameter("dirigeantphoto");
 		
 		Dirigeant newDirigeant = new Dirigeant(
 				null,
 				nom,
 				fonction,
 				presentation,
-				null
+				photo
 				);
 		
 		SiteService.getInstance().addDirigeant(newDirigeant);

@@ -57,8 +57,8 @@ public class SiteService {
 		return dirigeantDao.getDirigeant(id);
 	}
 	
-	public void updateDirigeant(Integer idindividu,  String fonction, String presentation, String photo){
-		dirigeantDao.updateDirigeant(idindividu, fonction, presentation, photo);
+	public void updateDirigeant(Dirigeant dir){
+		dirigeantDao.updateDirigeant(dir);
 	}
 	
 	public Dirigeant addDirigeant(Dirigeant dirigeant){

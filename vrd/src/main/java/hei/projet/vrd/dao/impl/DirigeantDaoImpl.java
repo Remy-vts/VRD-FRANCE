@@ -65,10 +65,17 @@ public class DirigeantDaoImpl {
 		return null;
 	}
 	
-	public void updateDirigeant(Integer ID_individu, String fonction, String presentation, String url_photo) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE dirigeant SET fonction='"+fonction+"',presentation='"+presentation+"',url_photo='"+url_photo+"' WHERE ID_individu="+ID_individu)){
-		statement.executeUpdate();
+	public void updateDirigeant(Dirigeant dir) {
+		try{
+			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+			PreparedStatement stmt = connection.prepareStatement("UPDATE dirigeant SET fonction=?,presentation=?,url_photo=? WHERE ID_individu=?");
+				stmt.setString(1, dir.getFonction());
+				stmt.setString(2, dir.getDescription());
+				stmt.setString(3, dir.getUrl_photo());
+				stmt.setInt(4, dir.getID_individu());
+				stmt.executeUpdate();
+				connection.close();
+				return ;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

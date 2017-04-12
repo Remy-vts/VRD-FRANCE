@@ -33,12 +33,12 @@ public class editerDirigeantServlet extends AbstractGenericServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("iddir"));
-		String fonction = req.getParameter("dirigeantfonction");
-		String presentation = req.getParameter("dirigeantpresentation");
-		
-		SiteService.getInstance().updateDirigeant(id, fonction, presentation, null);;
+		String fonction = req.getParameter("fonctiondir");
+		String presentation = req.getParameter("presentationdir");
+		String photo = req.getParameter("photodir");
+		SiteService.getInstance().updateDirigeant(new Dirigeant(id, null, fonction, presentation, photo)); 
 		resp.setCharacterEncoding("UTF8");
-		resp.sendRedirect("adm-addmsg");
+		resp.sendRedirect("adm-modifmsg");
 	}
 
 }
