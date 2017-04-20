@@ -79,7 +79,21 @@ public class editerReferenceServlet extends AbstractGenericServlet {
 		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/chantier-"+id;
 		ImageS3Util.uploadImageToAWSS3(photo, "chantier-"+id);
 		
-		SiteService.getInstance().updateChantier(leChantier.getId(), titre, ville, cp, mo, client, mission, chemin);
+		Chantier ch = new Chantier(
+				leChantier.getId(),
+				ville,
+				cp,
+				date,
+				mo,
+				client,
+				titre,
+				mission,
+				chemin
+				);
+		
+		
+		
+		SiteService.getInstance().updateChantier(ch);
 		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-addmsg");

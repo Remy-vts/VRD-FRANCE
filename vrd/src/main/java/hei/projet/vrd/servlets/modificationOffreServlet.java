@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.Offre;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-mcarrieres")
@@ -37,7 +38,9 @@ public class modificationOffreServlet extends AbstractGenericServlet {
 		String poste = req.getParameter("poste");
 		String mission = req.getParameter("desc-poste");
 		
-		SiteService.getInstance().updateOffre(idOffre, ref, poste, mission);
+		Offre of = new Offre(idOffre, ref, null, poste, mission);
+		
+		SiteService.getInstance().updateOffre(of);
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

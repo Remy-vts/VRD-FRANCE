@@ -17,7 +17,9 @@ public class MessageDirigeantServlet extends AbstractGenericServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String mot = req.getParameter("mot-dirigeant");
 		
-		SiteService.getInstance().updateGroupe(new Groupe(4, mot));
+		Groupe gr = new Groupe(4, mot);
+		
+		SiteService.getInstance().updateGroupe(gr);
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

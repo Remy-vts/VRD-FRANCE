@@ -61,10 +61,15 @@ public class OffreDaoImpl {
 		return null;
 	}
 	
-	public void updateOffre(Integer idOffre, String referenceOffre, String titreOffre, String missionOffre){
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE offre SET  reference='"+referenceOffre+"', titre='"+titreOffre+"',mission='"+missionOffre+"' WHERE ID_offre="+idOffre)){
-		statement.executeUpdate();
+	public void updateOffre(Offre offre){
+		try{
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE offre SET  reference=?, titre=?,mission=? WHERE ID_offre=?");
+				stmt.setString(1, offre.getReferenceOffre());
+				stmt.setString(2, offre.getTitreOffre());
+				stmt.setString(3, offre.getMissionOffre());
+				stmt.setInt(4, offre.getIdOffre());
+		stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

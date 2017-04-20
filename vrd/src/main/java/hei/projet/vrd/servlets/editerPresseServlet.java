@@ -71,7 +71,9 @@ public class editerPresseServlet extends AbstractGenericServlet {
 		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/presse-"+id;
 		ImageS3Util.uploadImageToAWSS3(photo, "presse-"+id);
 		
-		SiteService.getInstance().updatePresse(lArticle.getID_presse(), media, lien, titre, content, chemin);
+		Presse pr = new Presse(lArticle.getID_presse(), media, date, lien, titre, content, chemin);
+		
+		SiteService.getInstance().updatePresse(pr);
 		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-addmsg");

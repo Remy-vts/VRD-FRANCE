@@ -1,19 +1,26 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.Chantier;
+import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-mrealisations")
+@MultipartConfig
 public class modificationChantierServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -39,8 +46,19 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 		String mo = req.getParameter("mo");
 		String client = req.getParameter("client");
 		String mission = req.getParameter("mission");
+		Part photo = req.getPart("photo");
 		
-		SiteService.getInstance().updateChantier(id, titre, ville, cp, mo, client, mission);
+		LocalDate localDate = LocalDate.now();
+		String date =DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate);
+        System.out.println(date);	
+        
+		
+		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/chantier-"+date+"-"+id;
+		ImageS3Util.uploadImageToAWSS3(photo, "chantier-"+date+"-"+id);
+		
+		Chantier ch = new Chantier(id, ville, cp, null, mo, client, titre, mission, chemin);
+		
+		SiteService.getInstance().updateChantier(ch);
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

@@ -28,7 +28,7 @@
 		<p class="ligne-guide">Modifier une r&eacute;f&eacute;rence de chantier</p>
 
 			<section class="list-edit">
-				<form action="adm-mrealisations" method="POST">
+				<form action="adm-mrealisations" method="POST" enctype="multipart/form-data">
 					<input type="hidden" th:value="${chantier.id}" name="id"/>
 					<div>
 						<label for="titre">Titre</label>

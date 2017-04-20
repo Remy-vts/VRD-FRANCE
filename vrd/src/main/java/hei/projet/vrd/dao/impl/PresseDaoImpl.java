@@ -79,7 +79,7 @@ public class PresseDaoImpl implements PresseDao {
 			stmt.setString(3, presse.getLien());
 			stmt.setString(4, presse.getTitre());
 			stmt.setString(5, presse.getDescription());
-			stmt.setString(8, picture);
+			
 			
 			stmt.executeUpdate();
 			
@@ -95,13 +95,6 @@ public class PresseDaoImpl implements PresseDao {
 		return presse;
 	}
 
-	
-
-	@Override
-	public String getPhotoPath(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void deletePresse(Integer id) {
@@ -116,10 +109,17 @@ public class PresseDaoImpl implements PresseDao {
 	}
 
 	@Override
-	public void updatePresse(Integer id, String nom_media, String lien, String titre, String description, String chemin) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-				PreparedStatement statement = connection.prepareStatement("UPDATE presse SET  nom_media='"+nom_media+"',lien='"+lien+"',titre='"+titre+"',description='"+description+"',url_photo='"+chemin+"' WHERE ID_presse="+id)){
-				statement.executeUpdate();
+	public void updatePresse(Presse pr) {
+		try{
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE presse SET  nom_media=?,lien=?,titre=?,description=?,url_photo=? WHERE ID_presse=?");
+				stmt.setString(1, pr.getNom_media());
+				stmt.setString(2, pr.getLien());
+				stmt.setString(3, pr.getTitre());
+				stmt.setString(4, pr.getDescription());
+				stmt.setString(5, pr.getUrl_photo());
+				stmt.setInt(6, pr.getID_presse());
+				stmt.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

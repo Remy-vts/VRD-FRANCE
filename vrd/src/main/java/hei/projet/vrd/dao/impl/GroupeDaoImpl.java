@@ -57,34 +57,19 @@ public class GroupeDaoImpl {
 		return null;
 	}
 	
-	public void updateGroupe(Groupe groupe) {
+	public void updateGroupe(Groupe gr) {
 		try{
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("UPDATE element SET description=? WHERE ID_element=?");
-				stmt.setString(1, groupe.getDescription());
-				stmt.setInt(2, groupe.getID_element());
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE element SET description=? WHERE ID_element=?");
+				stmt.setString(1, gr.getDescription());
+				stmt.setInt(2, gr.getID_element());
 				stmt.executeUpdate();
-				connection.close();
-				return ;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 	}
 	
-	public String getPhotoPath(Integer id){
-		try {
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT photo FROM element"
-					+ "WHERE ID_element=?");
-			stmt.setInt(1, id);
-			ResultSet resultSet = stmt.executeQuery();
-			if(resultSet.next()) {
-				return resultSet.getString("photo");
-				}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	
+	
 
 }

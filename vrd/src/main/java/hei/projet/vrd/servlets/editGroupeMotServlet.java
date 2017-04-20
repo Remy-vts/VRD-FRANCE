@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.entities.Groupe;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-mot")
@@ -34,7 +35,9 @@ public class editGroupeMotServlet extends AbstractGenericServlet {
 		Integer id = Integer.parseInt(req.getParameter("idGroupe"));
 		String description = req.getParameter("description");
 		
-		SiteService.getInstance().updateGroupe(id, description);
+		Groupe gr = new Groupe(id, description);
+		
+		SiteService.getInstance().updateGroupe(gr);
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

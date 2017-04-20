@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Dirigeant;
 import hei.projet.vrd.entities.Metier;
 
@@ -65,30 +66,18 @@ public class DirigeantDaoImpl {
 		return null;
 	}
 	
-	public void updateDirigeant(Dirigeant dir) {
-		try{
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("UPDATE dirigeant SET fonction=?,presentation=?,url_photo=? WHERE ID_individu=?");
-				stmt.setString(1, dir.getFonction());
-				stmt.setString(2, dir.getDescription());
-				stmt.setString(3, dir.getUrl_photo());
-				stmt.setInt(4, dir.getID_individu());
-				stmt.executeUpdate();
-				connection.close();
-				return ;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+		
 	
 	
-	public Dirigeant addDirigeant(Dirigeant dirigeant) {
+	
+	public Dirigeant addDirigeant(Dirigeant dirigeant, String picture) {
 		try {
 			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO `dirigeant`(`nom`,`fonction`,`presentation`)VALUES(?,?,?);", Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, dirigeant.getNom());
 			stmt.setString(2, dirigeant.getFonction());
 			stmt.setString(3, dirigeant.getDescription());
+			
 			
 			stmt.executeUpdate();
 			
@@ -104,6 +93,22 @@ public class DirigeantDaoImpl {
 		return dirigeant;
 	}
 	
+	public void updateDirigeant(Dirigeant dir) {
+		try{
+		
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE dirigeant SET  nom=?,fonction=?,presentation=?,url_photo=? WHERE ID_individu=?");
+				stmt.setString(1, dir.getNom());
+				stmt.setString(2, dir.getFonction());
+				stmt.setString(3, dir.getDescription());
+				stmt.setString(4, dir.getUrl_photo());
+				stmt.setInt(5, dir.getID_individu());	
+			    stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	public void deleteDirigeant(Integer id) {
 		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
@@ -115,21 +120,7 @@ public class DirigeantDaoImpl {
 		}
 	}
 	
-	public String getPhotoPath(Integer id){
-		try {
-			Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT url_photo FROM dirigeant"
-					+ "WHERE ID_individu=?");
-			stmt.setInt(1, id);
-			ResultSet resultSet = stmt.executeQuery();
-			if(resultSet.next()) {
-				return resultSet.getString("url_photo");
-				}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	
 
 	
 	

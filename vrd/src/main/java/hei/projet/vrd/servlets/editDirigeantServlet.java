@@ -1,20 +1,25 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.entities.Dirigeant;
-import hei.projet.vrd.entities.Metier;
+import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-dir")
+@MultipartConfig
 public class editDirigeantServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
@@ -35,17 +40,31 @@ public class editDirigeantServlet extends AbstractGenericServlet {
 		String nom = req.getParameter("dirigeantnom");
 		String fonction = req.getParameter("dirigeantfonction");
 		String presentation = req.getParameter("dirigeantpresentation");
-		String photo = req.getParameter("dirigeantphoto");
+		Part photo = req.getPart("dirigeantphoto");
 		
 		Dirigeant newDirigeant = new Dirigeant(
 				null,
 				nom,
 				fonction,
 				presentation,
-				photo
+				null
 				);
 		
-		SiteService.getInstance().addDirigeant(newDirigeant);
+		SiteService.getInstance().addDirigeant(newDirigeant, req.getPart("dirigeantphoto"));
+		
+		List <Dirigeant> listDirigeant = SiteService.getInstance().listDirigeant();
+		int taille = listDirigeant.size();	
+		Dirigeant lDirigeant = listDirigeant.get(taille-1);
+				
+		String id = lDirigeant.getID_individu().toString();
+		System.out.println("id : "+id);
+		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/dirigeant-"+id;
+		ImageS3Util.uploadImageToAWSS3(photo, "dirigeant-"+id);
+		
+		Dirigeant dir = new Dirigeant (lDirigeant.getID_individu(), nom, fonction, presentation, chemin);
+		
+		SiteService.getInstance().updateDirigeant(dir);
+				
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-addmsg");
 	}

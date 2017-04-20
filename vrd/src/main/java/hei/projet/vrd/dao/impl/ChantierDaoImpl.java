@@ -135,10 +135,21 @@ public class ChantierDaoImpl implements ChantierDao {
 	
 
 	
-	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description, String photo) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE chantier SET  titre='"+titre+"',ville='"+ville+"',code_postal='"+code_postal+"',maitre_ouvrage='"+maitre_ouvrage+"', client='"+client+"', titre='"+titre+"', description='"+description+"', url_photo='"+photo+"' WHERE ID_chantier="+id)){
-		statement.executeUpdate();
+	public void updateChantier(Chantier ch) {
+		try{
+		
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE chantier SET  titre=?,ville=?,code_postal=?,maitre_ouvrage=?, client=?, description=?, url_photo=? WHERE ID_chantier=?");
+				stmt.setString(1, ch.getTitre());
+				stmt.setString(2, ch.getVille());
+				stmt.setInt(3, ch.getCode_postal());
+				stmt.setString(4, ch.getMaitre_ouvrage());
+				stmt.setString(5, ch.getClient());
+				
+				stmt.setString(6, ch.getDescription());
+				stmt.setString(7, ch.getUrl_photo());
+				stmt.setInt(8, ch.getId());	
+			    stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

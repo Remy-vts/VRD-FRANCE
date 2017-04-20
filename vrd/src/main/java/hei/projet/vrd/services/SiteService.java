@@ -57,12 +57,13 @@ public class SiteService {
 		return dirigeantDao.getDirigeant(id);
 	}
 	
-	public void updateDirigeant(Dirigeant dir){
+	public void updateDirigeant(Dirigeant dir) {
 		dirigeantDao.updateDirigeant(dir);
+		
 	}
 	
-	public Dirigeant addDirigeant(Dirigeant dirigeant){
-		return dirigeantDao.addDirigeant(dirigeant);
+	public Dirigeant addDirigeant(Dirigeant dirigeant, Part picture){
+		return dirigeantDao.addDirigeant(dirigeant, "https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture.getSubmittedFileName());
 	}
 
 	public void deleteDirigeant(Integer id){
@@ -89,8 +90,8 @@ public class SiteService {
 		return groupeDao.getGroupe(id);
 	}
 	
-	public void updateGroupe(Groupe groupe){
-		groupeDao.updateGroupe(groupe);
+	public void updateGroupe(Groupe gr){
+		groupeDao.updateGroupe(gr);
 	}
 	
 	public List<Chantier>  listChantier(){
@@ -105,8 +106,8 @@ public class SiteService {
 		return chantierDao.getChantier(id);
 	}
 	
-	public void updateChantier(Integer id, String titre, String ville, Integer code_postal, String maitre_ouvrage, String client, String description, String photo){
-		chantierDao.updateChantier(id, titre, ville, code_postal,  maitre_ouvrage, client, description, photo);
+	public void updateChantier(Chantier ch){
+		chantierDao.updateChantier(ch);
 	}
 			
 	public Chantier addChantier(Chantier chantier, Part picture) throws IOException{
@@ -126,8 +127,8 @@ public class SiteService {
 		return presseDao.getPresse(id);
 	}
 	
-	public void updatePresse(Integer ID_presse, String nom_media, String lien, String titre, String description, String chemin){
-		presseDao.updatePresse(ID_presse, nom_media, lien, titre, description, chemin);
+	public void updatePresse(Presse pr){
+		presseDao.updatePresse(pr);
 	}
 	
 	public Presse addPresse(Presse presse, Part picture) throws IOException{
@@ -166,8 +167,8 @@ public class SiteService {
 		return offreDao.getOffre(id);
 	}
 	
-	public void updateOffre(Integer idOffre, String referenceOffre, String titreOffre, String missionOffre){
-		offreDao.updateOffre(idOffre, referenceOffre, titreOffre, missionOffre);
+	public void updateOffre(Offre of){
+		offreDao.updateOffre(of);
 	}
 	
 	public Offre addOffre(Offre offre){
@@ -223,6 +224,8 @@ public class SiteService {
 				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture7.getSubmittedFileName(),
 				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture8.getSubmittedFileName());
 	}
+
+	
 
 	
 }

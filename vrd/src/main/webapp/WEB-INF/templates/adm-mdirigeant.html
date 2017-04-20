@@ -27,15 +27,27 @@
 		<p class="ligne-guide" th:text="'Modifier '+${dirigeant.nom}"></p>
 
 			<section class="list-edit">
-				<form action="adm-mdir" method="POST">
-					<span class="form-display"><input class="add_form" type="hidden" name="iddir" th:value="${dirigeant.ID_individu}" required maxlength="2"/></span>
+				<form action="adm-mdir" method="POST" enctype="multipart/form-data">
+					
+					<span class="form-display">
+					<input class="add_form" type="hidden" name="iddir" th:value="${dirigeant.ID_individu}" required maxlength="2"/>
+					</span>
+					
+					<span class="form-display">
+					<input class="add_form" type="hidden" name="name" th:value="${dirigeant.nom}"/>
+					</span>
+					
 					<p class="ligne-tableau">
 						<label for="dirigeantphoto">Photo</label>
-						<span class="form-display"><input class="add_form" type="file" name="photodir"/></span>
+						<span class="form-display">
+						<input class="add_form" type="file" name="photodir"/>
+						</span>
 					</p>
 					<p class="ligne-tableau">
 						<label for="dirigeantfonction">Fonction</label>
-						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.fonction}" name="fonctiondir" required maxlength="50"/></span>
+						<span class="form-display">
+						<input class="add_form" type="text" th:value="${dirigeant.fonction}" name="fonctiondir" required maxlength="50"/>
+						</span>
 					</p>
 					<p class="ligne-tableau">
 						<label for="dirigeantpresentation">Presentation</label>
