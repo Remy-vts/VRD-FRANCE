@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
