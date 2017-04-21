@@ -135,7 +135,7 @@ public static void main(String nom, String prenom, String mail, String telephone
 	         mess.setContent(multipart);
 	         
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRDFrance59");
+	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRD.france.59");
 	         trans.sendMessage(mess, mess.getAllRecipients());
 
 	         System.out.println("Message Sent!");

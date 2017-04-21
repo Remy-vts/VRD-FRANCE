@@ -9,12 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.services.SiteService;
+import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiMessage;
 
-
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
 
 @WebServlet("/contact")
 public class contactServlet extends AbstractGenericServlet {
@@ -24,7 +21,6 @@ public class contactServlet extends AbstractGenericServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		resp.setCharacterEncoding("UTF-8");
 		Integer id = 1;
@@ -38,8 +34,7 @@ public class contactServlet extends AbstractGenericServlet {
 		templateEngine.process("contact", context, resp.getWriter());
 	}
 	
-	    protected void doPost(HttpServletRequest request,
-	            HttpServletResponse response) throws ServletException, IOException {
+	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        // reads form fields
 	        String email = request.getParameter("mail");
 	        String message = request.getParameter("msg");
@@ -47,14 +42,16 @@ public class contactServlet extends AbstractGenericServlet {
 	        String nom = request.getParameter("nom");
 	        String telephone = request.getParameter("telephone");
 	        
+	        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+			//System.out.println(gRecaptchaResponse);
+			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+	        
+			
 	        envoiMessage.main(email, message, prenom, nom, telephone);
 	        
 	        response.sendRedirect("contact");
 	        
 	    }
 	      
-    
-	
-	
 
 }

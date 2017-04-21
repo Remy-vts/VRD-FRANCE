@@ -35,7 +35,7 @@ public class envoiMessage{
 	         mess.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRDFrance59");
+	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRD.france.59");
 	         trans.sendMessage(mess, mess.getAllRecipients());
 
 	         System.out.println("Message Sent!");
