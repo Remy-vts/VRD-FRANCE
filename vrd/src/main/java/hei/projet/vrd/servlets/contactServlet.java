@@ -45,9 +45,22 @@ public class contactServlet extends AbstractGenericServlet {
 	        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
 			//System.out.println(gRecaptchaResponse);
 			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
-	        
 			
-	        envoiMessage.main(email, message, prenom, nom, telephone);
+			email = email.replace(" ", "");
+			prenom = prenom.replace(" ", "");
+	        nom = nom.replace(" ", "");
+	        telephone = telephone.replace(" ", "");
+	        String checkMessage = message.replaceAll(" ", "");
+	        
+	        
+			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+				envoiMessage.main(email, message, prenom, nom, telephone);
+				System.out.println("youpi");
+			}
+			
+			else{
+				response.sendRedirect("contact");
+			}
 	        
 	        response.sendRedirect("contact");
 	        
