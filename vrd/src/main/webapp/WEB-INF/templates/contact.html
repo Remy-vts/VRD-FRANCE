@@ -67,7 +67,7 @@
 			<div class="contact-part">
 				<section>
 					<div class="contact-coord"><img class="img-contact" src="img/lettre.png" alt="adresse"/></div>
-					<div class="contact-coord" th:text="${coordonnees.adresse}"></div>
+					<div class="contact-coord" th:utext="${coordonnees.adresse} + '</br>' + ${coordonnees.codepostal} + ' ' + ${coordonnees.ville}"></div>
 				</section>
 				<section>
 					<div class="contact-coord"><img class="img-contact" src="img/telephone.png" alt="telephone"/></div>
