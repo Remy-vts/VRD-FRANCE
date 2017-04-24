@@ -7,11 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import hei.projet.vrd.dao.ChiffresDao;
-import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Chiffres;
-import hei.projet.vrd.entities.Dirigeant;
+
 
 
 public class ChiffresDaoImpl implements ChiffresDao {

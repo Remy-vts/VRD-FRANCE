@@ -1,9 +1,7 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-
 import hei.projet.vrd.entities.Accueil;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
@@ -55,8 +51,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, 1);
-		SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
-		String date = format1.format(cal.getTime());
+		
 		
 		Accueil newPhoto = new Accueil(
 				null,

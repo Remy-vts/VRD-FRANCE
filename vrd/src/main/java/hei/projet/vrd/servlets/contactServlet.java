@@ -58,9 +58,9 @@ public class contactServlet extends AbstractGenericServlet {
 				System.out.println("youpi");
 			}
 			
-			else{
+			/*else{
 				response.sendRedirect("contact");
-			}
+			}*/
 	        
 	        response.sendRedirect("contact");
 	        

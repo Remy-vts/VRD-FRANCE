@@ -8,6 +8,11 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 public abstract class AbstractGenericServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected TemplateEngine createTemplateEngine(HttpServletRequest request){
 		ServletContextTemplateResolver templateResolver =  new ServletContextTemplateResolver(request.getServletContext());
 		templateResolver.setTemplateMode(TemplateMode.HTML);

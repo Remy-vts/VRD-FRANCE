@@ -1,22 +1,13 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-
-import hei.projet.vrd.entities.Chantier;
-import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
 
 

@@ -2,7 +2,6 @@ package hei.projet.vrd.servlets;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -10,15 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.entities.envoiCandidature;
-import hei.projet.vrd.entities.envoiMessage;
 
 @WebServlet("/candidature-s")
 @MultipartConfig
