@@ -35,7 +35,7 @@
 					<div class="back-presentation" th:each= "dirigeant : ${dirigeants}">
 						<section class="grp-align">
 							<figure>
-								<img th:src="${dirigeant.url_photo}" alt="vitse"/>
+								<img th:src="${dirigeant.url_photo}" th:alt="${dirigeant.nom}"/>
 							</figure>
 						</section>
 						<section class="grp-align">
