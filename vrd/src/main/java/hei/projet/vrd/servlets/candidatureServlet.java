@@ -47,7 +47,7 @@ public class candidatureServlet extends AbstractGenericServlet {
 		String nomFishieNoWhiteSpace = nomFichier.replaceAll("\\s", "");;
 		System.out.println("nomFichier "+nomFishieNoWhiteSpace);
 		
-		String nomCV = "Candidature Spontanée-"+nom+"-"+prenom+"-"+nomFishieNoWhiteSpace;
+		String nomCV = "Candidature Spontanée - "+nom+" "+prenom+" - "+nomFishieNoWhiteSpace;
 		
 		System.out.println("nomCV"+nomCV);
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
