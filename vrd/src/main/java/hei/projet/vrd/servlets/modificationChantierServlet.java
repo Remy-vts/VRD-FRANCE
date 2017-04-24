@@ -1,8 +1,16 @@
 package hei.projet.vrd.servlets;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -52,6 +60,8 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 		String date =DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate);
         System.out.println(date);	
         
+        if(photo.getSize()!=0){ 
+        	System.out.println("la photo n'est pas null est égale à "+photo.getSize());		
 		
 		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/chantier-"+date+"-"+id;
 		ImageS3Util.uploadImageToAWSS3(photo, "chantier-"+date+"-"+id);
@@ -59,6 +69,19 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 		Chantier ch = new Chantier(id, ville, cp, null, mo, client, titre, mission, chemin);
 		
 		SiteService.getInstance().updateChantier(ch);
+		
+        }else{
+        	System.out.println("la photo est null");	
+        	
+        	Chantier leChantier = SiteService.getInstance().getChantier(id);
+            
+            String urlString = leChantier.getUrl_photo();
+        	      	
+        	
+        	Chantier ch = new Chantier(id, ville, cp, null, mo, client, titre, mission, urlString );
+    		
+    		SiteService.getInstance().updateChantier(ch);
+        }
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
 	}

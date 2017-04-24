@@ -31,6 +31,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("photos", SiteService.getInstance().getPhoto(1));
 		context.setVariable("accueil", SiteService.getInstance().getGroupe(4));
 		context.setVariable("chiffreun", SiteService.getInstance().getChiffres(1));
 		context.setVariable("chiffredeux", SiteService.getInstance().getChiffres(2));
@@ -51,31 +52,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, 1);
-		
-		
-		Accueil newPhoto = new Accueil(
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-				);
-		
-		SiteService.getInstance().addPhoto(
-				newPhoto, 
-				req.getPart("add-photo1"), 
-				req.getPart("add-photo2"), 
-				req.getPart("add-photo3"), 
-				req.getPart("add-photo4"), 
-				req.getPart("add-photo5"), 
-				req.getPart("add-photo6"), 
-				req.getPart("add-photo7"), 
-				req.getPart("add-photo8"));
-		
+			
 		
 		ImageS3Util.uploadImageToAWSS3(photo1, "deconstruction");
 		ImageS3Util.uploadImageToAWSS3(photo2, "desamiantage");

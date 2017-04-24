@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
+
+import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.entities.Presse;
 import hei.projet.vrd.services.SiteService;
@@ -48,13 +50,28 @@ public class modificationPresseServlet extends AbstractGenericServlet {
 		String date =DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate);
         System.out.println(date);	
         
-		
+        if(photo.getSize()!=0){ 
+        	System.out.println("la photo n'est pas null est égale à "+photo.getSize());		
 		String chemin = "https://s3.eu-west-2.amazonaws.com/vrdfrance/presse-"+date+"-"+id;
 		ImageS3Util.uploadImageToAWSS3(photo, "presse-"+date+"-"+id);
 		
 		Presse pr = new Presse(id, media, date, lien, titre, description, chemin);
 		
 		SiteService.getInstance().updatePresse(pr);
+		
+        }else{
+        	System.out.println("la photo est null");	
+        	
+        	Presse lArticle = SiteService.getInstance().getPresse(id);
+            
+            String urlString = lArticle.getUrl_photo();
+        	      	
+            Presse pr = new Presse(id, media, date, lien, titre, description, urlString);
+            
+        	
+    		
+        	SiteService.getInstance().updatePresse(pr);
+        }
 		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
