@@ -13,7 +13,7 @@ import hei.projet.vrd.entities.Offre;
 public class OffreDaoImpl {
 
 	public List<Offre>  listOffre(){
-		String query = "SELECT * FROM offre WHERE deleted='0'";
+		String query = "SELECT ID_offre, reference, date_offre, titre, SUBSTRING(mission,1,230) AS mission FROM offre WHERE deleted='0'";
 		List<Offre> offres = new ArrayList<>();
 		try (Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection()){
 			try(Statement statement = connection.createStatement()){
