@@ -85,9 +85,12 @@ function inf_cp1()
 function inf_cp2() 
 {
 	document.getElementById("info_cp").style.display = "none";
-	var value = document.getElementById("add_cp").value.length;
-	result = value;
-	if(result>2 && result<51)
+	var value = document.getElementById("add_cp").value;
+	var chiffres = new String(value);
+	// Enlever tous les charactères sauf les chiffres
+	chiffres = chiffres.replace(/[^0-9]/g, '');
+	result = chiffres.length;
+	if(result>4 && result<6)
 	{
 		document.getElementById("check_cp1").style.display = "inline";
 		document.getElementById("check_cp2").style.display = "none";
@@ -400,9 +403,12 @@ function inf_telephone1()
 function inf_telephone2() 
 {
 	document.getElementById("info_telephone").style.display = "none";
-	var value = document.getElementById("add_telephone").value.length;
-	result = value;
-	if(result>9 && result<15)
+	var value = document.getElementById("add_telephone").value;
+	var chiffres = new String(value);
+	// Enlever tous les charactères sauf les chiffres
+	chiffres = chiffres.replace(/[^0-9]/g, '');
+	result = chiffres.length;
+	if(result>9 && result<11)
 	{
 		document.getElementById("check_telephone1").style.display = "inline";
 		document.getElementById("check_telephone2").style.display = "none";
@@ -423,12 +429,11 @@ function inf_mail1()
 	document.getElementById("info_mail").style.display = "inline";
 }
 
-function inf_mail2() 
+function inf_mail2(champ) 
 {
 	document.getElementById("info_mail").style.display = "none";
-	var value = document.getElementById("add_mail").value.length;
-	result = value;
-	if(result>5 && result<51)
+	var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+	if(regex.test(champ.value))
 	{
 		document.getElementById("check_mail1").style.display = "inline";
 		document.getElementById("check_mail2").style.display = "none";
