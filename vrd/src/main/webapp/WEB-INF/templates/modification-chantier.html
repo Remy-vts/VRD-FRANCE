@@ -30,30 +30,61 @@
 			<section class="list-edit">
 				<form action="adm-mrealisations" method="POST" enctype="multipart/form-data">
 					<input type="hidden" th:value="${chantier.id}" name="id"/>
-					<div>
+					
+					<p class="ligne-tableau form-display">
 						<label for="titre">Titre</label>
-						<input th:value="${chantier.titre}" type="text" name="titre" required maxlength="50"/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form" type="text" th:value="${chantier.titre}" name="titre" id="add_titre" required maxlength="50" onFocus="inf_titre1()" onBlur="inf_titre2()"/>
+						<div class="form-display">
+					      	<div id="check_titre1" class="check1">&#10004;</div>
+					      	<div id="check_titre2" class="check2">X</div>
+					    </div>
+						<p id="info_titre" class="indication">Le titre doit comporter entre 5 et 50 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
 						<label for="ville">Ville</label>
-						<input th:value="${chantier.ville}" type="text" name="ville" required maxlength="50"/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form"  type="text" th:value="${chantier.ville}" name="ville" id="add_ville" required maxlength="50" onFocus="inf_ville1()" onBlur="inf_ville2()"/></span>
+						<div class="form-display">
+					      	<div id="check_ville1" class="check1">&#10004;</div>
+					      	<div id="check_ville2" class="check2">X</div>
+					    </div>
+					<p id="info_ville" class="indication">La ville doit comporter entre 3 et 50 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
 						<label for="cp">Code postal</label>
-						<input th:value="${chantier.code_postal}" type="text" name="cp" required maxlength="5"/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form" type="text" th:value="${chantier.code_postal}" name="cp" id="add_cp" required maxlength="5" onFocus="inf_cp1()" onBlur="inf_cp2()"/></span>
+						<div class="form-display">
+					      	<div id="check_cp1" class="check1">&#10004;</div>
+					      	<div id="check_cp2" class="check2">X</div>
+					    </div>
+					<p id="info_cp" class="indication">Le code postal doit comporter 5 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
 						<label for="mo">Maitre d'ouvrage</label>
-						<input th:value="${chantier.maitre_ouvrage}" type="text" name="mo" required maxlength="50"/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form" th:value="${chantier.maitre_ouvrage}" type="text" name="mo" id="add_mo" required maxlength="50" onFocus="inf_mo1()" onBlur="inf_mo2()"/></span>
+						<div class="form-display">
+					      	<div id="check_mo1" class="check1">&#10004;</div>
+					      	<div id="check_mo2" class="check2">X</div>
+					    </div>
+					<p id="info_mo" class="indication">Le maitre d'ouvrage doit comporter entre 3 et 50 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
 						<label for="client">Client</label>
-						<input th:value="${chantier.client}" type="text" name="client" required maxlength="50"/>
-					</div>
+						<span class="form-display"><input class="add_form" th:value="${chantier.client}" type="text" name="client" id="add_client" required maxlength="50" onFocus="inf_client1()" onBlur="inf_client2()"/></span>
+						<div class="form-display">
+					      	<div id="check_client1" class="check1">&#10004;</div>
+					      	<div id="check_client2" class="check2">X</div>
+					    </div>
+					<p id="info_client" class="indication">Le client doit comporter entre 3 et 50 caracteres</p>
+					</p>
+					
 					<div>
 						<label for="photo">Photo</label>
-						<img th:src="${chantier.url_photo}" alt="article"/>
-						<input type="file" name="photo"/>
+						<img th:src="${chantier.url_photo}" class="photo_adm" alt="article"/>
+						<input type="file" class="photo_modif" name="photo"/>
 					</div>
 					<div>
 						<label for="mission">Missions</label>

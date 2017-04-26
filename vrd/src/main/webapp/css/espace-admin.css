@@ -143,8 +143,9 @@ input.pst{
 }
 
 .indication{
-	margin-left:130px;
+	margin-left:170px;
 	font-style:italic;
+	font-size:10px;
 }
 
 .form-display{
@@ -172,3 +173,18 @@ input.pst{
 	padding-left:80px;
 }
 
+.add_form{
+	width:400px;
+}
+
+.photo_adm{
+	width:200px;
+}
+
+.photo_modif{
+	margin-left:160px;
+}
+
+.ligne-tableau{
+	margin:0;
+}
