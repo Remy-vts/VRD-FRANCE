@@ -18,6 +18,8 @@ import org.thymeleaf.context.WebContext;
 public class connexionServlet extends AbstractGenericServlet  {
 
 	private static final long serialVersionUID = -1488650966375438002L;
+	
+	private boolean error;
 
 	private Map<String, String> utilisateursAutorises;
 
@@ -25,6 +27,9 @@ public class connexionServlet extends AbstractGenericServlet  {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		if(error){
+			context.setVariable("connexionError", "Votre identifiant et/ou votre mot de passe est incorrect");
+		}
 		templateEngine.process("connexion", context, resp.getWriter());
 	}
 	
@@ -41,6 +46,9 @@ public class connexionServlet extends AbstractGenericServlet  {
 		try {
 			if(utilisateursAutorises.containsKey(identifiantSaisi) && MotDePasseUtils.validerMotDePasse(motDePasseSaisi, utilisateursAutorises.get(identifiantSaisi))) {
 				request.getSession().setAttribute("utilisateurConnecte", identifiantSaisi);
+				error = false;
+			}else{
+				error = true;
 			}
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			e.printStackTrace();
