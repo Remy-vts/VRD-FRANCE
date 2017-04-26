@@ -37,22 +37,31 @@
 					<input class="add_form" type="hidden" name="name" th:value="${dirigeant.nom}"/>
 					</span>
 					
-					<p class="ligne-tableau">
-						<label for="dirigeantphoto">Photo</label>
-						<span class="form-display">
-						<input class="add_form" type="file" name="photodir"/>
-						</span>
-					</p>
-					<p class="ligne-tableau">
+					<div>
+						<label for="photo">Photo</label>
+						<img th:src="${dirigeant.url_photo}" class="photo_adm" alt="photo du dirigeant"/>
+						<input type="file" class="photo_modif" name="photo"/>
+					</div>
+				
+					<p class="ligne-tableau form-display">
 						<label for="dirigeantfonction">Fonction</label>
-						<span class="form-display">
-						<input class="add_form" type="text" th:value="${dirigeant.fonction}" name="fonctiondir" required maxlength="50"/>
-						</span>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.fonction}" name="fonctiondir" id="add_fonction" required maxlength="50" onFocus="inf_fonction1()" onBlur="inf_fonction2()"/>
+						<div class="form-display">
+					      	<div id="check_fonction1" class="check1">&#10004;</div>
+					      	<div id="check_fonction2" class="check2">X</div>
+					    </div>
+						<p id="info_fonction" class="indication">La fonction du dirigeant doit comporter entre 3 et 50 caracteres</p>
 					</p>
-					<p class="ligne-tableau">
-						<label for="dirigeantpresentation">Presentation</label>
-						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.description}" name="presentationdir" required maxlength="400"/></span>
+					<p class="ligne-tableau form-display">
+						<label for="dirigeantpresentation">Pr&eacute;sentation</label>
+						<span class="form-display"><input class="add_form" type="text" th:value="${dirigeant.description}" name="presentationdir" id="add_presentation" required maxlength="100" onFocus="inf_present1()" onBlur="inf_present2()"/>
+						<div class="form-display">
+					      	<div id="check_presentation1" class="check1">&#10004;</div>
+					      	<div id="check_presentation2" class="check2">X</div>
+					    </div>
+						<p id="info_presentation" class="indication">Le pr&eacute;sentation doit comporter entre 40 et 100 caracteres</p>
 					</p>
+					
 					<input type="submit" class="submit" value="Modifier"/>
 				</form>
 		

@@ -46,17 +46,32 @@
 
 			<section class="list-edit">
 				<form action="adm-dir" method="POST" enctype="multipart/form-data">
-					<p class="ligne-tableau">
-						<label for="titre">Nom du dirigeant</label>
-						<span class="form-display"><input class="add_form" type="text" name="dirigeantnom" required maxlength="50"/></span>
+					<p class="ligne-tableau form-display">
+						<label for="dirigeantnom">Nom</label>
+						<span class="form-display"><input class="add_form" type="text" name="dirigeantnom" id="add_nom" required maxlength="50" onFocus="inf_nom1()" onBlur="inf_nom2()"/>
+						<div class="form-display">
+					      	<div id="check_nom1" class="check1">&#10004;</div>
+					      	<div id="check_nom2" class="check2">X</div>
+					    </div>
+						<p id="info_nom" class="indication">Le nom du dirigeant doit comporter entre 3 et 50 caracteres</p>
 					</p>
-					<p class="ligne-tableau">
-						<label for="titre">Fonction</label>
-						<span class="form-display"><input class="add_form" type="text" name="dirigeantfonction" required maxlength="50"/></span>
+					<p class="ligne-tableau form-display">
+						<label for="dirigeantfonction">Fonction</label>
+						<span class="form-display"><input class="add_form" type="text" name="dirigeantfonction" id="add_fonction" required maxlength="50" onFocus="inf_fonction1()" onBlur="inf_fonction2()"/>
+						<div class="form-display">
+					      	<div id="check_fonction1" class="check1">&#10004;</div>
+					      	<div id="check_fonction2" class="check2">X</div>
+					    </div>
+						<p id="info_fonction" class="indication">La fonction du dirigeant doit comporter entre 3 et 50 caracteres</p>
 					</p>
-					<p class="ligne-tableau">
-						<label for="titre">Presentation</label>
-						<span class="form-display"><input class="add_form" type="text" name="dirigeantpresentation" required maxlength="400"/></span>
+					<p class="ligne-tableau form-display">
+						<label for="dirigeantpresentation">Pr&eacute;sentation</label>
+						<span class="form-display"><input class="add_form" type="text" name="dirigeantpresentation" id="add_presentation" required maxlength="100" onFocus="inf_present1()" onBlur="inf_present2()"/>
+						<div class="form-display">
+					      	<div id="check_presentation1" class="check1">&#10004;</div>
+					      	<div id="check_presentation2" class="check2">X</div>
+					    </div>
+						<p id="info_presentation" class="indication">Le pr&eacute;sentation doit comporter entre 40 et 100 caracteres</p>
 					</p>
 					<p class="ligne-tableau">
 						<label for="titre">Photo</label>

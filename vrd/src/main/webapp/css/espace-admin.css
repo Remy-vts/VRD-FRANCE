@@ -181,10 +181,23 @@ input.pst{
 	width:200px;
 }
 
+.photo_admmini{
+	width:120px;
+}
+
 .photo_modif{
 	margin-left:160px;
 }
 
 .ligne-tableau{
 	margin:0;
+	width:200px;
+}
+
+.form-contact{
+	width:300px;
+}
+
+.indication2{
+	margin-left:1px;
 }

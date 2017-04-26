@@ -6,9 +6,10 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/contact.css"/>
+		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
 		<link rel="stylesheet" type="text/css" href="css/screen-less800.css"/>
 		<link rel="stylesheet" type="text/css" href="css/screen-less1150.css"/>
-		
+		<script type="text/javascript" src="js/javascript.js"> </script>
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="/resources/demos/style.css">
@@ -35,27 +36,56 @@
 			<h2>Contactez-nous</h2>
 
 			<div class="contact-part">
-				<form action="" method="POST">
-				<div>
-					<label for="nom">Nom</label>
-					<input type="text" name="nom"/>
-				</div>
-				<div>
-					<label for="prenom">Pr&eacute;nom</label>
-					<input type="text" name="prenom"/>
-				</div>
-				<div>
-					<label for="mail">Mail</label>
-					<input type="mail" name="mail"/>
-				</div>
-				<div>
-					<label for="telephone">T&eacute;l&eacute;phone</label>
-					<input type="telephone" name="telephone"/>
-				</div>
-				<div>
-					<label for"msg">Message</label>
-					<input type="textarea" name="msg"/>
-				</div>
+				<form action="" method="POST" class="form-contact">
+				<p class="ligne-tableau ligne-tableau2 form-display">
+						<label for="nom">Nom</label>
+						<span class="form-display"><input type="text" name="nom" id="add_nom" required maxlength="50" onFocus="inf_nom1()" onBlur="inf_nom2()"/>
+						<div class="form-display">
+					      	<div id="check_nom1" class="check1">&#10004;</div>
+					      	<div id="check_nom2" class="check2">X</div>
+					    </div>
+				</p>
+				<p id="info_nom" class="indication indication2">Le nom doit comporter entre 2 et 50 caracteres.</p>
+				
+				<p class="ligne-tableau form-display">
+						<label for="prenom">Pr&eacute;nom</label>
+						<span class="form-display"><input type="text" name="prenom" id="add_prenom" required maxlength="50" onFocus="inf_prenom1()" onBlur="inf_prenom2()"/>
+						<div class="form-display">
+					      	<div id="check_prenom1" class="check1">&#10004;</div>
+					      	<div id="check_prenom2" class="check2">X</div>
+					    </div>
+				</p>
+				<p id="info_prenom" class="indication indication2">Le prenom doit comporter entre 2 et 50 caracteres.</p>
+				
+				<p class="ligne-tableau form-display">
+						<label for="mail">Mail</label>
+						<span class="form-display"><input class="add_form" type="text"  name="mail" id="add_mail" required maxlength="50" onFocus="inf_mail1()" onBlur="inf_mail2()"/>
+						<div class="form-display">
+					      	<div id="check_mail1" class="check1">&#10004;</div>
+					      	<div id="check_mail2" class="check2">X</div>
+					    </div>
+				</p>
+				<p id="info_mail" class="indication indication2">Entrer une adresse mail valide.</p>
+				
+				<p class="ligne-tableau form-display">
+						<label for="telephone">T&eacute;l&eacute;phone</label>
+						<span class="form-display"><input class="add_form" type="telephone" name="telephone" id="add_telephone" required maxlength="14" onFocus="inf_telephone1()" onBlur="inf_telephone2()"/>
+						<div class="form-display">
+					      	<div id="check_telephone1" class="check1">&#10004;</div>
+					      	<div id="check_telephone2" class="check2">X</div>
+					    </div>
+				</p>
+				<p id="info_telephone" class="indication indication2">Le t&eacute;l&eacute;phone doit comporter 10 chiffres.</p>
+				
+				<p class="ligne-tableau form-display">
+						<label for="msg">Message</label>
+						<span class="form-display"><input class="add_form" type="text" name="msg" id="add_msg" required maxlength="400" onFocus="inf_msg1()" onBlur="inf_msg2()"/>
+						<div class="form-display">
+					      	<div id="check_msg1" class="check1">&#10004;</div>
+					      	<div id="check_msg2" class="check2">X</div>
+					    </div>
+				</p>
+				<p id="info_msg" class="indication indication2">Entrer votre message.</p>
 				
 					<div class="g-recaptcha" data-sitekey="6LdlFB4UAAAAAJPx2G9859iqYh1tmClHr2LPFsQD"></div>
 					

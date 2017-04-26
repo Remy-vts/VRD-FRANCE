@@ -178,3 +178,318 @@ function inf_mission2()
 		return false;
 	}
 }
+
+
+//AJOUT MEDIA
+
+function inf_media1() 
+{
+	document.getElementById("info_media").style.display = "inline";
+}
+
+function inf_media2() 
+{
+	document.getElementById("info_media").style.display = "none";
+	var value = document.getElementById("add_media").value.length;
+	result = value;
+	if(result>3 && result<51)
+	{
+		document.getElementById("check_media1").style.display = "inline";
+		document.getElementById("check_media2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_media1").style.display = "none";
+		document.getElementById("check_media2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT LIEN
+
+function inf_lien1() 
+{
+	document.getElementById("info_lien").style.display = "inline";
+}
+
+function inf_lien2() 
+{
+	document.getElementById("info_lien").style.display = "none";
+	var value = document.getElementById("add_lien").value.length;
+	result = value;
+	if(result>4 && result<201)
+	{
+		document.getElementById("check_lien1").style.display = "inline";
+		document.getElementById("check_lien2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_lien1").style.display = "none";
+		document.getElementById("check_lien2").style.display = "inline";
+		return false;
+	}
+}
+
+
+//AJOUT NOM
+
+function inf_nom1() 
+{
+	document.getElementById("info_nom").style.display = "inline";
+}
+
+function inf_nom2() 
+{
+	document.getElementById("info_nom").style.display = "none";
+	var value = document.getElementById("add_nom").value.length;
+	result = value;
+	if(result>2 && result<51)
+	{
+		document.getElementById("check_nom1").style.display = "inline";
+		document.getElementById("check_nom2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_nom1").style.display = "none";
+		document.getElementById("check_nom2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT FONCTION
+
+function inf_fonction1() 
+{
+	document.getElementById("info_fonction").style.display = "inline";
+}
+
+function inf_fonction2() 
+{
+	document.getElementById("info_fonction").style.display = "none";
+	var value = document.getElementById("add_fonction").value.length;
+	result = value;
+	if(result>2 && result<51)
+	{
+		document.getElementById("check_fonction1").style.display = "inline";
+		document.getElementById("check_fonction2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_fonction1").style.display = "none";
+		document.getElementById("check_fonction2").style.display = "inline";
+		return false;
+	}
+}
+
+
+//AJOUT PRESENTATION
+
+function inf_present1() 
+{
+	document.getElementById("info_presentation").style.display = "inline";
+}
+
+function inf_present2() 
+{
+	document.getElementById("info_presentation").style.display = "none";
+	var value = document.getElementById("add_presentation").value.length;
+	result = value;
+	if(result>39 && result<201)
+	{
+		document.getElementById("check_presentation1").style.display = "inline";
+		document.getElementById("check_presentation2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_presentation1").style.display = "none";
+		document.getElementById("check_presentation2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT METIER
+
+function inf_metier1() 
+{
+	document.getElementById("info_metier").style.display = "inline";
+}
+
+function inf_metier2() 
+{
+	document.getElementById("info_metier").style.display = "none";
+	var value = document.getElementById("add_metier").value.length;
+	result = value;
+	if(result>2 && result<51)
+	{
+		document.getElementById("check_metier1").style.display = "inline";
+		document.getElementById("check_metier2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_metier1").style.display = "none";
+		document.getElementById("check_metier2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT REF
+
+function inf_ref1() 
+{
+	document.getElementById("info_ref").style.display = "inline";
+}
+
+function inf_ref2() 
+{
+	document.getElementById("info_ref").style.display = "none";
+	var value = document.getElementById("add_ref").value.length;
+	result = value;
+	if(result>2 && result<13)
+	{
+		document.getElementById("check_ref1").style.display = "inline";
+		document.getElementById("check_ref2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_ref1").style.display = "none";
+		document.getElementById("check_ref2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT METIER
+
+function inf_poste1() 
+{
+	document.getElementById("info_poste").style.display = "inline";
+}
+
+function inf_poste2() 
+{
+	document.getElementById("info_poste").style.display = "none";
+	var value = document.getElementById("add_poste").value.length;
+	result = value;
+	if(result>4 && result<51)
+	{
+		document.getElementById("check_poste1").style.display = "inline";
+		document.getElementById("check_poste2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_poste1").style.display = "none";
+		document.getElementById("check_poste2").style.display = "inline";
+		return false;
+	}
+}
+
+//MODIFICATION TELEPHONE
+
+function inf_telephone1() 
+{
+	document.getElementById("info_telephone").style.display = "inline";
+}
+
+function inf_telephone2() 
+{
+	document.getElementById("info_telephone").style.display = "none";
+	var value = document.getElementById("add_telephone").value.length;
+	result = value;
+	if(result>9 && result<15)
+	{
+		document.getElementById("check_telephone1").style.display = "inline";
+		document.getElementById("check_telephone2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_telephone1").style.display = "none";
+		document.getElementById("check_telephone2").style.display = "inline";
+		return false;
+	}
+}
+
+//MODIFICATION MAIL
+
+function inf_mail1() 
+{
+	document.getElementById("info_mail").style.display = "inline";
+}
+
+function inf_mail2() 
+{
+	document.getElementById("info_mail").style.display = "none";
+	var value = document.getElementById("add_mail").value.length;
+	result = value;
+	if(result>5 && result<51)
+	{
+		document.getElementById("check_mail1").style.display = "inline";
+		document.getElementById("check_mail2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_mail1").style.display = "none";
+		document.getElementById("check_mail2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT PRENOM
+
+function inf_prenom1() 
+{
+	document.getElementById("info_prenom").style.display = "inline";
+}
+
+function inf_prenom2() 
+{
+	document.getElementById("info_prenom").style.display = "none";
+	var value = document.getElementById("add_prenom").value.length;
+	result = value;
+	if(result>1 && result<51)
+	{
+		document.getElementById("check_prenom1").style.display = "inline";
+		document.getElementById("check_prenom2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_prenom1").style.display = "none";
+		document.getElementById("check_prenom2").style.display = "inline";
+		return false;
+	}
+}
+
+//AJOUT MSG
+
+function inf_msg1() 
+{
+	document.getElementById("info_msg").style.display = "inline";
+}
+
+function inf_msg2() 
+{
+	document.getElementById("info_msg").style.display = "none";
+	var value = document.getElementById("add_msg").value.length;
+	result = value;
+	if(result>1 && result<401)
+	{
+		document.getElementById("check_msg1").style.display = "inline";
+		document.getElementById("check_msg2").style.display = "none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("check_msg1").style.display = "none";
+		document.getElementById("check_msg2").style.display = "inline";
+		return false;
+	}
+}

@@ -31,7 +31,8 @@
 					<input type="hidden" th:value="${metier.idMetier}" name="idMetier"/>
 					<div>
 						<label for="photo">Photo</label>
-						<input type="file" name="photo"/>
+						<img th:src="${metier.photoMetier}" class="photo_admmini" alt="photo du metier"/>
+						<input type="file" class="photo_modif" name="photo"/>
 					</div>
 					<div>
 						<label for="presentation">Pr&eacute;sentation</label>

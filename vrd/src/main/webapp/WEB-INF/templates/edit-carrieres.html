@@ -6,8 +6,9 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
 		<link rel="stylesheet" type="text/css" href="css/espace-admin.css"/>
-		<meta charset="utf-8"/>
+		<script type="text/javascript" src="js/javascript.js"> </script>
 		<script src="js/ckeditor/ckeditor.js"></script>
+		<meta charset="utf-8"/>
 	</head>
 
 	<body>
@@ -27,15 +28,25 @@
 		<p class="ligne-guide">Ajouter une offre d'emploi</p>
 			<section class="list-edit">
 				<form action="adm-carrieres" method="POST">
-					<div>
+					<p class="ligne-tableau form-display">
 						<label for="ref">R&eacute;f&eacute;rence</label>
-						<input maxlength="12" type="text" name="ref" required/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form" type="text"  name="ref" id="add_ref" required maxlength="12" onFocus="inf_ref1()" onBlur="inf_ref2()"/>
+						<div class="form-display">
+					      	<div id="check_ref1" class="check1">&#10004;</div>
+					      	<div id="check_ref2" class="check2">X</div>
+					    </div>
+						<p id="info_ref" class="indication">La r&eacute;f&eacute;rence doit comporter entre 3 et 12 caracteres</p>
+					</p>
+				
+					<p class="ligne-tableau form-display">
 						<label for="poste">Poste</label>
-						<input maxlength="50" type="text" name="poste" required/>
-					</div>
-					<div>
+						<span class="form-display"><input class="add_form" type="text"  name="poste" id="add_poste" required maxlength="50" onFocus="inf_poste1()" onBlur="inf_poste2()"/>
+						<div class="form-display">
+					      	<div id="check_poste1" class="check1">&#10004;</div>
+					      	<div id="check_poste2" class="check2">X</div>
+					    </div>
+						<p id="info_poste" class="indication">Le poste doit comporter entre 5 et 50 caracteres</p>
+					</p>
 						<label for="desc-poste">Description</label>
 					</div>
 					<div>

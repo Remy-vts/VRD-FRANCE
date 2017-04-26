@@ -29,18 +29,35 @@
 
 			<section class="list-edit">
 				<form action="adm-presse" method="POST" enctype="multipart/form-data">
-					<div>
+					<p class="ligne-tableau form-display">
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" required maxlength="50"/>
-					</div>
-					<div>
-						<label for="media">Media</label>
-						<input type="text" name="media" required maxlength="50"/>
-					</div>
-					<div>
-						<label for="lien">Lien de l'article</label>
-						<input type="text" name="lien" required maxlength="100"/>
-					</div>
+						<span class="form-display"><input class="add_form" type="text" name="titre" id="add_titre" required maxlength="50" onFocus="inf_titre1()" onBlur="inf_titre2()"/>
+						<div class="form-display">
+					      	<div id="check_titre1" class="check1">&#10004;</div>
+					      	<div id="check_titre2" class="check2">X</div>
+					    </div>
+						<p id="info_titre" class="indication">Le titre doit comporter entre 5 et 50 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
+						<label for="titre">M&eacute;dia</label>
+						<span class="form-display"><input class="add_form" type="text" name="media" id="add_media" required maxlength="50" onFocus="inf_media1()" onBlur="inf_media2()"/>
+						<div class="form-display">
+					      	<div id="check_media1" class="check1">&#10004;</div>
+					      	<div id="check_media2" class="check2">X</div>
+					    </div>
+						<p id="info_media" class="indication">Le m&eacute;dia doit comporter entre 3 et 50 caracteres</p>
+					</p>
+					
+					<p class="ligne-tableau form-display">
+						<label for="titre">Lien</label>
+						<span class="form-display"><input class="add_form" type="text" name="lien" id="add_lien" required maxlength="200" onFocus="inf_lien1()" onBlur="inf_lien2()"/>
+						<div class="form-display">
+					      	<div id="check_lien1" class="check1">&#10004;</div>
+					      	<div id="check_lien2" class="check2">X</div>
+					    </div>
+						<p id="info_lien" class="indication">Le lien doit comporter entre 5 et 200 caracteres</p>
+					</p>
 					<div>
 						<label for="photo">Photo</label>
 						<input type="file" name="photo"/>
