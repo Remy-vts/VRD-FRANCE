@@ -207,23 +207,11 @@ public class SiteService {
 		return accueilDao.getPhoto(id);
 	}
 	
-	public void updatePhoto(Integer id, String photo1, String photo2, String photo3, String photo4, String photo5, String photo6, String photo7, String photo8){
-		accueilDao.updatePhoto(id, photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8);
+	public void updatePhoto(Integer id, String photo){
+		accueilDao.updatePhoto(id, photo);
 	}
 			
-	public Accueil addPhoto(Accueil accueil, Part picture1, Part picture2, Part picture3, Part picture4, Part picture5, Part picture6, Part picture7, Part picture8) throws IOException{
-								
-		return accueilDao.addPhoto(
-				accueil, 
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture1.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture2.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture3.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture4.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture5.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture6.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture7.getSubmittedFileName(),
-				"https://s3.eu-west-2.amazonaws.com/vrdfrance/"+picture8.getSubmittedFileName());
-	}
+	
 
 	
 

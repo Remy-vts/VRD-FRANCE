@@ -10,9 +10,9 @@ public interface AccueilDao {
 	
 	public Accueil getPhoto(Integer id);
 	
-	public void updatePhoto(Integer id, String photo1, String photo2, String photo3, String photo4, String photo5, String photo6, String photo7, String photo8);
+	public void updatePhoto(Integer id, String photo);
 	
-	public Accueil addPhoto(Accueil accueil, String photo1, String photo2, String photo3, String photo4, String photo5, String photo6, String photo7, String photo8);
+	
 
 
 }

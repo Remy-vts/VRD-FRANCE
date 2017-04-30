@@ -26,49 +26,77 @@
 
 		<p class="ligne-guide">Remplacer une photo (JPG ou PNG)</p>
 
-		<form action="" method="POST" enctype="multipart/form-data">
+		<form action="editPhoto1" method="POST" enctype="multipart/form-data">
 			<div>
 				<label for="add-photo1">D&eacute;construction</label>
-				<img th:src="${photos.photo1}" alt="presse"/>
+				<img th:src="${photo1.photo}" alt="presse"/>
 				<input type="file" name="add-photo1"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto2" method="POST" enctype="multipart/form-data">
 					<div>
 				<label for="add-photo2">D&eacute;samiantage</label>
-				<img th:src="${photos.photo2}" alt="presse"/>
+				<img th:src="${photo2.photo}" alt="presse"/>
 				<input type="file" name="add-photo2"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto3" method="POST" enctype="multipart/form-data">
 			<div>
 				<label for="add-photo3">Recyclage</label>
-				<img th:src="${photos.photo3}" alt="presse"/>
+				<img th:src="${photo3.photo}" alt="presse"/>
 				<input type="file" name="add-photo3"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto4" method="POST" enctype="multipart/form-data">
 					<div>
 				<label for="add-photo4">Sciage</label>
-				<img th:src="${photos.photo4}" alt="presse"/>
+				<img th:src="${photo4.photo}" alt="presse"/>
 				<input type="file" name="add-photo4"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto5" method="POST" enctype="multipart/form-data">
 			<div>
 				<label for="add-photo5">Terrassement</label>
-				<img th:src="${photos.photo5}" alt="presse"/>
+				<img th:src="${photo5.photo}" alt="presse"/>
 				<input type="file" name="add-photo5"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto6" method="POST" enctype="multipart/form-data">			
 					<div>
 				<label for="add-photo6">VRD</label>
-				<img th:src="${photos.photo6}" alt="presse"/>
+				<img th:src="${photo6.photo}" alt="presse"/>
 				<input type="file" name="add-photo6"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto7" method="POST" enctype="multipart/form-data">
 			<div>
 				<label for="add-photo7">Equipe dirigeante</label>
-				<img th:src="${photos.photo7}" alt="presse"/>
+				<img th:src="${photo7.photo}" alt="presse"/>
 				<input type="file" name="add-photo7"/>
 			</div>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
+		
+		<form action="editPhoto8" method="POST" enctype="multipart/form-data">
 					<div>
 				<label for="add-photo8">Bandeau</label>
-				<img th:src="${photos.photo8}" alt="presse"/>
+				<img th:src="${photo8.photo}" alt="presse"/>
 				<input type="file" name="add-photo8"/>
 			</div>
-			<input class="submit" type="submit" value="Modifier"/>
-			</form>
+		<input class="submit" type="submit" value="Modifier"/>
+		</form>
 
 		<p class="ligne-guide">Mot d'accueil des dirigeants</p>
 			<form action="adm-msgdir" method="POST">

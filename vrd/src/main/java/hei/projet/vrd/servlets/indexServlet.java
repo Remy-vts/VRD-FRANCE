@@ -36,7 +36,14 @@ public class indexServlet extends AbstractGenericServlet {
 		context.setVariable("chantiers", SiteService.getInstance().listChantierAccueil());
 		context.setVariable("chiffres", SiteService.getInstance().listChiffres());
 		
-		context.setVariable("photo", SiteService.getInstance().getPhoto(1));
+		context.setVariable("photo1", SiteService.getInstance().getPhoto(1));
+		context.setVariable("photo2", SiteService.getInstance().getPhoto(2));
+		context.setVariable("photo3", SiteService.getInstance().getPhoto(3));
+		context.setVariable("photo4", SiteService.getInstance().getPhoto(4));
+		context.setVariable("photo5", SiteService.getInstance().getPhoto(5));
+		context.setVariable("photo6", SiteService.getInstance().getPhoto(6));
+		context.setVariable("photo7", SiteService.getInstance().getPhoto(7));
+		context.setVariable("photo8", SiteService.getInstance().getPhoto(8));
 		
 		context.setVariable("photos", SiteService.getInstance().listMetier());
 		
