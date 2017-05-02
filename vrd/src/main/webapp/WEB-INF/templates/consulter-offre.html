@@ -30,7 +30,8 @@
 
 		<div id="detail-offre">
 			<section id="desc-offre" style="width:1000px;">
-				<img src="img/vrd-offre.png" style="width:100%; " alt="VRD France"/>
+				<img src="img/logo.png" style="width:200px; display:block; margin:auto;" alt="VRD France"/>
+				<p th:text="${groupe.description}"></p>
 				<p>Dans le cadre de notre d&eacute;veloppement, nous recherchons :</p>
 				<h3 th:text="${offre.titreOffre}"></h3>
 				<p class="ref-offre" th:text="'Ref : ' + ${offre.referenceOffre}"></p>

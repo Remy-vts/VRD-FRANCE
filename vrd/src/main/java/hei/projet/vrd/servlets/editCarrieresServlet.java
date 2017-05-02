@@ -30,6 +30,7 @@ public class editCarrieresServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("carrieres", SiteService.getInstance().listOffre());
+		context.setVariable("groupe", SiteService.getInstance().getGroupe(6));
 		templateEngine.process("edit-carrieres", context, resp.getWriter());
 	}
 	

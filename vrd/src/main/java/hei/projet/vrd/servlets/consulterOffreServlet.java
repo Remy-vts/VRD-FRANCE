@@ -34,6 +34,7 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("offre", SiteService.getInstance().getOffre(id));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		context.setVariable("groupe", SiteService.getInstance().getGroupe(6));
 		templateEngine.process("consulter-offre", context, resp.getWriter());
 	}
 	
