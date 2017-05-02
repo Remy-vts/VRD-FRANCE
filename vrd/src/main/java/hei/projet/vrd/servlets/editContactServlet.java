@@ -28,6 +28,7 @@ public class editContactServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("contact", SiteService.getInstance().getCoordonnees(1));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("edit-contact", context, resp.getWriter());
 	}
 

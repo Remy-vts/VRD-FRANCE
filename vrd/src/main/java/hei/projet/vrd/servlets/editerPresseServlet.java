@@ -34,6 +34,7 @@ public class editerPresseServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("presses", SiteService.getInstance().listPresse());
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("editer-presse", context, resp.getWriter());
 	}
 	

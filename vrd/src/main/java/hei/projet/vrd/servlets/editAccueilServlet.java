@@ -45,6 +45,7 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		context.setVariable("chiffreun", SiteService.getInstance().getChiffres(1));
 		context.setVariable("chiffredeux", SiteService.getInstance().getChiffres(2));
 		context.setVariable("chiffretrois", SiteService.getInstance().getChiffres(3));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("edit-accueil", context, resp.getWriter());
 	}
 	

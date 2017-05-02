@@ -29,7 +29,7 @@ public class espacePresseServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		
 		context.setVariable("presses", SiteService.getInstance().listPresse());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("espace-presse", context, resp.getWriter());
 	}
 	

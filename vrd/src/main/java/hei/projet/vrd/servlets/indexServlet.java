@@ -28,7 +28,7 @@ public class indexServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("elements", SiteService.getInstance().getGroupe(4));
 		
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());

@@ -32,7 +32,7 @@ public class engagementsServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine = this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, getServletContext());
-		
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("engagements", SiteService.getInstance().getEngagements(id));
 		
 		templateEngine.process("engagements", context, resp.getWriter());

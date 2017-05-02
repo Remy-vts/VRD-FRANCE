@@ -28,6 +28,7 @@ public class modificationOffreServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("offre", SiteService.getInstance().getOffre(id));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("modification-offre", context, resp.getWriter());
 	}
 	

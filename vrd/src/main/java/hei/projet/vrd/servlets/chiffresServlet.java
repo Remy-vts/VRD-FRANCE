@@ -31,7 +31,7 @@ public class chiffresServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		
 		context.setVariable("elements", SiteService.getInstance().getGroupe(5));
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));	
 		templateEngine.process("chiffres", context, resp.getWriter());
 	}
 

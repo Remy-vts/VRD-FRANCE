@@ -42,6 +42,7 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("chantier", SiteService.getInstance().getChantier(id));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("modification-chantier", context, resp.getWriter());
 	}
 	

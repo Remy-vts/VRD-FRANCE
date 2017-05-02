@@ -29,7 +29,7 @@ public class editMetiersServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("editmetiers", SiteService.getInstance().listMetier());
-		
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("edit-metiers", context, resp.getWriter());
 	}
 	

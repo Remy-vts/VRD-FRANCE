@@ -31,7 +31,7 @@ public class groupeServlet extends AbstractGenericServlet {
 		context.setVariable("elements", SiteService.getInstance().getGroupe(1));
 		
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("groupe", context, resp.getWriter());
 	}
 

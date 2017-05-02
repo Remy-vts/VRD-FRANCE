@@ -13,6 +13,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.entities.envoiCandidature;
+import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/candidature-s")
 @MultipartConfig
@@ -30,7 +31,7 @@ public class candidatureServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("candidature-s", context, resp.getWriter());
 	}
 	

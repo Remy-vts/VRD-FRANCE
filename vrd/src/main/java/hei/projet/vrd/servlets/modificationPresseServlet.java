@@ -33,6 +33,7 @@ public class modificationPresseServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("presse", SiteService.getInstance().getPresse(id));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("modification-presse", context, resp.getWriter());
 	}
 	

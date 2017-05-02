@@ -27,6 +27,7 @@ public class editerEngagementsServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("editerEngagement", SiteService.getInstance().getEngagements(id));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("editer-engagement", context, resp.getWriter());
 	}
 	

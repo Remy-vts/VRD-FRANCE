@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 @WebServlet("/connexion")
 public class connexionServlet extends AbstractGenericServlet  {
 
@@ -27,6 +29,7 @@ public class connexionServlet extends AbstractGenericServlet  {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		if(error){
 			context.setVariable("connexionError", "Votre identifiant et/ou votre mot de passe est incorrect");
 		}

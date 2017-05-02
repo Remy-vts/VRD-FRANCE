@@ -32,6 +32,7 @@ public class editDirigeantServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("adm-dirigeant", context, resp.getWriter());
 	}
 	

@@ -28,7 +28,7 @@ public class editEngagementsServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("editengagements", SiteService.getInstance().listEngagements());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("edit-engagements", context, resp.getWriter());
 	}
 

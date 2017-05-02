@@ -52,11 +52,11 @@
 						<hr/>
 						<ul>
 							<li>VRD France</li>
-							<li>940 Langhemast Straete</li>
-							<li>59670 - NOORDPEENE </li>
+							<li th:text="${coordonnees.adresse}"></li>
+							<li th:text="${coordonnees.codepostal} + ' - ' + ${coordonnees.ville}"></li>
 							<br/>
-							<li>T&eacute;l : 06.03.62.73.06 </li>
-							<li>contact@vrd-france.fr </li>
+							<li th:text="'Tel : ' + ${coordonnees.telephone}"></li>
+							<li th:text="${coordonnees.mail}"></li>
 						</ul>
 					</div>
 					<div>

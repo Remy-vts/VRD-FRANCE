@@ -31,6 +31,7 @@ public class editerMetierServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("metier", SiteService.getInstance().getMetier(id));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("editer-metier", context, resp.getWriter());
 	}
 	

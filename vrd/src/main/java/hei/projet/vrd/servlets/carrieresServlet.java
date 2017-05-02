@@ -30,7 +30,7 @@ public class carrieresServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("carrieres", SiteService.getInstance().listOffre());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));	
 		templateEngine.process("carrieres", context, resp.getWriter());
 	}
 

@@ -27,6 +27,7 @@ public class editGroupeQsnServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("groupe", SiteService.getInstance().getGroupe(3));
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("edit-groupe-qsn", context, resp.getWriter());
 	}
 	

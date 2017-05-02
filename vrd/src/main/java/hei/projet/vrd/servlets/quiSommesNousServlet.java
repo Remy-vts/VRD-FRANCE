@@ -33,7 +33,7 @@ public class quiSommesNousServlet extends AbstractGenericServlet {
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
 		
 		context.setVariable("actualites", SiteService.getInstance().listGroupe());
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("qui-sommes-nous", context, resp.getWriter());
 	}
 

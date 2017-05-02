@@ -12,8 +12,6 @@ import org.thymeleaf.context.WebContext;
 
 import hei.projet.vrd.services.SiteService;
 
-
-
 @WebServlet("/actualites")
 public class actualitesServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,7 +27,7 @@ public class actualitesServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("actualites", SiteService.getInstance().listChantier());
 		
 		

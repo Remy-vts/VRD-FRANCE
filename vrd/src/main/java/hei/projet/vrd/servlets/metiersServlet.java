@@ -30,7 +30,7 @@ public class metiersServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("metiers", SiteService.getInstance().getMetier(id));
-			
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));	
 		templateEngine.process("metiers", context, resp.getWriter());
 	}
 

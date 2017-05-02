@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import hei.projet.vrd.services.SiteService;
+
 @WebServlet("/adm-modifmsg")
 public class modifMsgServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +24,7 @@ public class modifMsgServlet extends AbstractGenericServlet {
 		resp.setCharacterEncoding("UTF-8");
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		templateEngine.process("modif-msg", context, resp.getWriter());
 	}
 
