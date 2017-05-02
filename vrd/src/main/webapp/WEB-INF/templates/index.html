@@ -75,7 +75,7 @@
 
 
 		<section id="chiffres-cles">
-			<h2 class="titre titre-chiffres">Chiffres cl&eacute;s en 2016</h2>
+			<h2 class="titre titre-chiffres" th:text="'Chiffres cl&eacute;s en ' + ${annee-derniere}"></h2>
 			<div th:each="chiffre : ${chiffres}">
 				<p class="chiffres-weight" th:text="${chiffre.chiffre}"></p>
 				<p class="chiffres-text" th:text="${chiffre.titre}"></p>

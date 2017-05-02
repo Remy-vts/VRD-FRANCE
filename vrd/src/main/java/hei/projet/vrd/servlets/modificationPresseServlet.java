@@ -3,6 +3,8 @@ package hei.projet.vrd.servlets;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +36,9 @@ public class modificationPresseServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("presse", SiteService.getInstance().getPresse(id));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("modification-presse", context, resp.getWriter());
 	}
 	

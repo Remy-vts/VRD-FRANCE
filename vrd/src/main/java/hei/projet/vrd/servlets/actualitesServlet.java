@@ -1,6 +1,8 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +32,9 @@ public class actualitesServlet extends AbstractGenericServlet {
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("actualites", SiteService.getInstance().listChantier());
 		
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		
 		
 		templateEngine.process("actualites", context, resp.getWriter());

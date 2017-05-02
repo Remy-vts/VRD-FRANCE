@@ -31,6 +31,9 @@ public class editCarrieresServlet extends AbstractGenericServlet {
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("carrieres", SiteService.getInstance().listOffre());
 		context.setVariable("groupe", SiteService.getInstance().getGroupe(6));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("edit-carrieres", context, resp.getWriter());
 	}
 	

@@ -2,6 +2,8 @@ package hei.projet.vrd.servlets;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -35,6 +37,9 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		context.setVariable("offre", SiteService.getInstance().getOffre(id));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("groupe", SiteService.getInstance().getGroupe(6));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("consulter-offre", context, resp.getWriter());
 	}
 	

@@ -1,6 +1,7 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,6 +34,9 @@ public class editDirigeantServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("dirigeants", SiteService.getInstance().listDirigeant());
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("adm-dirigeant", context, resp.getWriter());
 	}
 	

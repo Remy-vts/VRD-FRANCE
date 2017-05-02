@@ -46,6 +46,9 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		context.setVariable("chiffredeux", SiteService.getInstance().getChiffres(2));
 		context.setVariable("chiffretrois", SiteService.getInstance().getChiffres(3));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("edit-accueil", context, resp.getWriter());
 	}
 	

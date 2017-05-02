@@ -1,6 +1,8 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +36,9 @@ public class quiSommesNousServlet extends AbstractGenericServlet {
 		
 		context.setVariable("actualites", SiteService.getInstance().listGroupe());
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("qui-sommes-nous", context, resp.getWriter());
 	}
 

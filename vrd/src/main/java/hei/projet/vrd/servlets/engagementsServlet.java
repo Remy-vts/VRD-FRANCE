@@ -1,6 +1,8 @@
 package hei.projet.vrd.servlets;
 
 import java.io.IOException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +36,10 @@ public class engagementsServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, getServletContext());
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("engagements", SiteService.getInstance().getEngagements(id));
+		
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		
 		templateEngine.process("engagements", context, resp.getWriter());
 	}

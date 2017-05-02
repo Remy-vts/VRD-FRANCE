@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -43,6 +44,9 @@ public class modificationChantierServlet extends AbstractGenericServlet {
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		context.setVariable("chantier", SiteService.getInstance().getChantier(id));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee", year);
 		templateEngine.process("modification-chantier", context, resp.getWriter());
 	}
 	

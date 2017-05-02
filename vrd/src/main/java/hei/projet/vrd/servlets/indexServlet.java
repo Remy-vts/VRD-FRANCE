@@ -2,6 +2,8 @@ package hei.projet.vrd.servlets;
 
 
 import java.io.IOException;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +48,12 @@ public class indexServlet extends AbstractGenericServlet {
 		context.setVariable("photo8", SiteService.getInstance().getPhoto(8));
 		
 		context.setVariable("photos", SiteService.getInstance().listMetier());
-		
+
+		Calendar c = Calendar.getInstance();
+		int last_year = c.get(Calendar.YEAR) - 1;
+		int year = c.get(Calendar.YEAR);
+		context.setVariable("annee-derniere", last_year);
+		context.setVariable("annee", year);
 		templateEngine.process("index", context, resp.getWriter());
 	}
 
