@@ -30,7 +30,7 @@
 				<form action="adm-engagement" method="POST" class="form-editer">
 					<input type="hidden" th:value="${editerEngagement.idEngagements}" name="id"/>
 					<div>
-						<textarea name="presentation" id="editor1" rows="10" cols="80" th:text="${editerEngagement.descriptionEngagements}" required maxlength="1000">
+						<textarea name="presentation" id="editor1" rows="10" cols="80" th:text="${editerEngagement.descriptionEngagements}" required maxlength="2000">
 			            </textarea>
 			            <script>
 			                // Replace the <textarea id="editor1"> with a CKEditor
