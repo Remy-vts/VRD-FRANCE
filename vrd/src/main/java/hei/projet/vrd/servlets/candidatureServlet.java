@@ -74,21 +74,15 @@ public class candidatureServlet extends AbstractGenericServlet {
 		
 		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && 
 				mail.length()>5 && prenom.length()>2 && nom.length()>2 && telephone.length()==10 && verify){
-			envoiMessage.main(mail, message, prenom, nom, telephone);
+			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanee");
+			resp.sendRedirect("candidature-msg");
 			error=false;
 		}else{
 			error=true;
 			resp.sendRedirect("candidature-s");
 		}
 		
-		try {
-			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanée");
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		resp.sendRedirect("candidature-msg");
 		
 		
 	}

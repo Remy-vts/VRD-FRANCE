@@ -4,8 +4,6 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-
-
 public class envoiMessage{
 	
 	public static void main(String mail, String message, String prenom, String nom, String telephone){
