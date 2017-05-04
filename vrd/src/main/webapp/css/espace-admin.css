@@ -200,3 +200,9 @@ input.pst{
 .indication2{
 	margin-left:1px;
 }
+
+.align-form{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
