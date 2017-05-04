@@ -116,24 +116,24 @@
 		<section id="form-ch">
 		<form action="adm-ch1" method="POST">
 			<div>
-				<input class="edit-ch" type="text" name="titre1" th:value="${chiffreun.titre}"/>
-				<input class="edit-ch" type="text" name="chiffre1" th:value="${chiffreun.chiffre}"/>
+				<input class="edit-ch" type="text" name="titre1" th:value="${chiffreun.titre}" maxlength="50"/>
+				<input class="edit-ch" type="text" name="chiffre1" th:value="${chiffreun.chiffre}" maxlength="6"/>
 				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
 			</div>
 		</form>
 		
 		<form action="adm-ch2" method="POST">
 			<div>
-				<input class="edit-ch" type="text" name="titre2" th:value="${chiffredeux.titre}"/>
-				<input class="edit-ch" type="text" name="chiffre2" th:value="${chiffredeux.chiffre}"/>
+				<input class="edit-ch" type="text" name="titre2" th:value="${chiffredeux.titre}" maxlength="50"/>
+				<input class="edit-ch" type="text" name="chiffre2" th:value="${chiffredeux.chiffre}" maxlength="6"/>
 				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
 			</div>
 		</form>
 		
 		<form action="adm-ch3" method="POST">
 			<div>
-				<input class="edit-ch" type="text" name="titre3" th:value="${chiffretrois.titre}"/>
-				<input class="edit-ch" type="text" name="chiffre3" th:value="${chiffretrois.chiffre}"/>
+				<input class="edit-ch" type="text" name="titre3" th:value="${chiffretrois.titre}" maxlength="50"/>
+				<input class="edit-ch" type="text" name="chiffre3" th:value="${chiffretrois.chiffre}" maxlength="6"/>
 				<input class="submit-ch edit-ch" type="submit" value="Modifier"/>
 			</div>
 		</form>
