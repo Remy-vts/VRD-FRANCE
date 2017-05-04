@@ -85,7 +85,7 @@
 		<form action="adm-presentation" method="POST" class="form-editer">
 		<input type="hidden" th:value="${groupe.ID_element}" name="idGroupe"/>
 					<div>
-						<textarea name="description" th:text="${groupe.description}" rows="10" cols="90" required maxlength="1000"></textarea>
+						<textarea name="description" th:text="${groupe.description}" rows="10" cols="90" required maxlength="2000"></textarea>
 			         </div>
 			          <input class="submit" type="submit" value="Modifier"/>
 			</form>
