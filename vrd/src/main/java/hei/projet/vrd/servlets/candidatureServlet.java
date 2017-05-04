@@ -16,7 +16,6 @@ import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiCandidature;
-import hei.projet.vrd.entities.envoiMessage;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/candidature-s")
@@ -74,7 +73,12 @@ public class candidatureServlet extends AbstractGenericServlet {
 		
 		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && 
 				mail.length()>5 && prenom.length()>2 && nom.length()>2 && telephone.length()==10 && verify){
-			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanee");
+			try {
+				envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanee");
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			resp.sendRedirect("candidature-msg");
 			error=false;
 		}else{
