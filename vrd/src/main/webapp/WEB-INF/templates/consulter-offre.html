@@ -9,6 +9,12 @@
 		<link rel="stylesheet" type="text/css" href="css/description-offre.css"/>
 		<script type="text/javascript" src="js/javascript.js"> </script>
 		<meta charset="utf-8"/>
+		<script type="text/javascript" src="js/javascript.js"> </script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</head>
 
 	<body>
@@ -82,6 +88,7 @@
 			<p class="ligne-tableau form-display">
 				<label>CV (PDF)</label><input class="load-file" required type="file" name="cv"/>
 			</p>
+			
 			<p class="ligne-tableau form-display">
 						<label for="msg">Message</label>
 						<span class="form-display"><input class="add_form" type="text" name="message" id="add_msg" required maxlength="400" onFocus="inf_msg1()" onBlur="inf_msg2()"/>
@@ -91,7 +98,11 @@
 					    </div>
 				</p><p id="info_msg" class="indication indication2">Le message doit comporter entre 5 et 400 caracteres.</p>
 			<br/>
+				<div class="g-recaptcha" data-sitekey="6LdlFB4UAAAAAJPx2G9859iqYh1tmClHr2LPFsQD"></div>
+				<div>
 				<input id="btn-candidat" type="submit" value="Envoyer ma candidature"/>
+				</div>
+				
 			</form>
 
 		<p class="btn-consulter-offre"><a href="carrieres">Consulter nos autres offres</a></p>

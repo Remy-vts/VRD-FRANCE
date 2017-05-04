@@ -14,7 +14,9 @@ import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.entities.ImageS3Util;
+import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiCandidature;
+import hei.projet.vrd.entities.envoiMessage;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/candidature-s")
@@ -51,12 +53,25 @@ public class candidatureServlet extends AbstractGenericServlet {
 		
 		String nomFichier = cv.getSubmittedFileName();
 		String nomFishieNoWhiteSpace = nomFichier.replaceAll("\\s", "");;
+		
 		System.out.println("nomFichier "+nomFishieNoWhiteSpace);
 		
 		String nomCV = "Candidature Spontanée - "+nom+" "+prenom+" - "+nomFishieNoWhiteSpace;
 		
 		System.out.println("nomCV"+nomCV);
+		
+				
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
+		
+		String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+		boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+		
+		String checkMessage = message.replaceAll(" ", "");
+		
+		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+			envoiMessage.main(mail, message, prenom, nom, telephone);
+			System.out.println("youpi");
+		}
 		
 		
 		try {
