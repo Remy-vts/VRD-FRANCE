@@ -18,7 +18,7 @@ import hei.projet.vrd.entities.envoiMessage;
 @WebServlet("/contact")
 public class contactServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private boolean error;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
 	 */
@@ -26,11 +26,13 @@ public class contactServlet extends AbstractGenericServlet {
 		
 		resp.setCharacterEncoding("UTF-8");
 		Integer id = 1;
-		
+
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
-		
+		if(error){
+			context.setVariable("envoiError", "Les champs saisis sont incorrects, l'envoi n'a pas pu etre effectué");
+		}
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(id));
 		Calendar c = Calendar.getInstance();
 		int year = c.get(Calendar.YEAR);
@@ -46,6 +48,8 @@ public class contactServlet extends AbstractGenericServlet {
 	        String nom = request.getParameter("nom");
 	        String telephone = request.getParameter("telephone");
 	        
+	        
+	        
 	        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
 			//System.out.println(gRecaptchaResponse);
 			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
@@ -57,18 +61,15 @@ public class contactServlet extends AbstractGenericServlet {
 	        String checkMessage = message.replaceAll(" ", "");
 	        
 	        
-			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage)  
+					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10 && verify){
 				envoiMessage.main(email, message, prenom, nom, telephone);
-				System.out.println("youpi");
+				error=false;
+				response.sendRedirect("msg-ok");
+			}else{
+				error=true;
 			}
-			
-			/*else{
-				response.sendRedirect("contact");
-			}*/
-	        
-	        response.sendRedirect("msg-ok");
-	        
+			response.sendRedirect("contact");
 	    }
 	      
-
 }

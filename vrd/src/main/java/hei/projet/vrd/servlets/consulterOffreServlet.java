@@ -14,7 +14,9 @@ import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.entities.ImageS3Util;
+import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiCandidature;
+import hei.projet.vrd.entities.envoiMessage;
 import hei.projet.vrd.services.SiteService;
 
 
@@ -22,6 +24,8 @@ import hei.projet.vrd.services.SiteService;
 @MultipartConfig
 public class consulterOffreServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private boolean error;
       
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -34,6 +38,9 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		if(error){
+			context.setVariable("envoiError", "L'envoi de la candidature a échoué.");
+		}
 		context.setVariable("offre", SiteService.getInstance().getOffre(id));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		context.setVariable("groupe", SiteService.getInstance().getGroupe(6));
@@ -67,9 +74,13 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		
 		String checkMessage = message.replaceAll(" ", "");
 		
-		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) &&
+				mail.length()>5 && prenom.length()>2 && nom.length()>2 && verify){
 			envoiMessage.main(mail, message, prenom, nom, telephone);
-			System.out.println("youpi");
+			error=false;
+		}else{
+			error=true;
+			resp.sendRedirect("offre");
 		}
 		
 		try {

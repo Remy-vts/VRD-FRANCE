@@ -38,7 +38,7 @@
 			D&eacute;posez-nous votre candidature spontann&eacute;e ici !</p>
 		</section>
 
-		<form id="send-candidature" method="POST" action="" enctype="multipart/form-data">
+		<form id="send-candidature" method="POST" action="candidature-s" enctype="multipart/form-data">
 			<p class="ligne-tableau ligne-tableau2 form-display">
 						<label for="nom">Nom</label>
 						<span class="form-display"><input type="text" name="nom" id="add_nom" required maxlength="50" onFocus="inf_nom1()" onBlur="inf_nom2()"/>
@@ -91,6 +91,7 @@
 			<br/>
 				<div class="g-recaptcha" style="padding-left:100px;" data-sitekey="6LdlFB4UAAAAAJPx2G9859iqYh1tmClHr2LPFsQD"></div>
 				<div>
+				<p id="envoiError" th:text="${envoiError}"></p>
 				<input id="btn-candidat" class="align-form" type="submit" value="Envoyer ma candidature"/>
 				</div>
 				

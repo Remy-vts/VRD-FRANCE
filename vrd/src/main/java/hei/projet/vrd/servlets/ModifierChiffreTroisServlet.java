@@ -13,12 +13,19 @@ import hei.projet.vrd.services.SiteService;
 public class ModifierChiffreTroisServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private boolean error;
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String titre = req.getParameter("titre3");
 		Integer chiffre = Integer.parseInt(req.getParameter("chiffre3"));
 		
-		SiteService.getInstance().updateChiffres(new Chiffres(3, titre, chiffre));
+		if(titre.length()<50 && chiffre<1000000){
+			SiteService.getInstance().updateChiffres(new Chiffres(3, titre, chiffre));
+			error = false;
+		}else{
+			error = true;
+		}
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-accueil");
 	}

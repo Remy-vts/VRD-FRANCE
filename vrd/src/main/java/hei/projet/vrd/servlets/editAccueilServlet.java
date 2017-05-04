@@ -19,6 +19,9 @@ import hei.projet.vrd.services.SiteService;
 @MultipartConfig
 public class editAccueilServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
+	
+	public boolean error;
+	public boolean error2;
       
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -39,7 +42,12 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		context.setVariable("photo6", SiteService.getInstance().getPhoto(6));
 		context.setVariable("photo7", SiteService.getInstance().getPhoto(7));
 		context.setVariable("photo8", SiteService.getInstance().getPhoto(8));
-		
+		if(error){
+			context.setVariable("modifError", "Les modifications sont incorrectes");
+		}
+		if(error2){
+			context.setVariable("motAccueilError", "Les modifications n'ont pas pu être réalisés.");
+		}
 		
 		context.setVariable("accueil", SiteService.getInstance().getGroupe(4));
 		context.setVariable("chiffreun", SiteService.getInstance().getChiffres(1));
@@ -52,6 +60,4 @@ public class editAccueilServlet extends AbstractGenericServlet {
 		templateEngine.process("edit-accueil", context, resp.getWriter());
 	}
 	
-	
-
 }

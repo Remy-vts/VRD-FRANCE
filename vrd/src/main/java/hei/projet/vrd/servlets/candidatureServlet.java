@@ -24,6 +24,7 @@ import hei.projet.vrd.services.SiteService;
 public class candidatureServlet extends AbstractGenericServlet {
 	private static final long serialVersionUID = 1L;
       
+	private boolean error;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest req, HttpServletResponse resp)
 	 */
@@ -35,6 +36,9 @@ public class candidatureServlet extends AbstractGenericServlet {
 		TemplateEngine templateEngine =this.createTemplateEngine(req);
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
+		if(error){
+			context.setVariable("envoiError", "L'envoi de la candidature a échoué.");
+		}
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		Calendar c = Calendar.getInstance();
 		int year = c.get(Calendar.YEAR);
@@ -68,11 +72,14 @@ public class candidatureServlet extends AbstractGenericServlet {
 		
 		String checkMessage = message.replaceAll(" ", "");
 		
-		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && 
+				mail.length()>5 && prenom.length()>2 && nom.length()>2 && telephone.length()==10 && verify){
 			envoiMessage.main(mail, message, prenom, nom, telephone);
-			System.out.println("youpi");
+			error=false;
+		}else{
+			error=true;
+			resp.sendRedirect("candidature-s");
 		}
-		
 		
 		try {
 			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanée");

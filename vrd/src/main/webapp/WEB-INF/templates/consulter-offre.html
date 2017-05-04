@@ -46,7 +46,7 @@
 			<p id="titre-postuler">Postuler &Agrave; cette offre</p>
 		</div>
 
-		<form id="send-candidature" method="POST" action="" enctype="multipart/form-data">
+		<form id="send-candidature" method="POST" action="candidature-s" enctype="multipart/form-data">
 			<input type="hidden" th:value="'Candidature ' + ${offre.titreOffre} + ' (Ref : ' + ${offre.referenceOffre} + ')'" name="offre"/>
 			<p class="ligne-tableau ligne-tableau2 form-display">
 						<label for="nom">Nom</label>
@@ -100,6 +100,7 @@
 			<br/>
 				<div class="g-recaptcha"  style="padding-left:100px;" data-sitekey="6LdlFB4UAAAAAJPx2G9859iqYh1tmClHr2LPFsQD"></div>
 				<div>
+				<p id="envoiError" th:text="${envoiError}"></p>
 				<input id="btn-candidat" class="align-form" type="submit" value="Envoyer ma candidature"/>
 				</div>
 				
