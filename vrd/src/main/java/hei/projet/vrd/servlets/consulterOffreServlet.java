@@ -62,6 +62,15 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		System.out.println("nomCV"+nomCV);
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
 		
+		String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
+		boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+		
+		String checkMessage = message.replaceAll(" ", "");
+		
+		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && verify){
+			envoiMessage.main(mail, message, prenom, nom, telephone);
+			System.out.println("youpi");
+		}
 		
 		try {
 			envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, referenceNom, referenceNom);
