@@ -24,6 +24,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import hei.projet.vrd.services.SiteService;
+
 public class envoiCandidature {
 	
 public static void main(String nom, String prenom, String mail, String telephone, String cv, String message, String RefNom, String typeCandidature) throws URISyntaxException, IOException{
@@ -36,6 +38,8 @@ public static void main(String nom, String prenom, String mail, String telephone
 	     props.put("mail.smtp.starttls.enable", "true");
 	     props.put("mail.smtp.auth", "true");
 	     props.put("mail.smtp.starttls.enable", "true");
+	     
+	     Identifiant id = SiteService.getInstance().getIdentifiant(1);
 
 
 	     Session session = Session.getDefaultInstance(props);
@@ -127,7 +131,7 @@ public static void main(String nom, String prenom, String mail, String telephone
 	         mess.setContent(multipart);
 	         
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRD.france.59");
+	         trans.connect("smtp.gmail.com", 587, id.getNom(),id.getMdp());
 	         trans.sendMessage(mess, mess.getAllRecipients());
 
 	         System.out.println("Message Sent!");

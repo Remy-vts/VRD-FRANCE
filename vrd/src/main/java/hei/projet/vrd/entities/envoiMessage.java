@@ -4,6 +4,8 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+import hei.projet.vrd.services.SiteService;
+
 public class envoiMessage{
 	
 	public static void main(String mail, String message, String prenom, String nom, String telephone){
@@ -16,6 +18,8 @@ public class envoiMessage{
 	     props.put("mail.smtp.starttls.enable", "true");
 	     props.put("mail.smtp.auth", "true");
 	     props.put("mail.smtp.starttls.enable", "true");
+	     
+	     Identifiant id = SiteService.getInstance().getIdentifiant(1);
 
 
 	     Session session = Session.getDefaultInstance(props);
@@ -33,7 +37,7 @@ public class envoiMessage{
 	         mess.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect("smtp.gmail.com", 587, "vrdfrance@gmail.com", "VRD.france.59");
+	         trans.connect("smtp.gmail.com", 587, id.getNom(),id.getMdp());
 	         trans.sendMessage(mess, mess.getAllRecipients());
 
 	         System.out.println("Message Sent!");
