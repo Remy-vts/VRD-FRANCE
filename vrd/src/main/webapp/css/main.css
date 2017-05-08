@@ -58,3 +58,16 @@ section.sous-partie{
 	margin-top: 0;
 	text-align: center;
 }
+
+.chiffres-css{
+	width:400px;
+	display:block;
+	margin:auto;
+	display:justify;
+}
+
+.guillemet-chiffre{
+	font-size:40px;
+	font-style:italic;
+	width:30px;
+}
