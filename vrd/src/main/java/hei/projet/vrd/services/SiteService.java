@@ -23,6 +23,7 @@ import hei.projet.vrd.entities.Groupe;
 import hei.projet.vrd.entities.Metier;
 import hei.projet.vrd.entities.Offre;
 import hei.projet.vrd.entities.Presse;
+import hei.projet.vrd.entities.Identifiant;
 
 
 public class SiteService {
@@ -48,6 +49,7 @@ public class SiteService {
 	private CoordonneesDaoImpl coordonneesDao = new CoordonneesDaoImpl();
 	private ChiffresDaoImpl chiffreDao = new ChiffresDaoImpl();
 	private AccueilDaoImpl accueilDao = new AccueilDaoImpl();
+	private IdentifiantDaoImpl identifiantDao = new IdentifiantDaoImpl();
 	
 	public List<Dirigeant> listDirigeant(){
 		return dirigeantDao.listDirigeant();
@@ -212,7 +214,9 @@ public class SiteService {
 	}
 			
 	
-
+	public Identifiant getIdentifiant(Integer id){
+		return identifiantDao.getIdentifiant(id);
+	}
 	
 
 	

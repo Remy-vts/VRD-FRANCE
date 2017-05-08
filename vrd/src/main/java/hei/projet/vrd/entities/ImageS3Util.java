@@ -13,10 +13,17 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+
+import hei.projet.vrd.services.SiteService;
  
 public class ImageS3Util {
-    private static final String ACCESS_KEY = "AKIAIIV466J75RMQQDJA";
-    private static final String SECRET_KEY = "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";
+	
+	static Identifiant id = SiteService.getInstance().getIdentifiant(2);
+	
+		
+	
+    private static final String ACCESS_KEY = id.getNom();;
+    private static final String SECRET_KEY = id.getMdp();;
     private static final String END_POINT_URL = "http://s3.amazonaws.com";// e.g http://s3.amazonaws.com
     private static final String BUCKET = "vrdfrance";
     private static final String S3_CACHE = "60"; // e.g 60
