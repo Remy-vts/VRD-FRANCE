@@ -11,10 +11,14 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.net.ssl.HttpsURLConnection;
 
-public class VerifyRecaptcha {
+import hei.projet.vrd.services.SiteService;
 
-	public static final String url = "https://www.google.com/recaptcha/api/siteverify";
-	public static final String secret = "6LdlFB4UAAAAAEKv-AmueoV6VwvrxwGJaVogGjTt";
+public class VerifyRecaptcha {
+	
+	static Identifiant id = SiteService.getInstance().getIdentifiant(3);
+
+	public static final String url = id.getNom();
+	public static final String secret = id.getMdp();
 	private final static String USER_AGENT = "Mozilla/5.0";
 
 	public static boolean verify(String gRecaptchaResponse) throws IOException {

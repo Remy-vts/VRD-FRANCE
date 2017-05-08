@@ -2,9 +2,7 @@ package hei.projet.vrd.entities;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import javax.servlet.http.Part;
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -13,15 +11,12 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-
 import hei.projet.vrd.services.SiteService;
  
 public class ImageS3Util {
 	
 	static Identifiant id = SiteService.getInstance().getIdentifiant(2);
-	
 		
-	
     private static final String ACCESS_KEY = id.getNom();;
     private static final String SECRET_KEY = id.getMdp();;
     private static final String END_POINT_URL = "http://s3.amazonaws.com";// e.g http://s3.amazonaws.com
