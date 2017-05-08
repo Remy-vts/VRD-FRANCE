@@ -13,6 +13,7 @@ import hei.projet.vrd.dao.impl.GroupeDaoImpl;
 import hei.projet.vrd.dao.impl.MetierDaoImpl;
 import hei.projet.vrd.dao.impl.OffreDaoImpl;
 import hei.projet.vrd.dao.impl.PresseDaoImpl;
+import hei.projet.vrd.dao.impl.IdentifiantDaoImpl;
 import hei.projet.vrd.entities.Accueil;
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.Chiffres;
