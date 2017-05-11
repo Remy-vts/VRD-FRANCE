@@ -35,8 +35,9 @@ public class chiffresServlet extends AbstractGenericServlet {
 		context.setVariable("elements", SiteService.getInstance().getGroupe(5));
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(1));
 		Calendar c = Calendar.getInstance();
-		int year = c.get(Calendar.YEAR);
-		context.setVariable("annee", year);
+		int last_year = c.get(Calendar.YEAR)-1;
+		
+		context.setVariable("annee", last_year);
 		templateEngine.process("chiffres", context, resp.getWriter());
 	}
 

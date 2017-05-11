@@ -50,10 +50,9 @@ public class indexServlet extends AbstractGenericServlet {
 		context.setVariable("photos", SiteService.getInstance().listMetier());
 
 		Calendar c = Calendar.getInstance();
-		int last_year = c.get(Calendar.YEAR);
-		int year = c.get(Calendar.YEAR);
-		context.setVariable("annee-derniere", last_year);
-		context.setVariable("annee", year);
+		int last_year = c.get(Calendar.YEAR)-1;
+		
+		context.setVariable("annee", last_year);
 		templateEngine.process("index", context, resp.getWriter());
 	}
 
