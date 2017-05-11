@@ -59,7 +59,7 @@ public class candidatureServlet extends AbstractGenericServlet {
 		
 		System.out.println("nomFichier "+nomFishieNoWhiteSpace);
 		
-		String nomCV = "Candidature Spontanée - "+nom+" "+prenom+" - "+nomFishieNoWhiteSpace;
+		String nomCV = "Candidature_Spontanée-"+nom+"_"+prenom+"-"+nomFishieNoWhiteSpace;
 		
 		System.out.println("nomCV"+nomCV);
 		
@@ -72,7 +72,7 @@ public class candidatureServlet extends AbstractGenericServlet {
 		String checkMessage = message.replaceAll(" ", "");
 		
 		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) && 
-				mail.length()>5 && prenom.length()>2 && nom.length()>2 && telephone.length()==10 && verify){
+				mail.length()>5 && prenom.length()>2 && nom.length()>2 && telephone.length()==10 /*&& verify*/){
 			try {
 				envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, null, "Candidature Spontanee");
 			} catch (URISyntaxException e) {

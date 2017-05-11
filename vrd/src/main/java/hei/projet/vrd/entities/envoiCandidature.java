@@ -58,7 +58,7 @@ public static void main(String nom, String prenom, String mail, String telephone
 	         BodyPart messageBodyPart = new MimeBodyPart();
 
 	         // Now set the actual message
-	         messageBodyPart.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
+	         messageBodyPart.setText(message+"\n Voici le lien pour télécharger le CV https://s3.eu-west-2.amazonaws.com/vrdfrance/"+cv+"\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         // Create a multipart message
 	         Multipart multipart = new MimeMultipart();
@@ -116,6 +116,8 @@ public static void main(String nom, String prenom, String mail, String telephone
 
 	         
 	         System.out.println("File is: " + file);
+	         
+	         
 
 
 	         // Part two is attachment
