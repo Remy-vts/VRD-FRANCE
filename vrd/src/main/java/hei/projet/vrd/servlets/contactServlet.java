@@ -62,7 +62,7 @@ public class contactServlet extends AbstractGenericServlet {
 	        
 	        
 			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage)  
-					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10 && verify){
+					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10 /*&& verify*/){
 				envoiMessage.main(email, message, prenom, nom, telephone);
 				error=false;
 				response.sendRedirect("msg-ok");

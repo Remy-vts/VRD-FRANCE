@@ -74,7 +74,7 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		String checkMessage = message.replaceAll(" ", "");
 		
 		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) &&
-				mail.length()>5 && prenom.length()>2 && nom.length()>2 && verify){
+				mail.length()>5 && prenom.length()>2 && nom.length()>2 /*&& verify*/){
 			try {
 				envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, referenceNom, referenceNom);
 			} catch (URISyntaxException e) {
