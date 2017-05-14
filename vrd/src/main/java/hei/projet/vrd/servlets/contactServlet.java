@@ -57,7 +57,7 @@ public class contactServlet extends AbstractGenericServlet {
 				
 				response.sendRedirect("msg-ok");
 			
-			}
+			
 			
 	    }
 	      
