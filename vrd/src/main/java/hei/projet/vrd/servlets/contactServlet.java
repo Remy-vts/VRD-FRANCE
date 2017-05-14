@@ -30,7 +30,7 @@ public class contactServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		if(error){
-			context.setVariable("envoiError", "Les champs saisis sont incorrects, l'envoi n'a pas pu etre effectué");
+			context.setVariable("envoiError", "Les champs saisis sont incorrects, l'envoi n'a pas pu etre effectuÃ©");
 		}
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(id));
 		Calendar c = Calendar.getInstance();

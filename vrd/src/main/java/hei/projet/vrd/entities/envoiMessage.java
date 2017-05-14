@@ -15,9 +15,10 @@ public class envoiMessage{
 	     Properties props = new Properties();
 	     props.setProperty("mail.transport.protocol", "smtp");
 	     props.setProperty("mail.host", "smtp.gmail.com");
-	     props.put("mail.smtp.starttls.enable", "true");
-	     props.put("mail.smtp.auth", "true");
-	     props.put("mail.smtp.starttls.enable", "true");
+	     props.setProperty("mail.smtp.port","587");
+	     props.setProperty("mail.smtp.starttls.enable", "true");
+	     props.setProperty("mail.smtp.auth", "true");
+	  
 	     
 	     Identifiant id = SiteService.getInstance().getIdentifiant(1);
 
@@ -37,8 +38,9 @@ public class envoiMessage{
 	         mess.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect("smtp.gmail.com", 587, id.getNom(),id.getMdp());
+	         trans.connect(id.getNom(),id.getMdp());
 	         trans.sendMessage(mess, mess.getAllRecipients());
+	         trans.close();
 
 	         System.out.println("Message Sent!");
 
