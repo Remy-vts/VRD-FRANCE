@@ -10,14 +10,14 @@ public class envoiMessage{
 	
 	public static void main(String mail, String message, String prenom, String nom, String telephone){
 		
-		String to = "vrdfrance@gmail.com";
-	    String from =  mail;
+		String to = "contact.vrdfrance@gmail.com";
+	    String from =  mail;	    
 	     Properties props = new Properties();
-	     props.setProperty("mail.smtp.host", "smpt.host");
-	     props.setProperty("mail.smtp.starttls.enable", "false");
-	     props.setProperty("mail.smtp.port","25");
-	     props.setProperty("mail.smtp.user", "alerts");
-	     props.setProperty("mail.smtp.auth", "true");
+	     props.setProperty("mail.transport.protocol", "smtp");
+	     props.setProperty("mail.host", "smtp.gmail.com");
+	     props.put("mail.smtp.starttls.enable", "true");
+	     props.put("mail.smtp.auth", "true");
+	     props.put("mail.smtp.starttls.enable", "true");
 	  
 	     
 	     Identifiant id = SiteService.getInstance().getIdentifiant(1);
@@ -38,7 +38,7 @@ public class envoiMessage{
 	         mess.setText(message+"\n\n"+prenom+" "+nom+"\n"+mail+"\n"+telephone);
 
 	         Transport trans = session.getTransport("smtp");
-	         trans.connect(id.getNom(),id.getMdp());
+	         trans.connect("smtp.gmail.com", 587,id.getNom(),id.getMdp());
 	         trans.sendMessage(mess, mess.getAllRecipients());
 	         trans.close();
 
