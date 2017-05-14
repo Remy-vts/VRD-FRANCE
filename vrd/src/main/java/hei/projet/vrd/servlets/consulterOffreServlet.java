@@ -14,7 +14,6 @@ import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.entities.ImageS3Util;
-import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiCandidature;
 import hei.projet.vrd.services.SiteService;
 
@@ -68,13 +67,12 @@ public class consulterOffreServlet extends AbstractGenericServlet {
 		System.out.println("nomCV"+nomCV);
 		ImageS3Util.uploadImageToAWSS3(cv, nomCV);
 		
-		String gRecaptchaResponse = req.getParameter("g-recaptcha-response");
-		boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+		
 		
 		String checkMessage = message.replaceAll(" ", "");
 		
 		if(mail!=null && !"".equals(mail) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage) &&
-				mail.length()>5 && prenom.length()>2 && nom.length()>2 /*&& verify*/){
+				mail.length()>5 && prenom.length()>2 && nom.length()>2){
 			try {
 				envoiCandidature.main(nom, prenom, mail, telephone, nomCV, message, referenceNom, referenceNom);
 			} catch (URISyntaxException e) {

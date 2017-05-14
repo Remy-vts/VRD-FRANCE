@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.services.SiteService;
-import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiMessage;
 
 
@@ -47,13 +46,7 @@ public class contactServlet extends AbstractGenericServlet {
 	        String prenom = request.getParameter("prenom");
 	        String nom = request.getParameter("nom");
 	        String telephone = request.getParameter("telephone");
-	        
-	        
-	        
-	        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
-			//System.out.println(gRecaptchaResponse);
-			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
-			
+	        			
 			email = email.replace(" ", "");
 			prenom = prenom.replace(" ", "");
 	        nom = nom.replace(" ", "");
@@ -62,7 +55,7 @@ public class contactServlet extends AbstractGenericServlet {
 	        
 	        
 			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage)  
-					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10 /*&& verify*/){
+					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10){
 				envoiMessage.main(email, message, prenom, nom, telephone);
 				error=false;
 				response.sendRedirect("msg-ok");
