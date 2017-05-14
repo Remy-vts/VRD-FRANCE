@@ -32,7 +32,7 @@ public class ConfirmationContactServlet extends AbstractGenericServlet {
 		Calendar c = Calendar.getInstance();
 		int year = c.get(Calendar.YEAR);
 		context.setVariable("annee", year);
-		templateEngine.process("confirmation-contact", context, resp.getWriter());
+		templateEngine.process("confirmation-msg", context, resp.getWriter());
 	}
 
 }
