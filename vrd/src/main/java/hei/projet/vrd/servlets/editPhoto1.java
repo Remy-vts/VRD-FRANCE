@@ -19,7 +19,11 @@ public class editPhoto1 extends AbstractGenericServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		Part photo1 = req.getPart("add-photo1");
+		
+		if(photo1.getSize() != 0)
+		{
 		
 		ImageS3Util.uploadImageToAWSS3(photo1, "deconstruction");
 				
@@ -30,6 +34,10 @@ public class editPhoto1 extends AbstractGenericServlet {
 		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
+		}else{
+			resp.setCharacterEncoding("UTF8");
+			resp.sendRedirect("adm-accueil");			
+		}
 		
 	}
 

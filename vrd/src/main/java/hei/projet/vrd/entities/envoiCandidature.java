@@ -117,9 +117,6 @@ public static void main(String nom, String prenom, String mail, String telephone
 	         
 	         System.out.println("File is: " + file);
 	         
-	         
-
-
 	         // Part two is attachment
 	         messageBodyPart = new MimeBodyPart();
 	         

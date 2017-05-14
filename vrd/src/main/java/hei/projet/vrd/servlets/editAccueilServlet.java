@@ -8,11 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import hei.projet.vrd.entities.Accueil;
-import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;
 
 @WebServlet("/adm-accueil")

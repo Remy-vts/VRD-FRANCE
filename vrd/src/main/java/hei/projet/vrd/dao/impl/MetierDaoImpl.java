@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import hei.projet.vrd.entities.Metier;
 
 public class MetierDaoImpl {
@@ -58,11 +59,16 @@ public class MetierDaoImpl {
 		}
 		return null;
 	}
-	
-	public void updateMetier(Integer idmetiers, String descriptif, String photo) {
-		try(Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
-		PreparedStatement statement = connection.prepareStatement("UPDATE metiers SET descriptif='"+descriptif+"', photo='"+photo+"' WHERE idmetiers="+idmetiers)){
-		statement.executeUpdate();
+		
+	public void updateMetier(Metier met) {
+		try{
+		
+				Connection connection = DataSourceProvider.getInstance().getDataSource().getConnection();
+				PreparedStatement stmt = connection.prepareStatement("UPDATE metiers SET  descriptif=?, photo=? WHERE idmetiers=?");
+				stmt.setString(1, met.getDescriptifMetier());
+				stmt.setString(2, met.getPhotoMetier());
+				stmt.setInt(3, met.getIdMetier());	
+			    stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

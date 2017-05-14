@@ -1,18 +1,10 @@
 package hei.projet.vrd.servlets;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-
 import hei.projet.vrd.entities.Chantier;
 import hei.projet.vrd.entities.ImageS3Util;
 import hei.projet.vrd.services.SiteService;

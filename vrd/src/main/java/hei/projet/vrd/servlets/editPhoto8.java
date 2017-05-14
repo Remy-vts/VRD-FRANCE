@@ -21,6 +21,8 @@ public class editPhoto8 extends AbstractGenericServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Part photo = req.getPart("add-photo8");
 		
+		if(photo.getSize() != 0)
+		{
 		ImageS3Util.uploadImageToAWSS3(photo, "bandeau");
 		
 		
@@ -32,7 +34,10 @@ public class editPhoto8 extends AbstractGenericServlet {
 		
 		resp.setCharacterEncoding("UTF8");
 		resp.sendRedirect("adm-modifmsg");
-		
+		}else{
+			resp.setCharacterEncoding("UTF8");
+			resp.sendRedirect("adm-accueil");			
+		}
 	}
 
 }
