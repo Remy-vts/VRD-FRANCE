@@ -53,15 +53,10 @@ public class contactServlet extends AbstractGenericServlet {
 	        telephone = telephone.replace(" ", "");
 	        String checkMessage = message.replaceAll(" ", "");
 	        
-	        
-			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage)  
-					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10){
 				envoiMessage.main(email, message, prenom, nom, telephone);
-				error=false;
+				
 				response.sendRedirect("msg-ok");
-			}else{
-				error=true;
-				response.sendRedirect("contact");
+			
 			}
 			
 	    }
