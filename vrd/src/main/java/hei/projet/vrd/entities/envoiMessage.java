@@ -13,10 +13,10 @@ public class envoiMessage{
 		String to = "vrdfrance@gmail.com";
 	    String from =  mail;
 	     Properties props = new Properties();
-	     props.setProperty("mail.transport.protocol", "smtp");
-	     props.setProperty("mail.host", "smtp.gmail.com");
-	     props.setProperty("mail.smtp.port","587");
-	     props.setProperty("mail.smtp.starttls.enable", "true");
+	     props.setProperty("mail.smtp.host", "smpt.host");
+	     props.setProperty("mail.smtp.starttls.enable", "false");
+	     props.setProperty("mail.smtp.port","25");
+	     props.setProperty("mail.smtp.user", "alerts");
 	     props.setProperty("mail.smtp.auth", "true");
 	  
 	     
