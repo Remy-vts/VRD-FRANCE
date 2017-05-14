@@ -2,7 +2,6 @@ package hei.projet.vrd.servlets;
 
 import java.io.IOException;
 import java.util.Calendar;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import hei.projet.vrd.services.SiteService;
+import hei.projet.vrd.entities.VerifyRecaptcha;
 import hei.projet.vrd.entities.envoiMessage;
 
 
@@ -30,7 +30,7 @@ public class contactServlet extends AbstractGenericServlet {
 		
 		WebContext context = new WebContext(req, resp, req.getServletContext());
 		if(error){
-			context.setVariable("envoiError", "Les champs saisis sont incorrects, l'envoi n'a pas pu etre effectuÃ©");
+			context.setVariable("envoiError", "Les champs saisis sont incorrects, l'envoi n'a pas pu etre effectué");
 		}
 		context.setVariable("coordonnees", SiteService.getInstance().getCoordonnees(id));
 		Calendar c = Calendar.getInstance();
@@ -53,11 +53,18 @@ public class contactServlet extends AbstractGenericServlet {
 	        telephone = telephone.replace(" ", "");
 	        String checkMessage = message.replaceAll(" ", "");
 	        
+	        String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+	        
+			if(email!=null && !"".equals(email) && prenom!=null && !"".equals(prenom) && nom!=null && !"".equals(nom) && telephone!=null && !"".equals(telephone) && !"".equals(checkMessage)  
+					&& email.length()>5 && nom.length()>2 && prenom.length()>2 && telephone.length()==10 && verify ){
 				envoiMessage.main(email, message, prenom, nom, telephone);
-				
+				error=false;
 				response.sendRedirect("msg-ok");
-			
-			
+			}else{
+				error=true;
+				response.sendRedirect("contact");
+			}
 			
 	    }
 	      

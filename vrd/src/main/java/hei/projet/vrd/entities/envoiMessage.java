@@ -10,7 +10,7 @@ public class envoiMessage{
 	
 	public static void main(String mail, String message, String prenom, String nom, String telephone){
 		
-		String to = "contact.vrdfrance@gmail.com";
+		String to = "vrdfrance@gmail.com";
 	    String from =  mail;	    
 	     Properties props = new Properties();
 	     props.setProperty("mail.transport.protocol", "smtp");
